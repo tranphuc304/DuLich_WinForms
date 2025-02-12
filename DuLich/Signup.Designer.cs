@@ -173,7 +173,6 @@
             this.guna2Button2.FillColor = System.Drawing.Color.CornflowerBlue;
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Image = global::dang_nhap.Properties.Resources.icons8_facebook_f_100;
             this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button2.Location = new System.Drawing.Point(148, 500);
             this.guna2Button2.Name = "guna2Button2";
@@ -194,7 +193,6 @@
             this.guna2Button1.FillColor = System.Drawing.Color.DarkSalmon;
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Image = global::dang_nhap.Properties.Resources.icons8_google_100__1_;
             this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button1.Location = new System.Drawing.Point(148, 434);
             this.guna2Button1.Name = "guna2Button1";
@@ -204,7 +202,6 @@
             // 
             // guna2PictureBox1
             // 
-            this.guna2PictureBox1.Image = global::dang_nhap.Properties.Resources.IMG_1094;
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(-128, -20);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
@@ -218,7 +215,6 @@
             // 
             this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.Image = global::dang_nhap.Properties.Resources.icons8_line_100__2_;
             this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton2.ImageRotate = 0F;
             this.guna2ImageButton2.Location = new System.Drawing.Point(314, 378);
@@ -262,7 +258,6 @@
             // 
             this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Image = global::dang_nhap.Properties.Resources.icons8_line_100__2_;
             this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton1.ImageRotate = 0F;
             this.guna2ImageButton1.Location = new System.Drawing.Point(212, 378);
