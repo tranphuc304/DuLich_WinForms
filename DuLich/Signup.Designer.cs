@@ -1,4 +1,4 @@
-﻿namespace dang_nhap
+﻿namespace DuLich
 {
     partial class Signup
     {

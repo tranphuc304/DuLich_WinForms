@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace dang_nhap.Properties
+namespace DuLich.Properties
 {
 
 

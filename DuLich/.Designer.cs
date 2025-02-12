@@ -1,4 +1,4 @@
-﻿namespace dang_nhap
+﻿namespace DuLich
 {
     partial class Form1
     {
@@ -273,7 +273,7 @@
             // guna2PictureBox2
             // 
             this.guna2PictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox2.Image = global::dang_nhap.Properties.Resources.z6295814949681_388899d8a8b1bd110793f615bc992f49;
+            this.guna2PictureBox2.Image = global::DuLich.Properties.Resources.z6295814949681_388899d8a8b1bd110793f615bc992f49;
             this.guna2PictureBox2.ImageRotate = 0F;
             this.guna2PictureBox2.Location = new System.Drawing.Point(-427, -27);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
@@ -287,7 +287,7 @@
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.Image = global::dang_nhap.Properties.Resources.icons8_airplane_64;
+            this.guna2PictureBox1.Image = global::DuLich.Properties.Resources.icons8_airplane_64;
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(113, 52);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
