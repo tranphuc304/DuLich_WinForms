@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dang nhap", "dang nhap\dang nhap.csproj", "{5C246C99-87E5-407A-8D54-FA95F9EC8C2A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuLich", "DuLich\DuLich.csproj", "{5C246C99-87E5-407A-8D54-FA95F9EC8C2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
