@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5C246C99-87E5-407A-8D54-FA95F9EC8C2A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>dang_nhap</RootNamespace>
-    <AssemblyName>dang nhap</AssemblyName>
+    <RootNamespace>DuLich</RootNamespace>
+    <AssemblyName>DuLich</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -52,6 +52,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TrangChu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrangChu.Designer.cs">
+      <DependentUpon>TrangChu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User.Designer.cs">
+      <DependentUpon>User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,16 +89,17 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrangChu.resx">
+      <DependentUpon>TrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User.resx">
+      <DependentUpon>User.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -99,46 +117,45 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\z6295728526681_0f8d92b54869da011b609f2daba501e8.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\logo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\z6295814949681_388899d8a8b1bd110793f615bc992f49.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\home1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icons8-airplane-64.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\IMG_1094.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-google-100.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-google-100 %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-google-1001.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Resources\3126570c2c6976d156872cc907a1d8f9.jpg" />
+    <Content Include="Resources\7e92a3a332bb71af1ce2c9ded6cdfd1b.jpg" />
+    <Content Include="Resources\883e7e56803ae9ee76d2292de2c3a6b9.jpg" />
+    <Content Include="Resources\8faff07aaf1c0454126c503c13c1eb06.jpg" />
+    <Content Include="Resources\8faff07aaf1c0454126c503c13c1eb061.jpg" />
+    <Content Include="Resources\a3d1f499b7ff7d45c12c02503a5d24d6.jpg" />
+    <Content Include="Resources\account.png" />
+    <Content Include="Resources\account2.png" />
+    <Content Include="Resources\account3.png" />
+    <Content Include="Resources\bell.png" />
+    <Content Include="Resources\bell1.png" />
+    <Content Include="Resources\bell2.png" />
+    <Content Include="Resources\hinhloz.jpg" />
+    <Content Include="Resources\hinhloz.png" />
+    <Content Include="Resources\home.png" />
+    <Content Include="Resources\home1.png" />
+    <Content Include="Resources\home2.png" />
+    <Content Include="Resources\homechecked.png" />
+    <Content Include="Resources\homehover.png" />
+    <Content Include="Resources\icons8-doorbell-100 %281%29.png" />
     <None Include="Resources\icons8-facebook-f-100.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-line-96.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-line-100.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Resources\icons8-google-100 %281%29.png" />
     <None Include="Resources\icons8-line-100 %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-line-100 %281%29.png" />
+    <None Include="Resources\icons8-google-100.png" />
+    <Content Include="Resources\icons8-money-50.png" />
+    <Content Include="Resources\icons8-search-100.png" />
+    <Content Include="Resources\icons8-star-50.png" />
+    <None Include="Resources\IMG_1094.png" />
+    <Content Include="Resources\logo.jpg" />
+    <Content Include="Resources\logo1.jpg" />
+    <Content Include="Resources\loz.jpg" />
+    <Content Include="Resources\ticket.png" />
+    <Content Include="Resources\ticket3.png" />
+    <Content Include="Resources\tickethover.png" />
+    <Content Include="Resources\z6295814949681_388899d8a8b1bd110793f615bc992f49.jpg" />
+    <None Include="Resources\z6295814949681_388899d8a8b1bd110793f615bc992f491.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

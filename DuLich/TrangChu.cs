@@ -10,29 +10,14 @@ using System.Windows.Forms;
 
 namespace DuLich
 {
-    public partial class Signup : Form
+    public partial class TrangChu : Form
     {
-        public Signup()
+        public TrangChu()
         {
             InitializeComponent();
         }
 
-        private void Signup_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button3_Click(object sender, EventArgs e)
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
         {
 
         }

@@ -63,16 +63,6 @@ namespace DuLich.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap home {
-            get {
-                object obj = ResourceManager.GetObject("home", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap icons8_airplane_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8-airplane-64", resourceCulture);
@@ -113,49 +103,9 @@ namespace DuLich.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_google_1001 {
-            get {
-                object obj = ResourceManager.GetObject("icons8-google-1001", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_line_100 {
-            get {
-                object obj = ResourceManager.GetObject("icons8-line-100", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_line_100__1_ {
-            get {
-                object obj = ResourceManager.GetObject("icons8-line-100 (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap icons8_line_100__2_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-line-100 (2)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_line_96 {
-            get {
-                object obj = ResourceManager.GetObject("icons8-line-96", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -167,26 +117,6 @@ namespace DuLich.Properties {
             get {
                 object obj = ResourceManager.GetObject("IMG_1094", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap logo {
-            get {
-                object obj = ResourceManager.GetObject("logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] premium_photo_1663952767406_291a3424a5de {
-            get {
-                object obj = ResourceManager.GetObject("premium_photo_1663952767406_291a3424a5de", resourceCulture);
-                return ((byte[])(obj));
             }
         }
         
