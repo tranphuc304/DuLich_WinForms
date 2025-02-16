@@ -122,10 +122,14 @@
   <ItemGroup>
     <Content Include="Resources\3126570c2c6976d156872cc907a1d8f9.jpg" />
     <Content Include="Resources\7e92a3a332bb71af1ce2c9ded6cdfd1b.jpg" />
+    <None Include="Resources\7e92a3a332bb71af1ce2c9ded6cdfd1b1.jpg" />
+    <None Include="Resources\7e92a3a332bb71af1ce2c9ded6cdfd1b2.jpg" />
     <Content Include="Resources\883e7e56803ae9ee76d2292de2c3a6b9.jpg" />
+    <None Include="Resources\883e7e56803ae9ee76d2292de2c3a6b91.jpg" />
     <Content Include="Resources\8faff07aaf1c0454126c503c13c1eb06.jpg" />
     <Content Include="Resources\8faff07aaf1c0454126c503c13c1eb061.jpg" />
     <Content Include="Resources\a3d1f499b7ff7d45c12c02503a5d24d6.jpg" />
+    <None Include="Resources\a3d1f499b7ff7d45c12c02503a5d24d61.jpg" />
     <Content Include="Resources\account.png" />
     <Content Include="Resources\account2.png" />
     <Content Include="Resources\account3.png" />
@@ -139,15 +143,33 @@
     <Content Include="Resources\home2.png" />
     <Content Include="Resources\homechecked.png" />
     <Content Include="Resources\homehover.png" />
+    <None Include="Resources\icons8-airplane-641.png" />
+    <None Include="Resources\icons8-bookmark-100.png" />
     <Content Include="Resources\icons8-doorbell-100 %281%29.png" />
     <None Include="Resources\icons8-facebook-f-100.png" />
     <None Include="Resources\icons8-google-100 %281%29.png" />
     <None Include="Resources\icons8-line-100 %282%29.png" />
     <None Include="Resources\icons8-google-100.png" />
+    <None Include="Resources\icons8-google-100 %281%291.png" />
+    <Content Include="Resources\icons8-home-50 %281%29.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\icons8-home-50.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\icons8-home-501.png" />
+    <None Include="Resources\icons8-message-100.png" />
+    <None Include="Resources\icons8-logout-100.png" />
+    <None Include="Resources\icons8-location-100.png" />
+    <None Include="Resources\icons8-money-100.png" />
     <Content Include="Resources\icons8-money-50.png" />
     <Content Include="Resources\icons8-search-100.png" />
+    <None Include="Resources\icons8-setting-300.png" />
     <Content Include="Resources\icons8-star-50.png" />
     <None Include="Resources\IMG_1094.png" />
+    <None Include="Resources\icons8-ticket-100.png" />
+    <None Include="Resources\icons8-transaction-100.png" />
+    <None Include="Resources\icons8-star-filled-100.png" />
     <Content Include="Resources\logo.jpg" />
     <Content Include="Resources\logo1.jpg" />
     <Content Include="Resources\loz.jpg" />

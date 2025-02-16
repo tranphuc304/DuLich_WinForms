@@ -17,7 +17,7 @@ namespace DuLich
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Signup());
+            Application.Run(new TrangChu());
         }
     }
 }

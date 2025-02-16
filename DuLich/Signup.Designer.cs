@@ -235,7 +235,7 @@
             this.guna2Button2.ImageSize = new System.Drawing.Size(15, 15);
             this.guna2Button2.Location = new System.Drawing.Point(184, 497);
             this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(206, 43);
+            this.guna2Button2.Size = new System.Drawing.Size(216, 47);
             this.guna2Button2.TabIndex = 5;
             this.guna2Button2.Text = "Sign up with Facebook";
             this.guna2Button2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -258,7 +258,7 @@
             this.guna2Button1.ImageSize = new System.Drawing.Size(18, 18);
             this.guna2Button1.Location = new System.Drawing.Point(184, 433);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(206, 48);
+            this.guna2Button1.Size = new System.Drawing.Size(216, 48);
             this.guna2Button1.TabIndex = 5;
             this.guna2Button1.Text = "Sign up with Google";
             this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
