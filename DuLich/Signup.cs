@@ -17,28 +17,13 @@ namespace DuLich
             InitializeComponent();
         }
 
-        private void Signup_Load(object sender, EventArgs e)
+        private void lbl_login_Click(object sender, EventArgs e)
         {
+            this.Hide();
 
-        }
+            Login login = new Login();
 
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
+            login.ShowDialog();
 
         }
     }

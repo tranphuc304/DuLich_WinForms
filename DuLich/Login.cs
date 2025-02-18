@@ -17,29 +17,13 @@ namespace DuLich
             InitializeComponent();
         }
 
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        private void btn_dangky_Click(object sender, EventArgs e)
         {
+            this.Hide();
 
-        }
+            Signup signup = new Signup();
 
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2PictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ToggleSwitch1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
+            signup.ShowDialog();
         }
     }
 }
