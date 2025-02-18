@@ -136,6 +136,8 @@
     <Content Include="Resources\bell.png" />
     <Content Include="Resources\bell1.png" />
     <Content Include="Resources\bell2.png" />
+    <None Include="Resources\eye-open.png" />
+    <None Include="Resources\eye-close.png" />
     <Content Include="Resources\hinhloz.jpg" />
     <Content Include="Resources\hinhloz.png" />
     <Content Include="Resources\home.png" />
