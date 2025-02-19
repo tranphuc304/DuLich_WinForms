@@ -313,6 +313,16 @@ namespace DuLich.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logo {
+            get {
+                object obj = ResourceManager.GetObject("Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap z6295814949681_388899d8a8b1bd110793f615bc992f49 {
             get {
                 object obj = ResourceManager.GetObject("z6295814949681_388899d8a8b1bd110793f615bc992f49", resourceCulture);

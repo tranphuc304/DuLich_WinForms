@@ -1,5 +1,5 @@
 ﻿CREATE TABLE TaiKhoan (
     ID_TaiKhoan INT PRIMARY KEY IDENTITY,
-    TenDangNhap NVARCHAR(50) NOT NULL,
+    [Email] NVARCHAR(50) NOT NULL,
     MatKhau NVARCHAR(255) NOT NULL
 );

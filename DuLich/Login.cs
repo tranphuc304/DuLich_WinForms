@@ -11,16 +11,15 @@ namespace DuLich
         {
             InitializeComponent();
 
+            this.AcceptButton = btn_dangnhap;
+
             if (!string.IsNullOrEmpty(Properties.Settings.Default.username))
             {
                 txt_username.Text = Properties.Settings.Default.username;
-                txt_password.Text = Properties.Settings.Default.password;
 
-                switch_saveuser.Checked = true;
+                txt_password.Select();
             }
         }
-
-        SqlConnection sqlcon = new SqlConnection(@"Data Source=MEANKHOIII;Initial Catalog=DuLichDatabase;Integrated Security=True");
 
         private void lbl_dangky_Click(object sender, EventArgs e)
         {
@@ -44,7 +43,19 @@ namespace DuLich
                 return;
             }
 
-            if (AuthenticateUser(username, password))
+            if (!Utils.IsValidEmail(username))
+            {
+                MessageBox.Show("Tên đăng nhập phải là email!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!DatabaseUtils.IsUsernameExists(username))
+            {
+                MessageBox.Show("Không tồn tại tài khoản này!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (DatabaseUtils.AuthenticateUser(username, password))
             {
                 MessageBox.Show("Đăng nhập thành công!");
 
@@ -72,33 +83,6 @@ namespace DuLich
             }
         }
 
-        private bool AuthenticateUser(string username, string password)
-        {
-            string query = "SELECT COUNT(*) FROM TaiKhoan WHERE TenDangNhap = @Username AND MatKhau = HASHBYTES('SHA2_256', @Password)";
-
-            try
-            {
-                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
-                {
-                    cmd.Parameters.Add("@Username", SqlDbType.NVarChar).Value = username;
-                    cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = password;
-
-                    sqlcon.Open();
-                    int count = (int)cmd.ExecuteScalar();
-                    return count > 0;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-                return false;
-            }
-            finally
-            {
-                sqlcon.Close(); // Ensure the connection is closed
-            }
-        }
-
         private void btn_passeyeopen_Click(object sender, EventArgs e)
         {
             if (!txt_password.UseSystemPasswordChar)
@@ -119,6 +103,5 @@ namespace DuLich
                 btn_passeyeopen.BringToFront();
             }
         }
-
     }
 }

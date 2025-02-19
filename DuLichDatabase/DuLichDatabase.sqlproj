@@ -60,4 +60,7 @@
   <ItemGroup>
     <Build Include="TaiKhoan.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="DuLichDatabase.refactorlog" />
+  </ItemGroup>
 </Project>

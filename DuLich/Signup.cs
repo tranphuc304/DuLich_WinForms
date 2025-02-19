@@ -10,9 +10,9 @@ namespace DuLich
         public Signup()
         {
             InitializeComponent();
-        }
 
-        SqlConnection sqlcon = new SqlConnection(@"Data Source=MEANKHOIII;Initial Catalog=DuLichDatabase;Integrated Security=True");
+            this.AcceptButton = btn_signup;
+        }
 
         private void lbl_login_Click(object sender, EventArgs e)
         {
@@ -37,7 +37,13 @@ namespace DuLich
                 return;
             }
 
-            if (RegisterUser(username, password))
+            if (!Utils.IsValidEmail(username))
+            {
+                MessageBox.Show("Tên đăng nhập phải là email!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (DatabaseUtils.RegisterUser(username, password))
             {
                 MessageBox.Show("Đăng ký thành công! Hãy đăng nhập lại!");
 
@@ -50,34 +56,6 @@ namespace DuLich
             else
             {
                 MessageBox.Show("Tài khoản đó đã tồn tại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private bool RegisterUser(string username, string password)
-        {
-            string query = "IF NOT EXISTS (SELECT 1 FROM TaiKhoan WHERE TenDangNhap = @Username) " +
-                           "INSERT INTO TaiKhoan (TenDangNhap, MatKhau) VALUES (@Username, HASHBYTES('SHA2_256', @Password));";
-
-            try
-            {
-                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
-                {
-                    cmd.Parameters.Add("@Username", SqlDbType.NVarChar).Value = username;
-                    cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = password;
-
-                    sqlcon.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected > 0;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-                return false;
-            }
-            finally
-            {
-                sqlcon.Close(); // Ensure the connection is closed
             }
         }
 

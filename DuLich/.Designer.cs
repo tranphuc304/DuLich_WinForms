@@ -49,12 +49,12 @@
             this.switch_saveuser = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.txt_password = new Guna.UI2.WinForms.Guna2TextBox();
             this.txt_username = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            this.pic_logo = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -119,7 +119,8 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.SkyBlue;
+            this.guna2Panel1.BackColor = System.Drawing.Color.Beige;
+            this.guna2Panel1.Controls.Add(this.pic_logo);
             this.guna2Panel1.Controls.Add(this.btn_passeyeclose);
             this.guna2Panel1.Controls.Add(this.btn_passeyeopen);
             this.guna2Panel1.Controls.Add(this.label6);
@@ -133,7 +134,6 @@
             this.guna2Panel1.Controls.Add(this.switch_saveuser);
             this.guna2Panel1.Controls.Add(this.txt_password);
             this.guna2Panel1.Controls.Add(this.txt_username);
-            this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -165,7 +165,7 @@
             this.btn_passeyeopen.Location = new System.Drawing.Point(293, 360);
             this.btn_passeyeopen.Name = "btn_passeyeopen";
             this.btn_passeyeopen.Size = new System.Drawing.Size(32, 32);
-            this.btn_passeyeopen.TabIndex = 2;
+            this.btn_passeyeopen.TabIndex = 8;
             this.btn_passeyeopen.UseVisualStyleBackColor = false;
             this.btn_passeyeopen.Click += new System.EventHandler(this.btn_passeyeopen_Click);
             // 
@@ -173,7 +173,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(28, 746);
+            this.label6.Location = new System.Drawing.Point(28, 752);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(178, 25);
             this.label6.TabIndex = 9;
@@ -183,7 +183,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(28, 714);
+            this.label5.Location = new System.Drawing.Point(28, 720);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(199, 25);
             this.label5.TabIndex = 8;
@@ -194,8 +194,8 @@
             this.lbl_signup.AutoSize = true;
             this.lbl_signup.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_signup.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_signup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(69)))));
-            this.lbl_signup.Location = new System.Drawing.Point(233, 711);
+            this.lbl_signup.ForeColor = System.Drawing.Color.Red;
+            this.lbl_signup.Location = new System.Drawing.Point(233, 717);
             this.lbl_signup.Name = "lbl_signup";
             this.lbl_signup.Size = new System.Drawing.Size(78, 25);
             this.lbl_signup.TabIndex = 7;
@@ -212,7 +212,7 @@
             this.btn_dangnhap.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_dangnhap.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_dangnhap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_dangnhap.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(69)))));
+            this.btn_dangnhap.FillColor = System.Drawing.Color.DarkSalmon;
             this.btn_dangnhap.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_dangnhap.ForeColor = System.Drawing.Color.White;
             this.btn_dangnhap.Location = new System.Drawing.Point(114, 500);
@@ -229,44 +229,44 @@
             this.lbl_forgotpass.AutoSize = true;
             this.lbl_forgotpass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_forgotpass.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_forgotpass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(69)))));
-            this.lbl_forgotpass.Location = new System.Drawing.Point(212, 746);
+            this.lbl_forgotpass.ForeColor = System.Drawing.Color.Red;
+            this.lbl_forgotpass.Location = new System.Drawing.Point(212, 752);
             this.lbl_forgotpass.Name = "lbl_forgotpass";
             this.lbl_forgotpass.Size = new System.Drawing.Size(134, 25);
-            this.lbl_forgotpass.TabIndex = 3;
+            this.lbl_forgotpass.TabIndex = 7;
             this.lbl_forgotpass.Text = "Quên mật khẩu";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(85, 828);
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(16, 835);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(193, 21);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Liên hệ: travel@gmail.com";
+            this.label4.Size = new System.Drawing.Size(312, 21);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Liên hệ: pacifictravel.dh22tin01@gmail.com";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(110, 802);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(101, 807);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(139, 21);
-            this.label3.TabIndex = 3;
+            this.label3.TabIndex = 5;
             this.label3.Text = "Hotline: 19001900";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(96, 438);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 25);
-            this.label1.TabIndex = 3;
+            this.label1.TabIndex = 4;
             this.label1.Text = "Nhớ mật khẩu";
             // 
             // switch_saveuser
@@ -280,7 +280,7 @@
             this.switch_saveuser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.switch_saveuser.Name = "switch_saveuser";
             this.switch_saveuser.Size = new System.Drawing.Size(55, 29);
-            this.switch_saveuser.TabIndex = 2;
+            this.switch_saveuser.TabIndex = 3;
             this.switch_saveuser.UncheckedState.BorderColor = System.Drawing.Color.White;
             this.switch_saveuser.UncheckedState.BorderThickness = 2;
             this.switch_saveuser.UncheckedState.FillColor = System.Drawing.Color.LightGray;
@@ -329,30 +329,26 @@
             this.txt_username.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txt_username.Name = "txt_username";
             this.txt_username.PasswordChar = '\0';
-            this.txt_username.PlaceholderText = "Tên đăng nhập";
+            this.txt_username.PlaceholderText = "Email";
             this.txt_username.SelectedText = "";
             this.txt_username.Size = new System.Drawing.Size(306, 56);
             this.txt_username.TabIndex = 1;
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.ErrorImage = null;
-            this.guna2PictureBox1.Image = global::DuLich.Properties.Resources.icons8_airplane_64;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(127, 65);
-            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(123, 112);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 0;
-            this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.UseTransparentBackground = true;
             // 
             // guna2ShadowForm1
             // 
             this.guna2ShadowForm1.BorderRadius = 6;
             this.guna2ShadowForm1.TargetForm = this;
+            // 
+            // pic_logo
+            // 
+            this.pic_logo.Image = global::DuLich.Properties.Resources.Logo;
+            this.pic_logo.ImageRotate = 0F;
+            this.pic_logo.Location = new System.Drawing.Point(51, 68);
+            this.pic_logo.Name = "pic_logo";
+            this.pic_logo.Size = new System.Drawing.Size(274, 168);
+            this.pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_logo.TabIndex = 11;
+            this.pic_logo.TabStop = false;
             // 
             // Login
             // 
@@ -370,7 +366,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -378,7 +374,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
@@ -399,6 +394,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_passeyeclose;
         private System.Windows.Forms.Button btn_passeyeopen;
+        private Guna.UI2.WinForms.Guna2PictureBox pic_logo;
     }
 }
 
