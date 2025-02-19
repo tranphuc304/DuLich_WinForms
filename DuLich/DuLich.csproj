@@ -52,6 +52,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+	  <Compile Include="DatabaseUtils.cs" />
+	  <Compile Include="ForgotPassword.cs">
+		  <SubType>Form</SubType>
+	  </Compile>
+	  <Compile Include="ForgotPassword.Designer.cs">
+		  <DependentUpon>ForgotPassword.cs</DependentUpon>
+	  </Compile>
     <Compile Include="ChiTietVe.cs">
       <SubType>Form</SubType>
     </Compile>

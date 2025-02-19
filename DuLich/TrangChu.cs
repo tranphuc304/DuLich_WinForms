@@ -22,11 +22,6 @@ namespace DuLich
             InitializeComponent();
         }
 
-        private void guna2ImageButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ChangeButtonIcon(Guna2Button clickedButton, string defaultIcon, string selectedIcon)
         {
             // 🔹 Reset trạng thái của tất cả button
@@ -62,55 +57,17 @@ namespace DuLich
             }
         }
 
-
-
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void btn_logout_Click(object sender, EventArgs e)
         {
-            ChangeButtonIcon(guna2Button1, "icons8-home-50.png", "icons8-home-50 (1).png");
+            Properties.Settings.Default.password = null;
+            Properties.Settings.Default.Save();
+
+            this.Hide();
+
+            Login login = new Login();
+
+            login.ShowDialog();
         }
-
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-            ChangeButtonIcon(guna2Button2, "icons8-google-100.png", "icons8-google-100 (1).png");
-        }
-
-        private void TrangChu_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        // Gọi hàm khi button được nhấn
-
 
     }
 }

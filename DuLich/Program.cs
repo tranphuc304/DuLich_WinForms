@@ -17,7 +17,19 @@ namespace DuLich
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new hoadon());
+            
+
+            if (string.IsNullOrEmpty(Properties.Settings.Default.username))
+            {
+                Application.Run(new Signup());
+
+            } else if (!string.IsNullOrEmpty(Properties.Settings.Default.password))
+            {
+                Application.Run(new TrangChu());
+            } else
+            {
+                Application.Run(new Login());
+            }
         }
     }
 }
