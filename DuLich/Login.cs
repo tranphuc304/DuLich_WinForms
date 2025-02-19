@@ -11,8 +11,6 @@ namespace DuLich
         {
             InitializeComponent();
 
-            this.AcceptButton = btn_dangnhap;
-
             if (!string.IsNullOrEmpty(Properties.Settings.Default.username))
             {
                 txt_username.Text = Properties.Settings.Default.username;
@@ -102,6 +100,20 @@ namespace DuLich
 
                 btn_passeyeopen.BringToFront();
             }
+        }
+
+        private void lbl_saveuser_Click(object sender, EventArgs e)
+        {
+            switch_saveuser.Checked = !switch_saveuser.Checked;
+        }
+
+        private void lbl_forgotpass_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            ForgotPassword forgotPassword = new ForgotPassword();
+
+            forgotPassword.ShowDialog();
         }
     }
 }

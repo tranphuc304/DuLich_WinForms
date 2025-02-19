@@ -103,15 +103,15 @@ namespace DuLich
             return exists;
         }
 
-        private bool UpdatePassword(string username, string newPassword)
+        public static bool UpdatePassword(string email, string newPassword)
         {
-            string query = "UPDATE TaiKhoan SET MatKhau = HASHBYTES('SHA2_256', @NewPassword) WHERE Email = @Username";
+            string query = "UPDATE TaiKhoan SET MatKhau = HASHBYTES('SHA2_256', @NewPassword) WHERE Email = @Email";
 
             try
             {
                 using (SqlCommand cmd = new SqlCommand(query, sqlcon))
                 {
-                    cmd.Parameters.AddWithValue("@Username", username);
+                    cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Parameters.AddWithValue("@NewPassword", newPassword);
 
                     try

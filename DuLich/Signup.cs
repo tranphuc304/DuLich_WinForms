@@ -10,8 +10,6 @@ namespace DuLich
         public Signup()
         {
             InitializeComponent();
-
-            this.AcceptButton = btn_signup;
         }
 
         private void lbl_login_Click(object sender, EventArgs e)
@@ -79,5 +77,6 @@ namespace DuLich
                 btn_passeyeopen.BringToFront();
             }
         }
+
     }
 }

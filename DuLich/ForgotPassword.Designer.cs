@@ -99,7 +99,7 @@
             this.btn_accept.Location = new System.Drawing.Point(81, 261);
             this.btn_accept.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_accept.Name = "btn_accept";
-            this.btn_accept.Size = new System.Drawing.Size(306, 46);
+            this.btn_accept.Size = new System.Drawing.Size(306, 61);
             this.btn_accept.TabIndex = 2;
             this.btn_accept.Text = "Xác Nhận";
             this.btn_accept.Click += new System.EventHandler(this.btn_accept_Click);
@@ -110,23 +110,26 @@
             this.lbl_back.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_back.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_back.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lbl_back.Location = new System.Drawing.Point(127, 333);
+            this.lbl_back.Location = new System.Drawing.Point(127, 347);
             this.lbl_back.Name = "lbl_back";
             this.lbl_back.Size = new System.Drawing.Size(215, 28);
             this.lbl_back.TabIndex = 3;
             this.lbl_back.Text = "Trở về trang đăng nhập";
+            this.lbl_back.Click += new System.EventHandler(this.lbl_back_Click);
             // 
             // ForgotPassword
             // 
+            this.AcceptButton = this.btn_accept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 396);
+            this.ClientSize = new System.Drawing.Size(478, 406);
             this.Controls.Add(this.lbl_back);
             this.Controls.Add(this.btn_accept);
             this.Controls.Add(this.txt_username);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pic_logo);
             this.Name = "ForgotPassword";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ForgotPassword";
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).EndInit();
             this.ResumeLayout(false);
