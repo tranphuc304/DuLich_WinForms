@@ -69,5 +69,9 @@ namespace DuLich
             login.ShowDialog();
         }
 
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -220,6 +220,15 @@
   <data name="bell" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bell3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="z6295814949681_388899d8a8b1bd110793f615bc992f49" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\z6295814949681_388899d8a8b1bd110793f615bc992f491.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="z6332234645440_726f810a2378ccf071dc90942445f1e5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\z6332234645440_726f810a2378ccf071dc90942445f1e5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-google-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-google-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="z6332181783006_74c9f72820589b7e05d4178333048ef5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\z6332181783006_74c9f72820589b7e05d4178333048ef5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

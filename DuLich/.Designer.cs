@@ -49,8 +49,8 @@
             this.switch_saveuser = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.txt_password = new Guna.UI2.WinForms.Guna2TextBox();
             this.txt_username = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
@@ -210,7 +210,7 @@
             this.lbl_signup.AutoSize = true;
             this.lbl_signup.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_signup.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_signup.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbl_signup.ForeColor = System.Drawing.Color.Coral;
             this.lbl_signup.Location = new System.Drawing.Point(376, 564);
             this.lbl_signup.Name = "lbl_signup";
             this.lbl_signup.Size = new System.Drawing.Size(78, 25);
@@ -245,7 +245,7 @@
             this.lbl_forgotpass.AutoSize = true;
             this.lbl_forgotpass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_forgotpass.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_forgotpass.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbl_forgotpass.ForeColor = System.Drawing.Color.Coral;
             this.lbl_forgotpass.Location = new System.Drawing.Point(377, 424);
             this.lbl_forgotpass.Name = "lbl_forgotpass";
             this.lbl_forgotpass.Size = new System.Drawing.Size(134, 25);
@@ -258,7 +258,7 @@
             this.lbl_saveuser.AutoSize = true;
             this.lbl_saveuser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_saveuser.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_saveuser.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbl_saveuser.ForeColor = System.Drawing.Color.Coral;
             this.lbl_saveuser.Location = new System.Drawing.Point(201, 424);
             this.lbl_saveuser.Name = "lbl_saveuser";
             this.lbl_saveuser.Size = new System.Drawing.Size(125, 25);
@@ -331,6 +331,11 @@
             this.txt_username.Size = new System.Drawing.Size(373, 56);
             this.txt_username.TabIndex = 1;
             // 
+            // guna2ShadowForm1
+            // 
+            this.guna2ShadowForm1.BorderRadius = 6;
+            this.guna2ShadowForm1.TargetForm = this;
+            // 
             // guna2PictureBox2
             // 
             this.guna2PictureBox2.BackColor = System.Drawing.Color.Transparent;
@@ -345,11 +350,6 @@
             this.guna2PictureBox2.TabIndex = 0;
             this.guna2PictureBox2.TabStop = false;
             this.guna2PictureBox2.UseTransparentBackground = true;
-            // 
-            // guna2ShadowForm1
-            // 
-            this.guna2ShadowForm1.BorderRadius = 6;
-            this.guna2ShadowForm1.TargetForm = this;
             // 
             // Login
             // 
