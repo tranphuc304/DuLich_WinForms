@@ -71,11 +71,11 @@
     <Compile Include="DanhGia.Designer.cs">
       <DependentUpon>DanhGia.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="QuanliTour.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="QuanliTour.Designer.cs">
+      <DependentUpon>QuanliTour.cs</DependentUpon>
     </Compile>
     <Compile Include="TrangChuAdmin.cs">
       <SubType>Form</SubType>
@@ -133,8 +133,8 @@
     <EmbeddedResource Include="DanhGia.resx">
       <DependentUpon>DanhGia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="QuanliTour.resx">
+      <DependentUpon>QuanliTour.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TrangChuAdmin.resx">
       <DependentUpon>TrangChuAdmin.cs</DependentUpon>

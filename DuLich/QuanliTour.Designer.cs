@@ -1,6 +1,6 @@
 ﻿namespace DuLich
 {
-    partial class Form1
+    partial class QuanliTour
     {
         /// <summary>
         /// Required designer variable.

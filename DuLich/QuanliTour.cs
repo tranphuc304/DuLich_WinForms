@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DuLich
 {
-    public partial class Form1 : Form
+    public partial class QuanliTour : Form
     {
-        public Form1()
+        public QuanliTour()
         {
             InitializeComponent();
         }
