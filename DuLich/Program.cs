@@ -17,19 +17,20 @@ namespace DuLich
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
 
-            if (string.IsNullOrEmpty(Properties.Settings.Default.username))
-            {
-                Application.Run(new Signup());
+            Application.Run(new DanhGia());
 
-            } else if (!string.IsNullOrEmpty(Properties.Settings.Default.password))
-            {
-                Application.Run(new TrangChu());
-            } else
-            {
-                Application.Run(new Login());
-            }
+            //if (string.IsNullOrEmpty(Properties.Settings.Default.username))
+            //{
+            //    Application.Run(new Signup());
+
+            //} else if (!string.IsNullOrEmpty(Properties.Settings.Default.password))
+            //{
+            //    Application.Run(new TrangChu());
+            //} else
+            //{
+            //    Application.Run(new Login());
+            //}
         }
     }
 }
