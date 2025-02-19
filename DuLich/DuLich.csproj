@@ -52,6 +52,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiTietVe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiTietVe.Designer.cs">
+      <DependentUpon>ChiTietVe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="hoadon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hoadon.Designer.cs">
+      <DependentUpon>hoadon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Thanhtoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Thanhtoan.Designer.cs">
+      <DependentUpon>Thanhtoan.cs</DependentUpon>
+    </Compile>
     <Compile Include="TrangChu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +102,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChiTietVe.resx">
+      <DependentUpon>ChiTietVe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hoadon.resx">
+      <DependentUpon>hoadon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Thanhtoan.resx">
+      <DependentUpon>Thanhtoan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,6 +148,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\3126570c2c6976d156872cc907a1d8f9.jpg" />
+    <None Include="Resources\z6332234645440_726f810a2378ccf071dc90942445f1e5.jpg" />
+    <None Include="Resources\z6332186906952_cd555b07b6f41264ff91b2fcdd9d33ab.jpg" />
+    <None Include="Resources\z6332181783006_74c9f72820589b7e05d4178333048ef5.jpg" />
+    <None Include="Resources\3126570c2c6976d156872cc907a1d8f91.jpg" />
     <Content Include="Resources\7e92a3a332bb71af1ce2c9ded6cdfd1b.jpg" />
     <None Include="Resources\7e92a3a332bb71af1ce2c9ded6cdfd1b1.jpg" />
     <None Include="Resources\7e92a3a332bb71af1ce2c9ded6cdfd1b2.jpg" />
@@ -136,6 +167,7 @@
     <Content Include="Resources\bell.png" />
     <Content Include="Resources\bell1.png" />
     <Content Include="Resources\bell2.png" />
+    <None Include="Resources\bell3.png" />
     <Content Include="Resources\hinhloz.jpg" />
     <Content Include="Resources\hinhloz.png" />
     <Content Include="Resources\home.png" />
@@ -145,6 +177,10 @@
     <Content Include="Resources\homehover.png" />
     <None Include="Resources\icons8-airplane-641.png" />
     <None Include="Resources\icons8-bookmark-100.png" />
+    <None Include="Resources\icons8-account-100.png" />
+    <None Include="Resources\icons8-calendar-4-100.png" />
+    <None Include="Resources\icons8-account-100 %281%29.png" />
+    <None Include="Resources\icons8-date-100.png" />
     <Content Include="Resources\icons8-doorbell-100 %281%29.png" />
     <None Include="Resources\icons8-facebook-f-100.png" />
     <None Include="Resources\icons8-google-100 %281%29.png" />
@@ -162,20 +198,27 @@
     <None Include="Resources\icons8-logout-100.png" />
     <None Include="Resources\icons8-location-100.png" />
     <None Include="Resources\icons8-money-100.png" />
+    <None Include="Resources\icons8-map-100.png" />
+    <None Include="Resources\icons8-map-100 %281%29.png" />
     <Content Include="Resources\icons8-money-50.png" />
+    <None Include="Resources\icons8-plus-100.png" />
     <Content Include="Resources\icons8-search-100.png" />
     <None Include="Resources\icons8-setting-300.png" />
+    <None Include="Resources\icons8-search-1001.png" />
     <Content Include="Resources\icons8-star-50.png" />
     <None Include="Resources\IMG_1094.png" />
     <None Include="Resources\icons8-ticket-100.png" />
     <None Include="Resources\icons8-transaction-100.png" />
     <None Include="Resources\icons8-star-filled-100.png" />
     <Content Include="Resources\logo.jpg" />
+    <None Include="Resources\Logo.png" />
     <Content Include="Resources\logo1.jpg" />
     <Content Include="Resources\loz.jpg" />
+    <None Include="Resources\momo.png" />
     <Content Include="Resources\ticket.png" />
     <Content Include="Resources\ticket3.png" />
     <Content Include="Resources\tickethover.png" />
+    <None Include="Resources\vnpay.png" />
     <Content Include="Resources\z6295814949681_388899d8a8b1bd110793f615bc992f49.jpg" />
     <None Include="Resources\z6295814949681_388899d8a8b1bd110793f615bc992f491.jpg" />
   </ItemGroup>

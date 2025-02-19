@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace DuLich
 {
-    public partial class User : Form
+    public partial class Thanhtoan : Form
     {
-        public User()
+        public Thanhtoan()
         {
             InitializeComponent();
         }
 
-        private void User_Load(object sender, EventArgs e)
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

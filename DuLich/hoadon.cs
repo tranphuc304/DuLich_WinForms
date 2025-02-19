@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace DuLich
 {
-    public partial class User : Form
+    public partial class hoadon : Form
     {
-        public User()
+        public hoadon()
         {
             InitializeComponent();
-        }
-
-        private void User_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

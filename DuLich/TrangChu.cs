@@ -99,6 +99,16 @@ namespace DuLich
 
         }
 
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         // Gọi hàm khi button được nhấn
 
 

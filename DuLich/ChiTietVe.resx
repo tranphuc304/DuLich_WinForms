@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="guna2Elipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>34, 16</value>
+  </metadata>
+  <metadata name="guna2DragControl1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>178, 16</value>
+  </metadata>
+  <metadata name="guna2ContextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>365, 16</value>
+  </metadata>
+  <data name="guna2TextBox3.DefaultText" xml:space="preserve">
+    <value>Tour du lịch ĐÀ LẠT SĂN MÂY - THE FLOREST - SAMTEN HILLS - BUFFET RAU KHÔNG GIỚI HẠN | 2 NGÀY 2 ĐÊM - tham quan checkin Đà Lạt. Trải nghiệm khám phá vẻ đẹp mộng mơ...Tour Khởi hành hằng ngày luôn có tour vào các ngày lễ Giổ tổ Hùng Vương - Tour lễ 30/4 - 1/5 - Du lịch hè tháng 6.7.8 + Du lịch mùa Noel , Năm mới, Tết Nguyên Đán..
+
+NGÀY 1
+HCM – ĐÀ LẠT (Nghỉ đêm trên xe)
+23h00: Quý khách có mặt tại Văn phòng Công ty ở 91 - 93 Lê Quốc Hưng P12 Q4 xe và Hướng dẫn viên đón khách khởi hành đi ĐÀ LẠT. Qúy khách nghỉ đêm trên xe.. 
+
+THIÊN ĐƯỜNG SĂN MÂY – ĐỒI CHÈ – PUPPY FARM (ăn sáng + trưa/ tối tực túc)
+Buổi sáng : Đến nơi đoàn tham quan:
+
+THIÊN ĐƯỜNG SĂN MÂY CẦU ĐẤT - đón bình mình với những đám mây trắng bồng bềnh. Quý khách sẽ được thỏa sức check in với những tiểu cảnh đẹp mê người nơi đây. Đoàn dùng bữa sáng tại đây.
+ĐỒI CHÈ CẦU ĐẤT - đã được hình thành trên 100 năm. Với tổng diện tích lên tới 230 ha. Một trong những đồi chè có diện tích lớn nhất cả nước. Với độ cao 1650 mét so với mực nước biển cùng những dãy chè xanh tươi nối dài bất tận, đồi chè Cầu Đất đẹp đến ngỡ ngàng dưới làn sương sớm của bình mình chớm nở. (chi phí tự túc)
+CÁNH ĐỒNG ĐIỆN GIÓ
+VƯỜN HỒNG/VƯỜN DÂU (sắp xếp theo mùa)
+Buổi trưa : Đoàn thưởng thức BUFFET RAU KHÔNG GIỚI HẠN. Thực đơn với nhiều loại rau củ, ăn cùng các loại lẩu, cá, tôm, mực, ba chỉ, bò fillet… cực kỳ hấp dẫn. Sau đó nhận phòng KHÁCH SẠN 3 SAO nghỉ ngơi.
+
+Buổi chiều : Tham quan QUẦN THỂ DU LỊCH PUPPY FARM – trải nghiệm ĐƯỜNG TRƯỢT PHAO KHÔ dài nhất Đà Lạt. Quý khách sẽ được hòa mình vào với cuộc sống của những chú cún siêu dễ thương. Hiện tại Puppy Farm đã có thêm khu LẠC ĐÀ ALPACA, NGỰA LÙN PONY, DÊ HY LẠP, VƯỜN BÍ THIÊN NGA VÀ BÍ KHỔNG LỒ.
+
+Check in các điểm sống ảo cực chất tại đây như
+
+ĐỒI CỎ LAU HỒNG
+VƯỜN HOA CẨM TÚ CẦU
+XỨ SỞ XƯƠNG RỒNG, VƯỜN SEN ĐÁ, BÍ NGÔ KHỔNG LỒ.
+VƯỜN HOA LAVENDER (theo mùa).
+VƯỜN HOA XÁC PHÁO ĐỎ RỰC.
+CÁNH ĐỒNG HOA CÁNH BƯỚM – HOA HƯỚNG DƯƠNG (theo mùa).
+VƯỜN DÂU TÂY SINH HỌC NHẬT BẢN – tự tay hái những trái dâu căng mọng.
+VƯỜN CÀ CHUA BABY HÀ LAN rực rỡ sắc màu: cà chua socola, cherry, trứng sữa. Quý khách có thể tự hái và chụp hình cùng những quả cà chua xinh xắn.
+Đặc biệt : khu Chuột Lang Nước – nơi cư ngụ của những bé CAPYBARA dễ thương, thân thiện được mệnh danh là “Bộ trưởng Bộ Ngoại giao”.
+Buổi tối : Đoàn tự do trải nghiệm ẩm thực địa phương thay cho bữa tối.
+</value>
+  </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>25</value>
+  </metadata>
+</root>
