@@ -11,7 +11,7 @@ namespace DuLich
 {
     class DatabaseUtils
     {
-         static SqlConnection sqlcon = new SqlConnection(@"Data Source=MEANKHOIII;Initial Catalog=DuLichDatabase;Integrated Security=True");
+         static SqlConnection sqlcon = new SqlConnection(@"Data Source=DUYKHANG;Initial Catalog=DuLichDatabase;Integrated Security=True");
 
         public static bool RegisterUser(string username, string password)
         {

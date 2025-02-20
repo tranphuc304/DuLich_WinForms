@@ -379,6 +379,9 @@
     <Content Include="Resources\logo1.jpg" />
     <Content Include="Resources\loz.jpg" />
     <None Include="Resources\momo.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\search-interface-symbol.png" />
+    <None Include="Resources\search-interface-symbol1.png" />
     <Content Include="Resources\ticket.png" />
     <Content Include="Resources\ticket3.png" />
     <Content Include="Resources\tickethover.png" />

@@ -34,6 +34,9 @@ namespace DuLich
             login.ShowDialog();
         }
 
+        private void guna2PictureBox8_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
