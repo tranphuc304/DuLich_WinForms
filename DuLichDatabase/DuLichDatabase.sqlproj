@@ -59,6 +59,14 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="TaiKhoan.sql" />
+    <Build Include="ThongTinCaNhan.sql" />
+    <Build Include="ChuyenDi.sql" />
+    <Build Include="YeuCau.sql" />
+    <Build Include="DanhSachDangKy.sql" />
+    <Build Include="HuongDanVien.sql" />
+    <Build Include="LichTrinh.sql" />
+    <Build Include="DanhSachDuKhach.sql" />
+    <Build Include="DanhGia.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DuLichDatabase.refactorlog" />

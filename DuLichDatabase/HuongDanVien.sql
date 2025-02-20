@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[HuongDanVien] (
+    [ID_HDV]   NVARCHAR(5) NOT NULL PRIMARY KEY,
+    [Ten]      NVARCHAR(100) NOT NULL,
+    [SDT]      NVARCHAR(10) NOT NULL,
+    [Email]    NVARCHAR(50) NOT NULL UNIQUE
+);

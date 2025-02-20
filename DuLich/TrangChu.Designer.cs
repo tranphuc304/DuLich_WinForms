@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label9 = new System.Windows.Forms.Label();
@@ -38,6 +37,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lbl_account = new System.Windows.Forms.Label();
+            this.guna2PictureBox7 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pic_logo = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Button14 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button12 = new Guna.UI2.WinForms.Guna2Button();
@@ -52,16 +53,13 @@
             this.guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btn_logout = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2Button7 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.lbl_home = new System.Windows.Forms.Label();
+            this.lbl_search = new System.Windows.Forms.Label();
+            this.lbl_tourlist = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
@@ -71,32 +69,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // guna2Button2
-            // 
-            this.guna2Button2.BorderColor = System.Drawing.Color.Gainsboro;
-            this.guna2Button2.BorderRadius = 8;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.Gainsboro;
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.Location = new System.Drawing.Point(264, 30);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(864, 639);
-            this.guna2Button2.TabIndex = 0;
-            this.guna2Button2.Text = "guna2Button2";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(72, 57);
+            this.label2.Location = new System.Drawing.Point(54, 46);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 20);
+            this.label2.Size = new System.Drawing.Size(95, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "Đồi chè Cầu Đất";
             // 
@@ -123,9 +105,10 @@
             this.guna2Panel1.Controls.Add(this.label5);
             this.guna2Panel1.Controls.Add(this.label4);
             this.guna2Panel1.Controls.Add(this.label2);
-            this.guna2Panel1.Location = new System.Drawing.Point(324, 397);
+            this.guna2Panel1.Location = new System.Drawing.Point(243, 323);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(413, 244);
+            this.guna2Panel1.Size = new System.Drawing.Size(310, 198);
             this.guna2Panel1.TabIndex = 7;
             // 
             // label9
@@ -133,9 +116,10 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(351, 204);
+            this.label9.Location = new System.Drawing.Point(263, 166);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(34, 17);
+            this.label9.Size = new System.Drawing.Size(29, 13);
             this.label9.TabIndex = 5;
             this.label9.Text = "/day";
             // 
@@ -144,9 +128,10 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(347, 137);
+            this.label8.Location = new System.Drawing.Point(260, 111);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(34, 17);
+            this.label8.Size = new System.Drawing.Size(29, 13);
             this.label8.TabIndex = 5;
             this.label8.Text = "/day";
             // 
@@ -155,9 +140,10 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(344, 66);
+            this.label7.Location = new System.Drawing.Point(258, 54);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 17);
+            this.label7.Size = new System.Drawing.Size(29, 13);
             this.label7.TabIndex = 5;
             this.label7.Text = "/day";
             // 
@@ -167,9 +153,10 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(72, 190);
+            this.label6.Location = new System.Drawing.Point(61, 193);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 20);
+            this.label6.Size = new System.Drawing.Size(69, 15);
             this.label6.TabIndex = 2;
             this.label6.Text = "Núi Bà Đen";
             // 
@@ -179,9 +166,10 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(17, 33);
+            this.label3.Location = new System.Drawing.Point(14, 33);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 20);
+            this.label3.Size = new System.Drawing.Size(128, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "100 Destination Found \r\n";
             // 
@@ -191,9 +179,10 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(64, 98);
+            this.label5.Location = new System.Drawing.Point(54, 100);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 20);
+            this.label5.Size = new System.Drawing.Size(68, 15);
             this.label5.TabIndex = 2;
             this.label5.Text = "Thác nước ";
             // 
@@ -203,20 +192,46 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(17, 13);
+            this.label4.Location = new System.Drawing.Point(14, 13);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 20);
+            this.label4.Size = new System.Drawing.Size(99, 15);
             this.label4.TabIndex = 2;
             this.label4.Text = "Best Destination";
+            // 
+            // lbl_account
+            // 
+            this.lbl_account.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_account.AutoSize = true;
+            this.lbl_account.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_account.Location = new System.Drawing.Point(1053, 33);
+            this.lbl_account.Name = "lbl_account";
+            this.lbl_account.Size = new System.Drawing.Size(78, 20);
+            this.lbl_account.TabIndex = 10;
+            this.lbl_account.Text = "Tài Khoản";
+            // 
+            // guna2PictureBox7
+            // 
+            this.guna2PictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2PictureBox7.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox7.BackgroundImage = global::DuLich.Properties.Resources.icons8_account_100;
+            this.guna2PictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.guna2PictureBox7.FillColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox7.ImageRotate = 0F;
+            this.guna2PictureBox7.Location = new System.Drawing.Point(1134, 26);
+            this.guna2PictureBox7.Name = "guna2PictureBox7";
+            this.guna2PictureBox7.Size = new System.Drawing.Size(36, 32);
+            this.guna2PictureBox7.TabIndex = 9;
+            this.guna2PictureBox7.TabStop = false;
             // 
             // pic_logo
             // 
             this.pic_logo.Image = global::DuLich.Properties.Resources.Logo;
             this.pic_logo.ImageRotate = 0F;
-            this.pic_logo.Location = new System.Drawing.Point(44, 30);
-            this.pic_logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pic_logo.Location = new System.Drawing.Point(21, 21);
+            this.pic_logo.Margin = new System.Windows.Forms.Padding(2);
             this.pic_logo.Name = "pic_logo";
-            this.pic_logo.Size = new System.Drawing.Size(138, 66);
+            this.pic_logo.Size = new System.Drawing.Size(99, 48);
             this.pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_logo.TabIndex = 8;
             this.pic_logo.TabStop = false;
@@ -234,9 +249,10 @@
             this.guna2Button14.Image = global::DuLich.Properties.Resources.icons8_star_filled_100;
             this.guna2Button14.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button14.ImageSize = new System.Drawing.Size(12, 12);
-            this.guna2Button14.Location = new System.Drawing.Point(162, 211);
+            this.guna2Button14.Location = new System.Drawing.Point(122, 171);
+            this.guna2Button14.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Button14.Name = "guna2Button14";
-            this.guna2Button14.Size = new System.Drawing.Size(71, 25);
+            this.guna2Button14.Size = new System.Drawing.Size(53, 20);
             this.guna2Button14.TabIndex = 4;
             this.guna2Button14.Text = "4.7";
             // 
@@ -253,9 +269,10 @@
             this.guna2Button12.Image = global::DuLich.Properties.Resources.icons8_star_filled_100;
             this.guna2Button12.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button12.ImageSize = new System.Drawing.Size(12, 12);
-            this.guna2Button12.Location = new System.Drawing.Point(161, 143);
+            this.guna2Button12.Location = new System.Drawing.Point(121, 116);
+            this.guna2Button12.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Button12.Name = "guna2Button12";
-            this.guna2Button12.Size = new System.Drawing.Size(71, 25);
+            this.guna2Button12.Size = new System.Drawing.Size(53, 20);
             this.guna2Button12.TabIndex = 4;
             this.guna2Button12.Text = "4.8";
             // 
@@ -272,9 +289,10 @@
             this.guna2Button10.Image = global::DuLich.Properties.Resources.icons8_star_filled_100;
             this.guna2Button10.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button10.ImageSize = new System.Drawing.Size(12, 12);
-            this.guna2Button10.Location = new System.Drawing.Point(147, 78);
+            this.guna2Button10.Location = new System.Drawing.Point(110, 63);
+            this.guna2Button10.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Button10.Name = "guna2Button10";
-            this.guna2Button10.Size = new System.Drawing.Size(71, 25);
+            this.guna2Button10.Size = new System.Drawing.Size(53, 20);
             this.guna2Button10.TabIndex = 4;
             this.guna2Button10.Text = "4.9";
             // 
@@ -291,9 +309,10 @@
             this.guna2Button13.Image = global::DuLich.Properties.Resources.icons8_location_100;
             this.guna2Button13.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button13.ImageSize = new System.Drawing.Size(12, 12);
-            this.guna2Button13.Location = new System.Drawing.Point(73, 210);
+            this.guna2Button13.Location = new System.Drawing.Point(55, 171);
+            this.guna2Button13.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Button13.Name = "guna2Button13";
-            this.guna2Button13.Size = new System.Drawing.Size(119, 25);
+            this.guna2Button13.Size = new System.Drawing.Size(89, 20);
             this.guna2Button13.TabIndex = 4;
             this.guna2Button13.Text = "Tây Ninh";
             // 
@@ -302,9 +321,10 @@
             this.guna2PictureBox6.BorderRadius = 10;
             this.guna2PictureBox6.Image = global::DuLich.Properties.Resources._7e92a3a332bb71af1ce2c9ded6cdfd1b1;
             this.guna2PictureBox6.ImageRotate = 0F;
-            this.guna2PictureBox6.Location = new System.Drawing.Point(21, 190);
+            this.guna2PictureBox6.Location = new System.Drawing.Point(16, 154);
+            this.guna2PictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.guna2PictureBox6.Name = "guna2PictureBox6";
-            this.guna2PictureBox6.Size = new System.Drawing.Size(49, 45);
+            this.guna2PictureBox6.Size = new System.Drawing.Size(37, 37);
             this.guna2PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox6.TabIndex = 3;
             this.guna2PictureBox6.TabStop = false;
@@ -322,9 +342,10 @@
             this.guna2Button11.Image = global::DuLich.Properties.Resources.icons8_location_100;
             this.guna2Button11.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button11.ImageSize = new System.Drawing.Size(12, 12);
-            this.guna2Button11.Location = new System.Drawing.Point(73, 143);
+            this.guna2Button11.Location = new System.Drawing.Point(55, 116);
+            this.guna2Button11.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Button11.Name = "guna2Button11";
-            this.guna2Button11.Size = new System.Drawing.Size(119, 25);
+            this.guna2Button11.Size = new System.Drawing.Size(89, 20);
             this.guna2Button11.TabIndex = 4;
             this.guna2Button11.Text = "Hòn Sơn";
             // 
@@ -333,9 +354,10 @@
             this.guna2PictureBox5.BorderRadius = 10;
             this.guna2PictureBox5.Image = global::DuLich.Properties.Resources._7e92a3a332bb71af1ce2c9ded6cdfd1b1;
             this.guna2PictureBox5.ImageRotate = 0F;
-            this.guna2PictureBox5.Location = new System.Drawing.Point(21, 123);
+            this.guna2PictureBox5.Location = new System.Drawing.Point(16, 100);
+            this.guna2PictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2PictureBox5.Name = "guna2PictureBox5";
-            this.guna2PictureBox5.Size = new System.Drawing.Size(49, 45);
+            this.guna2PictureBox5.Size = new System.Drawing.Size(37, 37);
             this.guna2PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox5.TabIndex = 3;
             this.guna2PictureBox5.TabStop = false;
@@ -352,9 +374,10 @@
             this.guna2Button17.ForeColor = System.Drawing.Color.Black;
             this.guna2Button17.Image = global::DuLich.Properties.Resources.icons8_money_100;
             this.guna2Button17.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button17.Location = new System.Drawing.Point(287, 185);
+            this.guna2Button17.Location = new System.Drawing.Point(215, 150);
+            this.guna2Button17.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Button17.Name = "guna2Button17";
-            this.guna2Button17.Size = new System.Drawing.Size(94, 56);
+            this.guna2Button17.Size = new System.Drawing.Size(70, 46);
             this.guna2Button17.TabIndex = 4;
             this.guna2Button17.Text = "150";
             // 
@@ -370,9 +393,10 @@
             this.guna2Button16.ForeColor = System.Drawing.Color.Black;
             this.guna2Button16.Image = global::DuLich.Properties.Resources.icons8_money_100;
             this.guna2Button16.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button16.Location = new System.Drawing.Point(283, 118);
+            this.guna2Button16.Location = new System.Drawing.Point(212, 96);
+            this.guna2Button16.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Button16.Name = "guna2Button16";
-            this.guna2Button16.Size = new System.Drawing.Size(94, 56);
+            this.guna2Button16.Size = new System.Drawing.Size(70, 46);
             this.guna2Button16.TabIndex = 4;
             this.guna2Button16.Text = "150";
             // 
@@ -388,9 +412,10 @@
             this.guna2Button15.ForeColor = System.Drawing.Color.Black;
             this.guna2Button15.Image = global::DuLich.Properties.Resources.icons8_money_100;
             this.guna2Button15.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button15.Location = new System.Drawing.Point(280, 47);
+            this.guna2Button15.Location = new System.Drawing.Point(210, 38);
+            this.guna2Button15.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Button15.Name = "guna2Button15";
-            this.guna2Button15.Size = new System.Drawing.Size(94, 56);
+            this.guna2Button15.Size = new System.Drawing.Size(70, 46);
             this.guna2Button15.TabIndex = 4;
             this.guna2Button15.Text = "150";
             // 
@@ -407,9 +432,10 @@
             this.guna2Button9.Image = global::DuLich.Properties.Resources.icons8_location_100;
             this.guna2Button9.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button9.ImageSize = new System.Drawing.Size(12, 12);
-            this.guna2Button9.Location = new System.Drawing.Point(73, 77);
+            this.guna2Button9.Location = new System.Drawing.Point(55, 63);
+            this.guna2Button9.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Button9.Name = "guna2Button9";
-            this.guna2Button9.Size = new System.Drawing.Size(106, 25);
+            this.guna2Button9.Size = new System.Drawing.Size(80, 20);
             this.guna2Button9.TabIndex = 4;
             this.guna2Button9.Text = "Đà Lạt";
             // 
@@ -418,9 +444,10 @@
             this.guna2PictureBox4.BorderRadius = 10;
             this.guna2PictureBox4.Image = global::DuLich.Properties.Resources._7e92a3a332bb71af1ce2c9ded6cdfd1b1;
             this.guna2PictureBox4.ImageRotate = 0F;
-            this.guna2PictureBox4.Location = new System.Drawing.Point(21, 57);
+            this.guna2PictureBox4.Location = new System.Drawing.Point(16, 46);
+            this.guna2PictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2PictureBox4.Name = "guna2PictureBox4";
-            this.guna2PictureBox4.Size = new System.Drawing.Size(49, 45);
+            this.guna2PictureBox4.Size = new System.Drawing.Size(37, 37);
             this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox4.TabIndex = 3;
             this.guna2PictureBox4.TabStop = false;
@@ -431,37 +458,14 @@
             this.guna2PictureBox3.BorderRadius = 10;
             this.guna2PictureBox3.Image = global::DuLich.Properties.Resources.a3d1f499b7ff7d45c12c02503a5d24d6;
             this.guna2PictureBox3.ImageRotate = 0F;
-            this.guna2PictureBox3.Location = new System.Drawing.Point(613, 102);
+            this.guna2PictureBox3.Location = new System.Drawing.Point(460, 83);
+            this.guna2PictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2PictureBox3.Name = "guna2PictureBox3";
-            this.guna2PictureBox3.Size = new System.Drawing.Size(203, 252);
+            this.guna2PictureBox3.Size = new System.Drawing.Size(152, 205);
             this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox3.TabIndex = 1;
             this.guna2PictureBox3.TabStop = false;
             this.guna2PictureBox3.UseTransparentBackground = true;
-            // 
-            // btn_logout
-            // 
-            this.btn_logout.Animated = true;
-            this.btn_logout.BackColor = System.Drawing.Color.Transparent;
-            this.btn_logout.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(145)))), ((int)(((byte)(59)))));
-            this.btn_logout.BorderRadius = 8;
-            this.btn_logout.BorderThickness = 1;
-            this.btn_logout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_logout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_logout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_logout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_logout.FillColor = System.Drawing.Color.White;
-            this.btn_logout.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_logout.ForeColor = System.Drawing.Color.Black;
-            this.btn_logout.Image = global::DuLich.Properties.Resources.icons8_logout_100;
-            this.btn_logout.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btn_logout.Location = new System.Drawing.Point(35, 616);
-            this.btn_logout.Name = "btn_logout";
-            this.btn_logout.Size = new System.Drawing.Size(153, 43);
-            this.btn_logout.TabIndex = 6;
-            this.btn_logout.Text = "Log out";
-            this.btn_logout.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
             // 
             // guna2PictureBox1
             // 
@@ -469,9 +473,10 @@
             this.guna2PictureBox1.BorderRadius = 10;
             this.guna2PictureBox1.Image = global::DuLich.Properties.Resources._7e92a3a332bb71af1ce2c9ded6cdfd1b;
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(883, 102);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(662, 83);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(203, 252);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(152, 205);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 1;
             this.guna2PictureBox1.TabStop = false;
@@ -483,174 +488,71 @@
             this.guna2PictureBox2.BorderRadius = 10;
             this.guna2PictureBox2.Image = global::DuLich.Properties.Resources._883e7e56803ae9ee76d2292de2c3a6b9;
             this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(324, 102);
+            this.guna2PictureBox2.Location = new System.Drawing.Point(243, 83);
+            this.guna2PictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.Size = new System.Drawing.Size(203, 252);
+            this.guna2PictureBox2.Size = new System.Drawing.Size(152, 205);
             this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox2.TabIndex = 1;
             this.guna2PictureBox2.TabStop = false;
             this.guna2PictureBox2.UseTransparentBackground = true;
             // 
-            // guna2Button7
+            // lbl_home
             // 
-            this.guna2Button7.Animated = true;
-            this.guna2Button7.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(145)))), ((int)(((byte)(59)))));
-            this.guna2Button7.BorderRadius = 8;
-            this.guna2Button7.BorderThickness = 1;
-            this.guna2Button7.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button7.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button7.FillColor = System.Drawing.Color.White;
-            this.guna2Button7.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button7.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button7.Image = global::DuLich.Properties.Resources.icons8_setting_300;
-            this.guna2Button7.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button7.Location = new System.Drawing.Point(35, 425);
-            this.guna2Button7.Name = "guna2Button7";
-            this.guna2Button7.Size = new System.Drawing.Size(153, 43);
-            this.guna2Button7.TabIndex = 6;
-            this.guna2Button7.Text = "Settings";
-            this.guna2Button7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.lbl_home.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbl_home.AutoSize = true;
+            this.lbl_home.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_home.Location = new System.Drawing.Point(514, 33);
+            this.lbl_home.Name = "lbl_home";
+            this.lbl_home.Size = new System.Drawing.Size(104, 25);
+            this.lbl_home.TabIndex = 12;
+            this.lbl_home.Text = "Trang Chủ";
             // 
-            // guna2Button6
+            // lbl_search
             // 
-            this.guna2Button6.Animated = true;
-            this.guna2Button6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(145)))), ((int)(((byte)(59)))));
-            this.guna2Button6.BorderRadius = 8;
-            this.guna2Button6.BorderThickness = 1;
-            this.guna2Button6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button6.FillColor = System.Drawing.Color.White;
-            this.guna2Button6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button6.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button6.Image = global::DuLich.Properties.Resources.icons8_transaction_100;
-            this.guna2Button6.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button6.Location = new System.Drawing.Point(35, 359);
-            this.guna2Button6.Name = "guna2Button6";
-            this.guna2Button6.Size = new System.Drawing.Size(153, 43);
-            this.guna2Button6.TabIndex = 6;
-            this.guna2Button6.Text = "Transaction";
-            this.guna2Button6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.lbl_search.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbl_search.AutoSize = true;
+            this.lbl_search.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_search.Location = new System.Drawing.Point(376, 33);
+            this.lbl_search.Name = "lbl_search";
+            this.lbl_search.Size = new System.Drawing.Size(94, 25);
+            this.lbl_search.TabIndex = 13;
+            this.lbl_search.Text = "Tìm Kiếm";
             // 
-            // guna2Button5
+            // lbl_tourlist
             // 
-            this.guna2Button5.Animated = true;
-            this.guna2Button5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(145)))), ((int)(((byte)(59)))));
-            this.guna2Button5.BorderRadius = 8;
-            this.guna2Button5.BorderThickness = 1;
-            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button5.FillColor = System.Drawing.Color.White;
-            this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button5.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button5.Image = global::DuLich.Properties.Resources.icons8_message_100;
-            this.guna2Button5.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button5.Location = new System.Drawing.Point(35, 297);
-            this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.Size = new System.Drawing.Size(153, 43);
-            this.guna2Button5.TabIndex = 6;
-            this.guna2Button5.Text = "Message";
-            this.guna2Button5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // guna2Button4
-            // 
-            this.guna2Button4.Animated = true;
-            this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(145)))), ((int)(((byte)(59)))));
-            this.guna2Button4.BorderRadius = 8;
-            this.guna2Button4.BorderThickness = 1;
-            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.FillColor = System.Drawing.Color.White;
-            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button4.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button4.Image = global::DuLich.Properties.Resources.icons8_bookmark_100;
-            this.guna2Button4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button4.Location = new System.Drawing.Point(35, 234);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(153, 43);
-            this.guna2Button4.TabIndex = 6;
-            this.guna2Button4.Text = "Favorite";
-            this.guna2Button4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // guna2Button3
-            // 
-            this.guna2Button3.Animated = true;
-            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(145)))), ((int)(((byte)(59)))));
-            this.guna2Button3.BorderRadius = 8;
-            this.guna2Button3.BorderThickness = 1;
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.FillColor = System.Drawing.Color.White;
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button3.Image = global::DuLich.Properties.Resources.icons8_ticket_100;
-            this.guna2Button3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button3.Location = new System.Drawing.Point(35, 167);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(153, 43);
-            this.guna2Button3.TabIndex = 6;
-            this.guna2Button3.Text = "My Tickets";
-            this.guna2Button3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(145)))), ((int)(((byte)(59)))));
-            this.guna2Button1.BorderRadius = 8;
-            this.guna2Button1.BorderThickness = 1;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.White;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.Image = global::DuLich.Properties.Resources.icons8_home_50;
-            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.Location = new System.Drawing.Point(35, 102);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(153, 43);
-            this.guna2Button1.TabIndex = 6;
-            this.guna2Button1.Text = "Dashboard";
-            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.lbl_tourlist.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbl_tourlist.AutoSize = true;
+            this.lbl_tourlist.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_tourlist.Location = new System.Drawing.Point(662, 33);
+            this.lbl_tourlist.Name = "lbl_tourlist";
+            this.lbl_tourlist.Size = new System.Drawing.Size(131, 25);
+            this.lbl_tourlist.TabIndex = 14;
+            this.lbl_tourlist.Text = "Tour Của Bạn";
             // 
             // TrangChu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1181, 693);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1198, 775);
+            this.Controls.Add(this.lbl_tourlist);
+            this.Controls.Add(this.lbl_search);
+            this.Controls.Add(this.lbl_home);
+            this.Controls.Add(this.lbl_account);
+            this.Controls.Add(this.guna2PictureBox7);
             this.Controls.Add(this.pic_logo);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2PictureBox3);
-            this.Controls.Add(this.btn_logout);
             this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.guna2PictureBox2);
-            this.Controls.Add(this.guna2Button7);
-            this.Controls.Add(this.guna2Button6);
-            this.Controls.Add(this.guna2Button2);
-            this.Controls.Add(this.guna2Button5);
-            this.Controls.Add(this.guna2Button4);
-            this.Controls.Add(this.guna2Button3);
-            this.Controls.Add(this.guna2Button1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "TrangChu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "PacificTravel - Đặt tour du lịch nhanh chóng";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
@@ -659,18 +561,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
-        private Guna.UI2.WinForms.Guna2Button guna2Button6;
-        private Guna.UI2.WinForms.Guna2Button guna2Button7;
-        private Guna.UI2.WinForms.Guna2Button btn_logout;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
@@ -696,5 +591,10 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button17;
         private Guna.UI2.WinForms.Guna2Button guna2Button16;
         private Guna.UI2.WinForms.Guna2PictureBox pic_logo;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox7;
+        private System.Windows.Forms.Label lbl_account;
+        private System.Windows.Forms.Label lbl_home;
+        private System.Windows.Forms.Label lbl_search;
+        private System.Windows.Forms.Label lbl_tourlist;
     }
 }
