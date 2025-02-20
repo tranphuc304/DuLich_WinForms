@@ -60,8 +60,9 @@
             this.guna2Panel1.Controls.Add(this.guna2Button1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1053, 53);
+            this.guna2Panel1.Size = new System.Drawing.Size(1185, 66);
             this.guna2Panel1.TabIndex = 9;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
@@ -70,9 +71,10 @@
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(24, 12);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(27, 15);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(140, 25);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(166, 30);
             this.guna2HtmlLabel1.TabIndex = 0;
             this.guna2HtmlLabel1.Text = "Trang chủ Admin";
             this.guna2HtmlLabel1.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
@@ -179,9 +181,10 @@
             this.guna2Button11.ForeColor = System.Drawing.Color.Black;
             this.guna2Button11.Image = global::DuLich.Properties.Resources.icons8_logout_rounded_100;
             this.guna2Button11.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button11.Location = new System.Drawing.Point(11, 452);
+            this.guna2Button11.Location = new System.Drawing.Point(12, 565);
+            this.guna2Button11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2Button11.Name = "guna2Button11";
-            this.guna2Button11.Size = new System.Drawing.Size(153, 43);
+            this.guna2Button11.Size = new System.Drawing.Size(172, 54);
             this.guna2Button11.TabIndex = 7;
             this.guna2Button11.Text = "Logout";
             // 
@@ -201,9 +204,10 @@
             this.guna2Button10.ForeColor = System.Drawing.Color.Black;
             this.guna2Button10.Image = global::DuLich.Properties.Resources.icons8_customer_1001;
             this.guna2Button10.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button10.Location = new System.Drawing.Point(11, 380);
+            this.guna2Button10.Location = new System.Drawing.Point(12, 475);
+            this.guna2Button10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2Button10.Name = "guna2Button10";
-            this.guna2Button10.Size = new System.Drawing.Size(153, 43);
+            this.guna2Button10.Size = new System.Drawing.Size(172, 54);
             this.guna2Button10.TabIndex = 7;
             this.guna2Button10.Text = "About";
             // 
@@ -223,9 +227,10 @@
             this.guna2Button9.ForeColor = System.Drawing.Color.Black;
             this.guna2Button9.Image = global::DuLich.Properties.Resources.icons8_setting_300;
             this.guna2Button9.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button9.Location = new System.Drawing.Point(11, 309);
+            this.guna2Button9.Location = new System.Drawing.Point(12, 386);
+            this.guna2Button9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2Button9.Name = "guna2Button9";
-            this.guna2Button9.Size = new System.Drawing.Size(153, 43);
+            this.guna2Button9.Size = new System.Drawing.Size(172, 54);
             this.guna2Button9.TabIndex = 7;
             this.guna2Button9.Text = "Settings";
             // 
@@ -245,9 +250,10 @@
             this.guna2Button8.ForeColor = System.Drawing.Color.Black;
             this.guna2Button8.Image = global::DuLich.Properties.Resources.icons8_report_100;
             this.guna2Button8.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button8.Location = new System.Drawing.Point(11, 238);
+            this.guna2Button8.Location = new System.Drawing.Point(12, 298);
+            this.guna2Button8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2Button8.Name = "guna2Button8";
-            this.guna2Button8.Size = new System.Drawing.Size(153, 43);
+            this.guna2Button8.Size = new System.Drawing.Size(172, 54);
             this.guna2Button8.TabIndex = 7;
             this.guna2Button8.Text = "Report";
             // 
@@ -267,9 +273,10 @@
             this.guna2Button7.ForeColor = System.Drawing.Color.Black;
             this.guna2Button7.Image = global::DuLich.Properties.Resources.icons8_admin_100;
             this.guna2Button7.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button7.Location = new System.Drawing.Point(11, 171);
+            this.guna2Button7.Location = new System.Drawing.Point(12, 214);
+            this.guna2Button7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2Button7.Name = "guna2Button7";
-            this.guna2Button7.Size = new System.Drawing.Size(153, 43);
+            this.guna2Button7.Size = new System.Drawing.Size(172, 54);
             this.guna2Button7.TabIndex = 7;
             this.guna2Button7.Text = "Admin";
             // 
@@ -289,9 +296,10 @@
             this.guna2Button6.ForeColor = System.Drawing.Color.Black;
             this.guna2Button6.Image = global::DuLich.Properties.Resources.icons8_chart_100;
             this.guna2Button6.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button6.Location = new System.Drawing.Point(11, 102);
+            this.guna2Button6.Location = new System.Drawing.Point(12, 128);
+            this.guna2Button6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2Button6.Name = "guna2Button6";
-            this.guna2Button6.Size = new System.Drawing.Size(153, 43);
+            this.guna2Button6.Size = new System.Drawing.Size(172, 54);
             this.guna2Button6.TabIndex = 7;
             this.guna2Button6.Text = "Chart";
             // 
@@ -311,9 +319,10 @@
             this.guna2Button5.ForeColor = System.Drawing.Color.Black;
             this.guna2Button5.Image = global::DuLich.Properties.Resources.icons8_home_50;
             this.guna2Button5.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button5.Location = new System.Drawing.Point(11, 34);
+            this.guna2Button5.Location = new System.Drawing.Point(12, 42);
+            this.guna2Button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.Size = new System.Drawing.Size(153, 43);
+            this.guna2Button5.Size = new System.Drawing.Size(172, 54);
             this.guna2Button5.TabIndex = 7;
             this.guna2Button5.Text = "Dashboard";
             // 
@@ -347,16 +356,19 @@
             // 
             // TrangChuAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1053, 651);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1185, 814);
             this.Controls.Add(this.guna2Panel4);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "TrangChuAdmin";
-            this.Text = "Form1";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "PacificTravel - Trang chủ Admin";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);

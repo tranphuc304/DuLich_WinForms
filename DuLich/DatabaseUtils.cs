@@ -11,17 +11,18 @@ namespace DuLich
 {
     class DatabaseUtils
     {
-         static SqlConnection sqlcon = new SqlConnection(@"Data Source=DUYKHANG;Initial Catalog=DuLichDatabase;Integrated Security=True");
+         static SqlConnection sqlcon = new SqlConnection(@"Data Source=MEANKHOIII;Initial Catalog=DuLichDatabase;Integrated Security=True");
 
         public static bool RegisterUser(string username, string password)
         {
             string query = "IF NOT EXISTS (SELECT 1 FROM TaiKhoan WHERE Email = @Username) " +
-                           "INSERT INTO TaiKhoan (Email, MatKhau) VALUES (@Username, HASHBYTES('SHA2_256', @Password));";
+                           "INSERT INTO TaiKhoan (ID_TaiKhoan, Email, MatKhau) VALUES (@UserId, @Username, HASHBYTES('SHA2_256', @Password));";
 
             try
             {
                 using (SqlCommand cmd = new SqlCommand(query, sqlcon))
                 {
+                    cmd.Parameters.Add("@UserId", SqlDbType.NVarChar).Value = GenerateUserId();
                     cmd.Parameters.Add("@Username", SqlDbType.NVarChar).Value = username;
                     cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = password;
 
@@ -39,6 +40,37 @@ namespace DuLich
             {
                 sqlcon.Close(); // Ensure the connection is closed
             }
+        }
+
+        private static string GenerateUserId()
+        {
+            string newId = "U0001"; // ID mặc định nếu chưa có tài khoản nào
+            string query = "SELECT MAX(ID_TaiKhoan) FROM TaiKhoan WHERE ID_TaiKhoan LIKE 'U%'";
+
+            try
+            {
+                sqlcon.Open();
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    object result = cmd.ExecuteScalar();
+                    if (result != DBNull.Value && result != null)
+                    {
+                        string lastId = result.ToString(); // Ví dụ: "U0025"
+                        int number = int.Parse(lastId.Substring(1)); // Lấy 4 số cuối
+                        newId = $"U{(number + 1):D4}"; // Tăng lên 1, giữ định dạng 4 chữ số
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                sqlcon.Close();
+            }
+
+            return newId;
         }
 
         public static bool AuthenticateUser(string username, string password)
