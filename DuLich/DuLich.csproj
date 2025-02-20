@@ -71,6 +71,30 @@
     <Compile Include="DanhGia.Designer.cs">
       <DependentUpon>DanhGia.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLdanhgia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLDanhGia.Designer.cs">
+      <DependentUpon>QLdanhgia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLYCDC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLYCDC.Designer.cs">
+      <DependentUpon>QLYCDC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLiVe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLiVe.Designer.cs">
+      <DependentUpon>QuanLiVe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Quanilichtrinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Quanilichtrinh.Designer.cs">
+      <DependentUpon>Quanilichtrinh.cs</DependentUpon>
+    </Compile>
     <Compile Include="QuanliTour.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +156,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DanhGia.resx">
       <DependentUpon>DanhGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLDanhGia.resx">
+      <DependentUpon>QLdanhgia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLYCDC.resx">
+      <DependentUpon>QLYCDC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLiVe.resx">
+      <DependentUpon>QuanLiVe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quanilichtrinh.resx">
+      <DependentUpon>Quanilichtrinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QuanliTour.resx">
       <DependentUpon>QuanliTour.cs</DependentUpon>
