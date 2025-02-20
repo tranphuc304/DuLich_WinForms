@@ -322,6 +322,7 @@
     <None Include="Resources\bell3.png" />
     <None Include="Resources\eye-close1.png" />
     <None Include="Resources\eye-open1.png" />
+    <None Include="Resources\eye-open2.png" />
     <Content Include="Resources\hinhloz.jpg" />
     <Content Include="Resources\hinhloz.png" />
     <Content Include="Resources\home.png" />

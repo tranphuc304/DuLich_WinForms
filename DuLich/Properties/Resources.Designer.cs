@@ -293,9 +293,9 @@ namespace DuLich.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_google_100__1_1 {
+        internal static System.Drawing.Bitmap icons8_home_50 {
             get {
-                object obj = ResourceManager.GetObject("icons8-google-100 (1)1", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8-home-50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,7 +303,7 @@ namespace DuLich.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_home_50 {
+        internal static System.Drawing.Bitmap icons8_home_50__1_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-home-50 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
