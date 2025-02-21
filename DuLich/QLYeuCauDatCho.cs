@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DuLich
 {
-    public partial class QLYCDC : Form
+    public partial class QLYeuCauDatCho : Form
     {
-        public QLYCDC()
+        public QLYeuCauDatCho()
         {
             InitializeComponent();
         }

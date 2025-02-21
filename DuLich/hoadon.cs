@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DuLich
 {
-    public partial class hoadon : Form
+    public partial class HoaDon : Form
     {
-        public hoadon()
+        public HoaDon()
         {
             InitializeComponent();
         }

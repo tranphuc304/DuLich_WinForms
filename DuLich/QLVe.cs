@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DuLich
 {
-    public partial class QuanLiVe : Form
+    public partial class QLVe : Form
     {
-        public QuanLiVe()
+        public QLVe()
         {
             InitializeComponent();
         }

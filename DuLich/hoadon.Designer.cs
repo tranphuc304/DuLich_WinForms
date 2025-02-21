@@ -1,6 +1,6 @@
 ﻿namespace DuLich
 {
-    partial class hoadon
+    partial class HoaDon
     {
         /// <summary>
         /// Required designer variable.

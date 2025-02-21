@@ -47,13 +47,13 @@ namespace DuLich
                 return;
             }
 
-            if (!DatabaseUtils.IsUsernameExists(username))
+            if (!SystemQuery.IsUsernameExists(username))
             {
                 MessageBox.Show("Không tồn tại tài khoản này!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (DatabaseUtils.AuthenticateUser(username, password))
+            if (SystemQuery.AuthenticateUser(username, password))
             {
                 MessageBox.Show("Đăng nhập thành công!");
 

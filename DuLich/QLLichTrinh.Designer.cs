@@ -1,6 +1,6 @@
 ﻿namespace DuLich
 {
-    partial class Quanilichtrinh
+    partial class QLLichTrinh
     {
         /// <summary>
         /// Required designer variable.

@@ -41,7 +41,7 @@ namespace DuLich
                 return;
             }
 
-            if (DatabaseUtils.RegisterUser(username, password))
+            if (SystemQuery.RegisterUser(username, password))
             {
                 MessageBox.Show("Đăng ký thành công! Hãy đăng nhập lại!");
 

@@ -167,7 +167,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseUtils.cs" />
+    <Compile Include="DatabaseUtils\AdminQuery.cs" />
+    <Compile Include="DatabaseUtils\SystemQuery.cs" />
+    <Compile Include="DatabaseUtils\UserQuery.cs" />
     <Compile Include="ForgotPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,35 +188,35 @@
     <Compile Include="DanhGia.Designer.cs">
       <DependentUpon>DanhGia.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLdanhgia.cs">
+    <Compile Include="QLDanhGia.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="QLDanhGia.Designer.cs">
-      <DependentUpon>QLdanhgia.cs</DependentUpon>
+      <DependentUpon>QLDanhGia.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLYCDC.cs">
+    <Compile Include="QLYeuCauDatCho.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QLYCDC.Designer.cs">
-      <DependentUpon>QLYCDC.cs</DependentUpon>
+    <Compile Include="QLYeuCauDatCho.Designer.cs">
+      <DependentUpon>QLYeuCauDatCho.cs</DependentUpon>
     </Compile>
-    <Compile Include="QuanLiVe.cs">
+    <Compile Include="QLVe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuanLiVe.Designer.cs">
-      <DependentUpon>QuanLiVe.cs</DependentUpon>
+    <Compile Include="QLVe.Designer.cs">
+      <DependentUpon>QLVe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Quanilichtrinh.cs">
+    <Compile Include="QLLichTrinh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Quanilichtrinh.Designer.cs">
-      <DependentUpon>Quanilichtrinh.cs</DependentUpon>
+    <Compile Include="QLLichTrinh.Designer.cs">
+      <DependentUpon>QLLichTrinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="QuanliTour.cs">
+    <Compile Include="QLTour.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuanliTour.Designer.cs">
-      <DependentUpon>QuanliTour.cs</DependentUpon>
+    <Compile Include="QLTour.Designer.cs">
+      <DependentUpon>QLTour.cs</DependentUpon>
     </Compile>
     <Compile Include="TrangChuAdmin.cs">
       <SubType>Form</SubType>
@@ -222,11 +224,11 @@
     <Compile Include="TrangChuAdmin.Designer.cs">
       <DependentUpon>TrangChuAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="hoadon.cs">
+    <Compile Include="HoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="hoadon.Designer.cs">
-      <DependentUpon>hoadon.cs</DependentUpon>
+    <Compile Include="HoaDon.Designer.cs">
+      <DependentUpon>HoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="Thanhtoan.cs">
       <SubType>Form</SubType>
@@ -274,25 +276,25 @@
       <DependentUpon>DanhGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLDanhGia.resx">
-      <DependentUpon>QLdanhgia.cs</DependentUpon>
+      <DependentUpon>QLDanhGia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QLYCDC.resx">
-      <DependentUpon>QLYCDC.cs</DependentUpon>
+    <EmbeddedResource Include="QLYeuCauDatCho.resx">
+      <DependentUpon>QLYeuCauDatCho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QuanLiVe.resx">
-      <DependentUpon>QuanLiVe.cs</DependentUpon>
+    <EmbeddedResource Include="QLVe.resx">
+      <DependentUpon>QLVe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Quanilichtrinh.resx">
-      <DependentUpon>Quanilichtrinh.cs</DependentUpon>
+    <EmbeddedResource Include="QLLichTrinh.resx">
+      <DependentUpon>QLLichTrinh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QuanliTour.resx">
-      <DependentUpon>QuanliTour.cs</DependentUpon>
+    <EmbeddedResource Include="QLTour.resx">
+      <DependentUpon>QLTour.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TrangChuAdmin.resx">
       <DependentUpon>TrangChuAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="hoadon.resx">
-      <DependentUpon>hoadon.cs</DependentUpon>
+    <EmbeddedResource Include="HoaDon.resx">
+      <DependentUpon>HoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Thanhtoan.resx">
       <DependentUpon>Thanhtoan.cs</DependentUpon>

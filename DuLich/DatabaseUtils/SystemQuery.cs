@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace DuLich
 {
-    class DatabaseUtils
+    class SystemQuery
     {
-         static SqlConnection sqlcon = new SqlConnection(@"Data Source=MEANKHOIII;Initial Catalog=DuLichDatabase;Integrated Security=True");
+        public static SqlConnection sqlcon = new SqlConnection(@"Data Source=MEANKHOIII;Initial Catalog=DuLichDatabase;Integrated Security=True");
 
         public static bool RegisterUser(string username, string password)
         {

@@ -39,7 +39,7 @@ namespace DuLich
                 return;
             }
 
-            if (!DatabaseUtils.IsUsernameExists(username))
+            if (!SystemQuery.IsUsernameExists(username))
             {
                 MessageBox.Show("Không tồn tại tài khoản này!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -47,7 +47,7 @@ namespace DuLich
 
             string newPass = Utils.GenerateSecurePassword(12);
 
-            DatabaseUtils.UpdatePassword(username, newPass);
+            SystemQuery.UpdatePassword(username, newPass);
 
             btn_accept.Enabled = false;
 

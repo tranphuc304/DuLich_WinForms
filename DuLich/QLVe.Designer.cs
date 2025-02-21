@@ -1,6 +1,6 @@
 ﻿namespace DuLich
 {
-    partial class QuanLiVe
+    partial class QLVe
     {
         /// <summary>
         /// Required designer variable.

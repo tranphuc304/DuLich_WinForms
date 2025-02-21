@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DuLich
 {
-    public partial class Quanilichtrinh : Form
+    public partial class QLLichTrinh : Form
     {
-        public Quanilichtrinh()
+        public QLLichTrinh()
         {
             InitializeComponent();
         }

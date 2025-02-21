@@ -1,6 +1,6 @@
 ﻿namespace DuLich
 {
-    partial class QLYCDC
+    partial class QLYeuCauDatCho
     {
         /// <summary>
         /// Required designer variable.

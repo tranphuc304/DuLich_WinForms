@@ -1,4 +1,5 @@
-﻿using Guna.UI2.WinForms;
+﻿using DuLich.DatabaseUtils;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,21 +23,20 @@ namespace DuLich
             InitializeComponent();
         }
 
-        private void btn_logout_Click(object sender, EventArgs e)
+        private void TrangChu_Load(object sender, EventArgs e)
         {
-            Properties.Settings.Default.password = null;
-            Properties.Settings.Default.Save();
-
-            this.Hide();
-
-            Login login = new Login();
-
-            login.ShowDialog();
+            loadDSChuyenDi(UserQuery.getDSChuyenDi());
         }
 
-        private void guna2PictureBox8_Click(object sender, EventArgs e)
+        private void loadDSChuyenDi(DataTable source)
         {
-
+            try
+            {
+                dgv_dschuyendi.DataSource = source;
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
