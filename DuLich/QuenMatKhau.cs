@@ -14,9 +14,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DuLich
 {
-    public partial class ForgotPassword : Form
+    public partial class QuenMatKhau : Form
     {
-        public ForgotPassword()
+        public QuenMatKhau()
         {
             InitializeComponent();
         }
@@ -69,7 +69,7 @@ namespace DuLich
         {
             this.Hide();
 
-            Login login = new Login();
+            DangNhap login = new DangNhap();
 
             login.ShowDialog();
         }

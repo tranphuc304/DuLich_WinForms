@@ -1,6 +1,6 @@
 ﻿namespace DuLich
 {
-    partial class Signup
+    partial class DangKyAdmin
     {
         /// <summary>
         /// Required designer variable.
@@ -44,6 +44,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lbl_welcome = new System.Windows.Forms.Label();
             this.lbl_login = new System.Windows.Forms.Label();
+            this.txt_admincode = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -55,19 +56,19 @@
             this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(462, 835);
-            this.guna2Panel1.TabIndex = 0;
+            this.guna2Panel1.Size = new System.Drawing.Size(308, 543);
+            this.guna2Panel1.TabIndex = 2;
             // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.Image = global::DuLich.Properties.Resources.IMG_1094;
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(-146, -68);
-            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(-97, -44);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(716, 952);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(477, 619);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
@@ -75,6 +76,7 @@
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.Beige;
+            this.guna2Panel2.Controls.Add(this.txt_admincode);
             this.guna2Panel2.Controls.Add(this.pic_logo);
             this.guna2Panel2.Controls.Add(this.label4);
             this.guna2Panel2.Controls.Add(this.label2);
@@ -90,19 +92,20 @@
             this.guna2Panel2.Controls.Add(this.lbl_login);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Panel2.Location = new System.Drawing.Point(462, 0);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(640, 835);
-            this.guna2Panel2.TabIndex = 1;
+            this.guna2Panel2.Size = new System.Drawing.Size(735, 543);
+            this.guna2Panel2.TabIndex = 3;
             // 
             // pic_logo
             // 
             this.pic_logo.Image = global::DuLich.Properties.Resources.Logo;
             this.pic_logo.ImageRotate = 0F;
-            this.pic_logo.Location = new System.Drawing.Point(35, 70);
+            this.pic_logo.Location = new System.Drawing.Point(331, 46);
+            this.pic_logo.Margin = new System.Windows.Forms.Padding(2);
             this.pic_logo.Name = "pic_logo";
-            this.pic_logo.Size = new System.Drawing.Size(164, 72);
+            this.pic_logo.Size = new System.Drawing.Size(109, 47);
             this.pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_logo.TabIndex = 24;
             this.pic_logo.TabStop = false;
@@ -112,9 +115,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(166, 793);
+            this.label4.Location = new System.Drawing.Point(419, 514);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(312, 21);
+            this.label4.Size = new System.Drawing.Size(229, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "Liên hệ: pacifictravel.dh22tin01@gmail.com";
             // 
@@ -123,9 +127,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(251, 765);
+            this.label2.Location = new System.Drawing.Point(475, 497);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 21);
+            this.label2.Size = new System.Drawing.Size(99, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Hotline: 19001900";
             // 
@@ -137,9 +142,10 @@
             this.btn_passeyeclose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_passeyeclose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_passeyeclose.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_passeyeclose.Location = new System.Drawing.Point(459, 351);
+            this.btn_passeyeclose.Location = new System.Drawing.Point(615, 228);
+            this.btn_passeyeclose.Margin = new System.Windows.Forms.Padding(2);
             this.btn_passeyeclose.Name = "btn_passeyeclose";
-            this.btn_passeyeclose.Size = new System.Drawing.Size(32, 32);
+            this.btn_passeyeclose.Size = new System.Drawing.Size(21, 21);
             this.btn_passeyeclose.TabIndex = 23;
             this.btn_passeyeclose.UseVisualStyleBackColor = false;
             this.btn_passeyeclose.Click += new System.EventHandler(this.btn_passeyeclose_Click);
@@ -152,9 +158,10 @@
             this.btn_passeyeopen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_passeyeopen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_passeyeopen.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_passeyeopen.Location = new System.Drawing.Point(459, 351);
+            this.btn_passeyeopen.Location = new System.Drawing.Point(615, 228);
+            this.btn_passeyeopen.Margin = new System.Windows.Forms.Padding(2);
             this.btn_passeyeopen.Name = "btn_passeyeopen";
-            this.btn_passeyeopen.Size = new System.Drawing.Size(32, 32);
+            this.btn_passeyeopen.Size = new System.Drawing.Size(21, 21);
             this.btn_passeyeopen.TabIndex = 22;
             this.btn_passeyeopen.UseVisualStyleBackColor = false;
             this.btn_passeyeopen.Click += new System.EventHandler(this.btn_passeyeopen_Click);
@@ -175,10 +182,10 @@
             this.btn_signup.ForeColor = System.Drawing.Color.White;
             this.btn_signup.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_signup.ImageSize = new System.Drawing.Size(18, 18);
-            this.btn_signup.Location = new System.Drawing.Point(138, 422);
-            this.btn_signup.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_signup.Location = new System.Drawing.Point(401, 317);
+            this.btn_signup.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btn_signup.Name = "btn_signup";
-            this.btn_signup.Size = new System.Drawing.Size(373, 60);
+            this.btn_signup.Size = new System.Drawing.Size(249, 39);
             this.btn_signup.TabIndex = 21;
             this.btn_signup.Text = "Đăng Ký";
             this.btn_signup.Click += new System.EventHandler(this.btn_signup_Click);
@@ -188,10 +195,10 @@
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(593, 15);
-            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(703, 10);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(36, 38);
+            this.guna2ControlBox1.Size = new System.Drawing.Size(24, 25);
             this.guna2ControlBox1.TabIndex = 10;
             // 
             // guna2ControlBox2
@@ -200,10 +207,10 @@
             this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(550, 15);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(675, 10);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(36, 38);
+            this.guna2ControlBox2.Size = new System.Drawing.Size(24, 25);
             this.guna2ControlBox2.TabIndex = 9;
             // 
             // txt_password
@@ -221,13 +228,13 @@
             this.txt_password.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold);
             this.txt_password.ForeColor = System.Drawing.Color.Black;
             this.txt_password.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_password.Location = new System.Drawing.Point(138, 338);
-            this.txt_password.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txt_password.Location = new System.Drawing.Point(401, 219);
+            this.txt_password.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txt_password.Name = "txt_password";
             this.txt_password.PasswordChar = '●';
             this.txt_password.PlaceholderText = "Mật khẩu\r\n";
             this.txt_password.SelectedText = "";
-            this.txt_password.Size = new System.Drawing.Size(373, 56);
+            this.txt_password.Size = new System.Drawing.Size(249, 36);
             this.txt_password.TabIndex = 7;
             this.txt_password.UseSystemPasswordChar = true;
             // 
@@ -246,22 +253,23 @@
             this.txt_username.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold);
             this.txt_username.ForeColor = System.Drawing.Color.Black;
             this.txt_username.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_username.Location = new System.Drawing.Point(138, 271);
-            this.txt_username.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.txt_username.Location = new System.Drawing.Point(401, 176);
+            this.txt_username.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txt_username.Name = "txt_username";
             this.txt_username.PasswordChar = '\0';
             this.txt_username.PlaceholderText = "Email";
             this.txt_username.SelectedText = "";
-            this.txt_username.Size = new System.Drawing.Size(373, 56);
+            this.txt_username.Size = new System.Drawing.Size(249, 36);
             this.txt_username.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(167, 527);
+            this.label3.Location = new System.Drawing.Point(419, 386);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(208, 25);
+            this.label3.Size = new System.Drawing.Size(137, 15);
             this.label3.TabIndex = 6;
             this.label3.Text = "Bạn đã có sẵn tài khoản?";
             // 
@@ -269,9 +277,10 @@
             // 
             this.lbl_welcome.AutoSize = true;
             this.lbl_welcome.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_welcome.Location = new System.Drawing.Point(178, 190);
+            this.lbl_welcome.Location = new System.Drawing.Point(427, 122);
+            this.lbl_welcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_welcome.Name = "lbl_welcome";
-            this.lbl_welcome.Size = new System.Drawing.Size(295, 45);
+            this.lbl_welcome.Size = new System.Drawing.Size(201, 30);
             this.lbl_welcome.TabIndex = 6;
             this.lbl_welcome.Text = "Tạo một tài khoản";
             // 
@@ -281,26 +290,50 @@
             this.lbl_login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_login.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_login.ForeColor = System.Drawing.Color.Coral;
-            this.lbl_login.Location = new System.Drawing.Point(374, 527);
+            this.lbl_login.Location = new System.Drawing.Point(558, 386);
+            this.lbl_login.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_login.Name = "lbl_login";
-            this.lbl_login.Size = new System.Drawing.Size(100, 25);
+            this.lbl_login.Size = new System.Drawing.Size(65, 15);
             this.lbl_login.TabIndex = 4;
             this.lbl_login.Text = "Đăng nhập";
             this.lbl_login.Click += new System.EventHandler(this.lbl_login_Click);
             // 
-            // Signup
+            // txt_admincode
             // 
-            this.AcceptButton = this.btn_signup;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.txt_admincode.Animated = true;
+            this.txt_admincode.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(69)))));
+            this.txt_admincode.BorderRadius = 10;
+            this.txt_admincode.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_admincode.DefaultText = "";
+            this.txt_admincode.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_admincode.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_admincode.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_admincode.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_admincode.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_admincode.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold);
+            this.txt_admincode.ForeColor = System.Drawing.Color.Black;
+            this.txt_admincode.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_admincode.Location = new System.Drawing.Point(401, 263);
+            this.txt_admincode.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txt_admincode.Name = "txt_admincode";
+            this.txt_admincode.PasswordChar = '\0';
+            this.txt_admincode.PlaceholderText = "Mã Đăng Ký Admin";
+            this.txt_admincode.SelectedText = "";
+            this.txt_admincode.Size = new System.Drawing.Size(249, 36);
+            this.txt_admincode.TabIndex = 25;
+            // 
+            // DangKyAdmin
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 835);
-            this.Controls.Add(this.guna2Panel2);
+            this.ClientSize = new System.Drawing.Size(735, 543);
             this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.guna2Panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "Signup";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "DangKyAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form2";
+            this.Text = "DangKyAdmin";
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
@@ -315,18 +348,19 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private System.Windows.Forms.Label lbl_login;
-        private System.Windows.Forms.Label lbl_welcome;
-        private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2TextBox txt_password;
-        private Guna.UI2.WinForms.Guna2TextBox txt_username;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
-        private Guna.UI2.WinForms.Guna2Button btn_signup;
-        private System.Windows.Forms.Button btn_passeyeopen;
-        private System.Windows.Forms.Button btn_passeyeclose;
+        private Guna.UI2.WinForms.Guna2PictureBox pic_logo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2PictureBox pic_logo;
+        private System.Windows.Forms.Button btn_passeyeclose;
+        private System.Windows.Forms.Button btn_passeyeopen;
+        private Guna.UI2.WinForms.Guna2Button btn_signup;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
+        private Guna.UI2.WinForms.Guna2TextBox txt_password;
+        private Guna.UI2.WinForms.Guna2TextBox txt_username;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_welcome;
+        private System.Windows.Forms.Label lbl_login;
+        private Guna.UI2.WinForms.Guna2TextBox txt_admincode;
     }
 }

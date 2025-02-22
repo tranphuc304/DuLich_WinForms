@@ -5,27 +5,41 @@ using System.Windows.Forms;
 
 namespace DuLich
 {
-    public partial class Login : Form
+    public partial class DangNhap : Form
     {
-        public Login()
+        public DangNhap()
         {
             InitializeComponent();
 
             if (!string.IsNullOrEmpty(Properties.Settings.Default.username))
             {
+                if (!string.IsNullOrEmpty(Properties.Settings.Default.password))
+                {
+                    txt_password.Text = Properties.Settings.Default.password;
+                }
+
                 txt_username.Text = Properties.Settings.Default.username;
 
                 txt_password.Select();
             }
+
+            rb_usertype.Checked = true;
         }
 
         private void lbl_dangky_Click(object sender, EventArgs e)
         {
             this.Hide();
 
-            Signup signup = new Signup();
+            if (rb_usertype.Checked)
+            {
+                DangKy signup = new DangKy();
+                signup.ShowDialog();
+            } else
+            {
+                DangKyAdmin signup = new DangKyAdmin();
+                signup.ShowDialog();
+            }
 
-            signup.ShowDialog();
         }
 
         private void btn_dangnhap_Click(object sender, EventArgs e)
@@ -55,7 +69,7 @@ namespace DuLich
 
             if (SystemQuery.AuthenticateUser(username, password))
             {
-                MessageBox.Show("Đăng nhập thành công!");
+                
 
                 if (switch_saveuser.Checked)
                 {
@@ -69,11 +83,25 @@ namespace DuLich
                     Properties.Settings.Default.Save();
                 }
 
-                this.Hide();
 
-                TrangChu trangchu = new TrangChu();
+                if (rb_usertype.Checked)
+                {
+                    Hide();
+                    TrangChu trangchu = new TrangChu(SystemQuery.getIDFromAuth(username, password));
 
-                trangchu.ShowDialog();
+                    trangchu.ShowDialog();
+                } else if (SystemQuery.getIDFromAuth(username, password).Contains("A"))
+                {
+                    Hide();
+                    TrangChuAdmin trangChuAdmin = new TrangChuAdmin();
+
+                    trangChuAdmin.ShowDialog();
+                } else
+                {
+                    MessageBox.Show("Tài khoản của bạn không phải là quản lý!", "Đăng nhập thất bại!");
+                    return;
+                }
+
             }
             else
             {
@@ -111,7 +139,7 @@ namespace DuLich
         {
             this.Hide();
 
-            ForgotPassword forgotPassword = new ForgotPassword();
+            QuenMatKhau forgotPassword = new QuenMatKhau();
 
             forgotPassword.ShowDialog();
         }

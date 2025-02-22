@@ -12,9 +12,20 @@ namespace DuLich
 {
     public partial class HoaDon : Form
     {
-        public HoaDon()
+        public HoaDon(string ID_TaiKhoan)
         {
             InitializeComponent();
+            this.ID_TaiKhoan = ID_TaiKhoan;
+        }
+
+        string ID_TaiKhoan;
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            Hide();
+
+            TrangChu trangchu = new TrangChu(ID_TaiKhoan);
+            trangchu.ShowDialog();
         }
     }
 }

@@ -167,26 +167,68 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DangKyAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DangKyAdmin.Designer.cs">
+      <DependentUpon>DangKyAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseUtils\AdminQuery.cs" />
     <Compile Include="DatabaseUtils\SystemQuery.cs" />
     <Compile Include="DatabaseUtils\UserQuery.cs" />
-    <Compile Include="ForgotPassword.cs">
+    <Compile Include="NhapThongTinHanhKhach.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ForgotPassword.Designer.cs">
-      <DependentUpon>ForgotPassword.cs</DependentUpon>
+    <Compile Include="NhapThongTinHanhKhach.Designer.cs">
+      <DependentUpon>NhapThongTinHanhKhach.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChiTietVe.cs">
+    <Compile Include="QLKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChiTietVe.Designer.cs">
-      <DependentUpon>ChiTietVe.cs</DependentUpon>
+    <Compile Include="QLKhachHang.Designer.cs">
+      <DependentUpon>QLKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaoChuyenDiMoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaoChuyenDiMoi.Designer.cs">
+      <DependentUpon>TaoChuyenDiMoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThongTinNguoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongTinNguoiDung.Designer.cs">
+      <DependentUpon>ThongTinNguoiDung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuenMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuenMatKhau.Designer.cs">
+      <DependentUpon>QuenMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChiTietChuyenDi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiTietChuyenDi.Designer.cs">
+      <DependentUpon>ChiTietChuyenDi.cs</DependentUpon>
     </Compile>
     <Compile Include="DanhGia.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DanhGia.Designer.cs">
       <DependentUpon>DanhGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLTaiKhoan.Designer.cs">
+      <DependentUpon>QLTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLHuongDanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLHuongDanVien.Designer.cs">
+      <DependentUpon>QLHuongDanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="QLDanhGia.cs">
       <SubType>Form</SubType>
@@ -230,11 +272,11 @@
     <Compile Include="HoaDon.Designer.cs">
       <DependentUpon>HoaDon.cs</DependentUpon>
     </Compile>
-    <Compile Include="Thanhtoan.cs">
+    <Compile Include="ThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Thanhtoan.Designer.cs">
-      <DependentUpon>Thanhtoan.cs</DependentUpon>
+    <Compile Include="ThanhToan.Designer.cs">
+      <DependentUpon>ThanhToan.cs</DependentUpon>
     </Compile>
     <Compile Include="TrangChu.cs">
       <SubType>Form</SubType>
@@ -247,33 +289,48 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="User.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="User.Designer.cs">
-      <DependentUpon>User.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="DangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include=".Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+      <DependentUpon>DangNhap.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Signup.cs">
+    <Compile Include="DangKy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Signup.Designer.cs">
-      <DependentUpon>Signup.cs</DependentUpon>
+    <Compile Include="DangKy.Designer.cs">
+      <DependentUpon>DangKy.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils.cs" />
-    <EmbeddedResource Include="ChiTietVe.resx">
-      <DependentUpon>ChiTietVe.cs</DependentUpon>
+    <EmbeddedResource Include="ChiTietChuyenDi.resx">
+      <DependentUpon>ChiTietChuyenDi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DangKyAdmin.resx">
+      <DependentUpon>DangKyAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhGia.resx">
       <DependentUpon>DanhGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhapThongTinHanhKhach.resx">
+      <DependentUpon>NhapThongTinHanhKhach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLKhachHang.resx">
+      <DependentUpon>QLKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaoChuyenDiMoi.resx">
+      <DependentUpon>TaoChuyenDiMoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongTinNguoiDung.resx">
+      <DependentUpon>ThongTinNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLTaiKhoan.resx">
+      <DependentUpon>QLTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLHuongDanVien.resx">
+      <DependentUpon>QLHuongDanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLDanhGia.resx">
       <DependentUpon>QLDanhGia.cs</DependentUpon>
@@ -296,26 +353,23 @@
     <EmbeddedResource Include="HoaDon.resx">
       <DependentUpon>HoaDon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Thanhtoan.resx">
-      <DependentUpon>Thanhtoan.cs</DependentUpon>
+    <EmbeddedResource Include="ThanhToan.resx">
+      <DependentUpon>ThanhToan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="DangNhap.resx">
+      <DependentUpon>DangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Signup.resx">
-      <DependentUpon>Signup.cs</DependentUpon>
+    <EmbeddedResource Include="DangKy.resx">
+      <DependentUpon>DangKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TrangChu.resx">
       <DependentUpon>TrangChu.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User.resx">
-      <DependentUpon>User.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

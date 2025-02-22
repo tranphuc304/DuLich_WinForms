@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using admin;
 
 namespace DuLich
 {
@@ -18,7 +19,7 @@ namespace DuLich
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new QLTour());
+            Application.Run(new DangNhap());
 
             //if (string.IsNullOrEmpty(Properties.Settings.Default.username))
             //{

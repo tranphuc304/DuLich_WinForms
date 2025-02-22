@@ -71,4 +71,7 @@
   <ItemGroup>
     <RefactorLog Include="DuLichDatabase.refactorlog" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="DuLichDatabase.publish.xml" />
+  </ItemGroup>
 </Project>

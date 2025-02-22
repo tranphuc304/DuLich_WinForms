@@ -13,7 +13,7 @@ namespace DuLich
     {
         public static SqlConnection sqlcon = new SqlConnection(@"Data Source=MEANKHOIII;Initial Catalog=DuLichDatabase;Integrated Security=True");
 
-        public static bool RegisterUser(string username, string password)
+        public static bool RegisterAccount(string username, string password, string accountType)
         {
             string query = "IF NOT EXISTS (SELECT 1 FROM TaiKhoan WHERE Email = @Username) " +
                            "INSERT INTO TaiKhoan (ID_TaiKhoan, Email, MatKhau) VALUES (@UserId, @Username, HASHBYTES('SHA2_256', @Password));";
@@ -22,7 +22,7 @@ namespace DuLich
             {
                 using (SqlCommand cmd = new SqlCommand(query, sqlcon))
                 {
-                    cmd.Parameters.Add("@UserId", SqlDbType.NVarChar).Value = GenerateUserId();
+                    cmd.Parameters.Add("@UserId", SqlDbType.NVarChar).Value = GenerateAccountId(accountType);
                     cmd.Parameters.Add("@Username", SqlDbType.NVarChar).Value = username;
                     cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = password;
 
@@ -42,22 +42,24 @@ namespace DuLich
             }
         }
 
-        private static string GenerateUserId()
+        private static string GenerateAccountId(string accountType)
         {
-            string newId = "U0001"; // ID mặc định nếu chưa có tài khoản nào
-            string query = "SELECT MAX(ID_TaiKhoan) FROM TaiKhoan WHERE ID_TaiKhoan LIKE 'U%'";
+            string newId = accountType + "0001"; // ID mặc định nếu chưa có tài khoản nào
+            string query = "SELECT MAX(ID_TaiKhoan) FROM TaiKhoan WHERE ID_TaiKhoan LIKE @AccountType + '%'";
 
             try
             {
                 sqlcon.Open();
                 using (SqlCommand cmd = new SqlCommand(query, sqlcon))
                 {
+                    cmd.Parameters.Add("@AccountType", SqlDbType.NVarChar).Value = accountType;
+
                     object result = cmd.ExecuteScalar();
                     if (result != DBNull.Value && result != null)
                     {
                         string lastId = result.ToString(); // Ví dụ: "U0025"
                         int number = int.Parse(lastId.Substring(1)); // Lấy 4 số cuối
-                        newId = $"U{(number + 1):D4}"; // Tăng lên 1, giữ định dạng 4 chữ số
+                        newId = accountType + (number + 1).ToString("D4"); // Tăng lên 1, giữ định dạng 4 chữ số
                     }
                 }
             }
@@ -99,6 +101,40 @@ namespace DuLich
                 sqlcon.Close(); // Ensure the connection is closed
             }
         }
+
+        public static string getIDFromAuth(string username, string password)
+        {
+            string query = "SELECT ID_TaiKhoan FROM TaiKhoan WHERE Email = @Username AND MatKhau = HASHBYTES('SHA2_256', @Password)";
+            string userId = null; // Giá trị mặc định nếu không tìm thấy
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@Username", SqlDbType.NVarChar).Value = username;
+                    cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = password;
+
+                    sqlcon.Open();
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        userId = result.ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                sqlcon.Close(); // Đảm bảo kết nối được đóng lại
+            }
+
+            return userId; // Trả về ID nếu có, nếu không trả về null
+        }
+
 
         public static bool IsUsernameExists(string username)
         {

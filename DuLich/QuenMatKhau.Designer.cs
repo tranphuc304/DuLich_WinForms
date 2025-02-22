@@ -1,6 +1,6 @@
 ﻿namespace DuLich
 {
-    partial class ForgotPassword
+    partial class QuenMatKhau
     {
         /// <summary>
         /// Required designer variable.

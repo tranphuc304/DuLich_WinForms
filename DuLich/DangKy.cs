@@ -5,9 +5,9 @@ using System.Data;
 
 namespace DuLich
 {
-    public partial class Signup : Form
+    public partial class DangKy : Form
     {
-        public Signup()
+        public DangKy()
         {
             InitializeComponent();
         }
@@ -16,7 +16,7 @@ namespace DuLich
         {
             this.Hide();
 
-            Login login = new Login();
+            DangNhap login = new DangNhap();
 
             login.ShowDialog();
 
@@ -41,13 +41,13 @@ namespace DuLich
                 return;
             }
 
-            if (SystemQuery.RegisterUser(username, password))
+            if (SystemQuery.RegisterAccount(username, password, "U"))
             {
                 MessageBox.Show("Đăng ký thành công! Hãy đăng nhập lại!");
 
                 this.Hide();
 
-                Login login = new Login();
+                DangNhap login = new DangNhap();
 
                 login.ShowDialog();
             }
