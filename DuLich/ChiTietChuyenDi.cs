@@ -17,7 +17,7 @@ namespace DuLich
     {
         public ChiTietChuyenDi(string ID_TaiKhoan, string ID_ChuyenDi, DateTime ngayBatDau)
         {
-            this.ID_ChuyenDi = ID_TaiKhoan;
+            this.ID_TaiKhoan = ID_TaiKhoan;
             this.ID_ChuyenDi = ID_ChuyenDi;
             this.ngayBatDau = ngayBatDau;
 
@@ -76,7 +76,7 @@ namespace DuLich
         {
             Hide();
 
-            TaoChuyenDiMoi taoChuyenDiMoi = new TaoChuyenDiMoi();
+            TaoChuyenDiMoi taoChuyenDiMoi = new TaoChuyenDiMoi(ID_TaiKhoan, ID_ChuyenDi, ngayBatDau);
             taoChuyenDiMoi.ShowDialog();
 
             Show();

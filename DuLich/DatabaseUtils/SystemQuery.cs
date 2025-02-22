@@ -205,5 +205,40 @@ namespace DuLich
                 sqlcon.Close(); // Ensure the connection is closed
             }
         }
+
+        public static string GetEmailFromID(string ID_TaiKhoan)
+        {
+            string query = "SELECT Email FROM TaiKhoan WHERE ID_TaiKhoan = @IDTaiKhoan";
+            string email = null; // Giá trị mặc định nếu không tìm thấy
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@IDTaiKhoan", SqlDbType.NVarChar).Value = ID_TaiKhoan;
+
+                    sqlcon.Open();
+                    object result = cmd.ExecuteScalar();
+                    sqlcon.Close();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        email = result.ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close(); // Đảm bảo kết nối được đóng
+            }
+
+            return email; // Trả về Email hoặc null nếu không tìm thấy
+        }
+
     }
 }

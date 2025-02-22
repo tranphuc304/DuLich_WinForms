@@ -463,5 +463,134 @@ namespace DuLich.DatabaseUtils
             return gia * soLuong;
         }
 
+        public static void CapNhatTrangThaiDangKy(string maTaiKhoan, string maChuyenDi, DateTime ngayBatDau, string trangThaiMoi)
+        {
+            string query = @"
+        UPDATE DanhSachDangKy
+        SET TrangThai = @TrangThai
+        WHERE ID_TaiKhoan = @MaTaiKhoan AND ID_ChuyenDi = @MaChuyenDi AND NgayBatDau = @NgayBatDau";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@MaTaiKhoan", SqlDbType.NVarChar).Value = maTaiKhoan;
+                    cmd.Parameters.Add("@MaChuyenDi", SqlDbType.NVarChar).Value = maChuyenDi;
+                    cmd.Parameters.Add("@NgayBatDau", SqlDbType.Date).Value = ngayBatDau;
+                    cmd.Parameters.Add("@TrangThai", SqlDbType.NVarChar).Value = trangThaiMoi;
+
+                    sqlcon.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    sqlcon.Close();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Cập nhật trạng thái thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy bản ghi để cập nhật.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+
+        public static DataTable DanhSachDanhGia(string MaChuyenDi, DateTime NgayBatDau)
+        {
+            string query = @"
+        SELECT tt.Ten, dg.BinhLuan, dg.Sao 
+        FROM DanhGia dg
+        JOIN TaiKhoan tk ON dg.ID_TaiKhoan = tk.ID_TaiKhoan
+        JOIN ThongTinCaNhan tt ON tk.ID_TaiKhoan = tt.ID_TaiKhoan
+        WHERE dg.ID_ChuyenDi = @IDChuyenDi AND dg.NgayBatDau = @NgayBatDau;";
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@IDChuyenDi", SqlDbType.NVarChar).Value = MaChuyenDi;
+                    cmd.Parameters.Add("@NgayBatDau", SqlDbType.Date).Value = NgayBatDau;
+
+                    sqlcon.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Thêm cột vào DataTable
+                    dt.Columns.Add("Tên", typeof(string));
+                    dt.Columns.Add("Bình Luận", typeof(string));
+                    dt.Columns.Add("Sao", typeof(int));
+
+                    // Đọc dữ liệu và thêm vào DataTable
+                    while (reader.Read())
+                    {
+                        dt.Rows.Add(
+                            reader["Ten"].ToString(),
+                            reader["BinhLuan"].ToString(),
+                            Convert.ToInt32(reader["Sao"])
+                        );
+                    }
+
+                    reader.Close();
+                    sqlcon.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+
+            return dt;
+        }
+
+        public static void ThemDanhGia(string maTaiKhoan, string maChuyenDi, string binhLuan, int sao)
+        {
+            string query = @"
+        INSERT INTO DanhGia (ID_TaiKhoan, ID_ChuyenDi, BinhLuan, Sao)
+        VALUES (@IDTaiKhoan, @IDChuyenDi, @BinhLuan, @Sao);";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@IDTaiKhoan", SqlDbType.NVarChar).Value = maTaiKhoan;
+                    cmd.Parameters.Add("@IDChuyenDi", SqlDbType.NVarChar).Value = maChuyenDi;
+                    cmd.Parameters.Add("@BinhLuan", SqlDbType.NVarChar).Value = binhLuan ?? (object)DBNull.Value;
+                    cmd.Parameters.Add("@Sao", SqlDbType.Int).Value = sao;
+
+                    sqlcon.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    sqlcon.Close();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Thêm đánh giá thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể thêm đánh giá.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+        }
+
     }
 }

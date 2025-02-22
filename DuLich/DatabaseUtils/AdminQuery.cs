@@ -894,6 +894,1000 @@ namespace DuLich.DatabaseUtils
             }
         }
 
+        public static DataTable LoadAllTickets()
+        {
+            string query = "SELECT ID_ChuyenDi, NgayBatDau, CCCD, Ten, SDT FROM DanhSachDuKhach;";
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    sqlcon.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Thêm cột vào DataTable
+                    dt.Columns.Add("Mã Chuyến Đi", typeof(string));
+                    dt.Columns.Add("Ngày khởi hành", typeof(DateTime));
+                    dt.Columns.Add("CCCD", typeof(string));
+                    dt.Columns.Add("Tên Du khách", typeof(string));
+                    dt.Columns.Add("Số điện thoại", typeof(string));
+
+                    // Đọc dữ liệu và thêm vào DataTable
+                    while (reader.Read())
+                    {
+                        dt.Rows.Add(
+                            reader["ID_ChuyenDi"].ToString(),
+                            reader["NgayBatDau"],
+                            reader["CCCD"].ToString(),
+                            reader["Ten"].ToString(),
+                            reader["SDT"].ToString()
+                        );
+                    }
+
+                    reader.Close();
+                    sqlcon.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+
+            return dt;
+        }
+
+        public static DataTable LoadTickets(string IDTour, DateTime date)
+        {
+            string query = "SELECT ID_ChuyenDi, NgayBatDau, CCCD, Ten, SDT FROM DanhSachDuKhach WHERE ID_ChuyenDi = @IDChuyenDi AND NgayBatDau = @NgayBatDau";
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@IDChuyenDi", SqlDbType.NVarChar).Value = IDTour;
+                    cmd.Parameters.Add("@NgayBatDau", SqlDbType.Date).Value = date;
+
+                    sqlcon.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Thêm cột vào DataTable
+                    dt.Columns.Add("Mã Chuyến Đi", typeof(string));
+                    dt.Columns.Add("Ngày khởi hành", typeof(DateTime));
+                    dt.Columns.Add("CCCD", typeof(string));
+                    dt.Columns.Add("Tên Du khách", typeof(string));
+                    dt.Columns.Add("Số điện thoại", typeof(string));
+
+                    // Đọc dữ liệu và thêm vào DataTable
+                    while (reader.Read())
+                    {
+                        dt.Rows.Add(
+                            reader["ID_ChuyenDi"].ToString(),
+                            reader["NgayBatDau"],
+                            reader["CCCD"].ToString(),
+                            reader["Ten"].ToString(),
+                            reader["SDT"].ToString()
+                        );
+                    }
+
+                    reader.Close();
+                    sqlcon.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+
+            return dt;
+        }
+
+        public static DataTable CountTickets(string IDTour, DateTime date)
+        {
+            string query = @"
+        SELECT 
+            COUNT(*) AS SoLuongHienTai, 
+            (SELECT SoLuong FROM ChuyenDi WHERE ID_ChuyenDi = @IDChuyenDi) AS SoLuongToiDa
+        FROM DanhSachDuKhach
+        WHERE ID_ChuyenDi = @IDChuyenDi AND NgayBatDau = @NgayBatDau;";
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@IDChuyenDi", SqlDbType.NVarChar).Value = IDTour;
+                    cmd.Parameters.Add("@NgayBatDau", SqlDbType.Date).Value = date;
+
+                    sqlcon.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Thêm cột vào DataTable
+                    dt.Columns.Add("Số lượng hiện tại", typeof(int));
+                    dt.Columns.Add("Số lượng tối đa", typeof(int));
+
+                    // Đọc dữ liệu và thêm vào DataTable
+                    while (reader.Read())
+                    {
+                        dt.Rows.Add(
+                            Convert.ToInt32(reader["SoLuongHienTai"]),
+                            Convert.ToInt32(reader["SoLuongToiDa"])
+                        );
+                    }
+
+                    reader.Close();
+                    sqlcon.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+
+            return dt;
+        }
+
+        public static DataTable LoadDateFollowTours(string maChuyenDi)
+        {
+            string query = @"
+        SELECT DISTINCT NgayBatDau 
+        FROM DanhSachDuKhach 
+        WHERE ID_ChuyenDi = @IDChuyenDi 
+        ORDER BY NgayBatDau;";
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@IDChuyenDi", SqlDbType.NVarChar).Value = maChuyenDi;
+
+                    sqlcon.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Thêm cột vào DataTable
+                    dt.Columns.Add("Ngày khởi hành", typeof(DateTime));
+
+                    // Đọc dữ liệu và thêm vào DataTable
+                    while (reader.Read())
+                    {
+                        dt.Rows.Add(Convert.ToDateTime(reader["NgayBatDau"]));
+                    }
+
+                    reader.Close();
+                    sqlcon.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+
+            return dt;
+        }
+
+        public static void DeletePassenger(string iDTour, DateTime startDay, string CCCD)
+        {
+            string query = @"
+        DELETE FROM DanhSachDuKhach 
+        WHERE ID_ChuyenDi = @IDChuyenDi AND NgayBatDau = @NgayBatDau AND CCCD = @CCCD;";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@IDChuyenDi", SqlDbType.NVarChar).Value = iDTour;
+                    cmd.Parameters.Add("@NgayBatDau", SqlDbType.Date).Value = startDay;
+                    cmd.Parameters.Add("@CCCD", SqlDbType.NVarChar).Value = CCCD;
+
+                    sqlcon.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    sqlcon.Close();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Xóa hành khách thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy hành khách để xóa.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+        }
+
+
+        public static void AddPassenger(string iDTour, DateTime startDay, string CCCD, string name, string sdt)
+        {
+            string query = @"
+        INSERT INTO DanhSachDuKhach (ID_ChuyenDi, NgayBatDau, CCCD, Ten, SDT) 
+        VALUES (@IDChuyenDi, @NgayBatDau, @CCCD, @Ten, @SDT);";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@IDChuyenDi", SqlDbType.NVarChar).Value = iDTour;
+                    cmd.Parameters.Add("@NgayBatDau", SqlDbType.Date).Value = startDay;
+                    cmd.Parameters.Add("@CCCD", SqlDbType.NVarChar).Value = CCCD;
+                    cmd.Parameters.Add("@Ten", SqlDbType.NVarChar).Value = name;
+                    cmd.Parameters.Add("@SDT", SqlDbType.NVarChar).Value = sdt;
+
+                    sqlcon.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    sqlcon.Close();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Thêm hành khách thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể thêm hành khách.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+        }
+
+        public static DataTable FindPassenger(string id, DateTime ngaydi, string cccd, string name, string sdt)
+        {
+            string query = @"
+        SELECT ID_ChuyenDi, NgayBatDau, CCCD, Ten, SDT 
+        FROM DanhSachDuKhach
+        WHERE (@IDChuyenDi = '' OR ID_ChuyenDi = @IDChuyenDi)
+        AND (@NgayBatDau = '0001-01-01' OR NgayBatDau = @NgayBatDau)
+        AND (@CCCD = '' OR CCCD = @CCCD)
+        AND (@Ten = '' OR Ten = @Ten)
+        AND (@SDT = '' OR SDT = @SDT);";
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@IDChuyenDi", SqlDbType.NVarChar).Value = id;
+                    cmd.Parameters.Add("@NgayBatDau", SqlDbType.Date).Value = (ngaydi == new DateTime(1, 1, 1)) ? DBNull.Value : (object)ngaydi;
+                    cmd.Parameters.Add("@CCCD", SqlDbType.NVarChar).Value = cccd;
+                    cmd.Parameters.Add("@Ten", SqlDbType.NVarChar).Value = name;
+                    cmd.Parameters.Add("@SDT", SqlDbType.NVarChar).Value = sdt;
+
+                    sqlcon.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Thêm cột vào DataTable
+                    dt.Columns.Add("Mã Chuyến Đi", typeof(string));
+                    dt.Columns.Add("Ngày khởi hành", typeof(DateTime));
+                    dt.Columns.Add("CCCD", typeof(string));
+                    dt.Columns.Add("Tên Du khách", typeof(string));
+                    dt.Columns.Add("Số điện thoại", typeof(string));
+
+                    // Đọc dữ liệu và thêm vào DataTable
+                    while (reader.Read())
+                    {
+                        dt.Rows.Add(
+                            reader["ID_ChuyenDi"].ToString(),
+                            reader["NgayBatDau"],
+                            reader["CCCD"].ToString(),
+                            reader["Ten"].ToString(),
+                            reader["SDT"].ToString()
+                        );
+                    }
+
+                    reader.Close();
+                    sqlcon.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+
+            return dt;
+        }
+
+        public static DataTable GetDataRequest()
+        {
+            string query = "SELECT ID_TaiKhoan, ID_ChuyenDi, NgayBatDau, SoLuong FROM YeuCau;";
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    sqlcon.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Thêm cột vào DataTable
+                    dt.Columns.Add("Mã tài khoản", typeof(string));
+                    dt.Columns.Add("Mã chuyến đi", typeof(string));
+                    dt.Columns.Add("Ngày bắt đầu", typeof(DateTime));
+                    dt.Columns.Add("Số lượng", typeof(int));
+
+                    // Đọc dữ liệu và thêm vào DataTable
+                    while (reader.Read())
+                    {
+                        dt.Rows.Add(
+                            reader["ID_TaiKhoan"].ToString(),
+                            reader["ID_ChuyenDi"].ToString(),
+                            Convert.ToDateTime(reader["NgayBatDau"]),
+                            Convert.ToInt32(reader["SoLuong"])
+                        );
+                    }
+
+                    reader.Close();
+                    sqlcon.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+
+            return dt;
+        }
+
+        public static void DeleteRequest(string matk, string macd, DateTime ngaydi)
+        {
+            string query = @"
+        DELETE FROM YeuCau 
+        WHERE ID_TaiKhoan = @IDTaiKhoan AND ID_ChuyenDi = @IDChuyenDi AND NgayBatDau = @NgayBatDau;";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@IDTaiKhoan", SqlDbType.NVarChar).Value = matk;
+                    cmd.Parameters.Add("@IDChuyenDi", SqlDbType.NVarChar).Value = macd;
+                    cmd.Parameters.Add("@NgayBatDau", SqlDbType.Date).Value = ngaydi;
+
+                    sqlcon.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    sqlcon.Close();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Xóa yêu cầu thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy yêu cầu để xóa.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+        }
+
+        public static DataTable GetDataEmail()
+        {
+            string query = "SELECT Email FROM TaiKhoan;";
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    sqlcon.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Thêm cột vào DataTable
+                    dt.Columns.Add("Email", typeof(string));
+
+                    // Đọc dữ liệu và thêm vào DataTable
+                    while (reader.Read())
+                    {
+                        dt.Rows.Add(reader["Email"].ToString());
+                    }
+
+                    reader.Close();
+                    sqlcon.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+
+            return dt;
+        }
+
+        public static string GetIDAccount(string email)
+        {
+            string query = "SELECT ID_TaiKhoan FROM TaiKhoan WHERE Email = @Email;";
+            string idTaiKhoan = null;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = email;
+
+                    sqlcon.Open();
+                    object result = cmd.ExecuteScalar();
+                    sqlcon.Close();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        idTaiKhoan = result.ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+
+            return idTaiKhoan;
+        }
+
+        public static DataTable GetAllDataAccount()
+        {
+            string query = "SELECT Email, MatKhau, ID_TaiKhoan FROM TaiKhoan;";
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    sqlcon.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    dt.Columns.Add("Email", typeof(string));
+                    dt.Columns.Add("Mật khẩu", typeof(string));
+                    dt.Columns.Add("Mã tài khoản", typeof(string));
+
+                    while (reader.Read())
+                    {
+                        dt.Rows.Add(
+                            reader["Email"].ToString(),
+                            reader["MatKhau"].ToString(),
+                            reader["ID_TaiKhoan"].ToString()
+                        );
+                    }
+
+                    reader.Close();
+                    sqlcon.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+
+            return dt;
+        }
+
+        public static DataTable GetDataPersonal(string matk)
+        {
+            string query = "SELECT ID_TaiKhoan, Ten, SDT, DiaChi FROM ThongTinCaNhan WHERE ID_TaiKhoan = @IDTaiKhoan;";
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@IDTaiKhoan", SqlDbType.NVarChar).Value = matk;
+
+                    sqlcon.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    dt.Columns.Add("Mã tài khoản", typeof(string));
+                    dt.Columns.Add("Tên", typeof(string));
+                    dt.Columns.Add("SDT", typeof(string));
+                    dt.Columns.Add("Địa chỉ", typeof(string));
+
+                    while (reader.Read())
+                    {
+                        dt.Rows.Add(
+                            reader["ID_TaiKhoan"].ToString(),
+                            reader["Ten"].ToString(),
+                            reader["SDT"].ToString(),
+                            reader["DiaChi"].ToString()
+                        );
+                    }
+
+                    reader.Close();
+                    sqlcon.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+
+            return dt;
+        }
+
+        public static void AddAccount(string email, string mk, string matk)
+        {
+            string query = "INSERT INTO TaiKhoan (Email, MatKhau, ID_TaiKhoan) VALUES (@Email, @MatKhau, @IDTaiKhoan);";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = email;
+                    cmd.Parameters.Add("@MatKhau", SqlDbType.NVarChar).Value = mk;
+                    cmd.Parameters.Add("@IDTaiKhoan", SqlDbType.NVarChar).Value = matk;
+
+                    sqlcon.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    sqlcon.Close();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Thêm tài khoản thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể thêm tài khoản.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+        }
+
+        public static bool Is_Account_Exist(string email)
+        {
+            string query = "SELECT COUNT(*) FROM TaiKhoan WHERE Email = @Email;";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = email;
+
+                    sqlcon.Open();
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    sqlcon.Close();
+
+                    return count > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+        }
+
+        public static void DeleteAccount(string email, string matk)
+        {
+            string query1 = "DELETE FROM ThongTinCaNhan WHERE ID_TaiKhoan = @IDTaiKhoan;";
+            string query2 = "DELETE FROM TaiKhoan WHERE Email = @Email AND ID_TaiKhoan = @IDTaiKhoan;";
+
+            try
+            {
+                using (SqlCommand cmd1 = new SqlCommand(query1, sqlcon))
+                {
+                    cmd1.Parameters.Add("@IDTaiKhoan", SqlDbType.NVarChar).Value = matk;
+                    sqlcon.Open();
+                    cmd1.ExecuteNonQuery();
+                    sqlcon.Close();
+                }
+
+                using (SqlCommand cmd2 = new SqlCommand(query2, sqlcon))
+                {
+                    cmd2.Parameters.Add("@Email", SqlDbType.NVarChar).Value = email;
+                    cmd2.Parameters.Add("@IDTaiKhoan", SqlDbType.NVarChar).Value = matk;
+
+                    sqlcon.Open();
+                    int rowsAffected = cmd2.ExecuteNonQuery();
+                    sqlcon.Close();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Xóa tài khoản thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy tài khoản để xóa.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+        }
+
+        public static DataTable GetDataJoinTour(string matk)
+        {
+            string query = @"
+        SELECT ID_TaiKhoan, ID_ChuyenDi, NgayBatDau, SoLuong, TrangThai
+        FROM DanhSachDangKy
+        WHERE ID_TaiKhoan = @IDTaiKhoan;";
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@IDTaiKhoan", SqlDbType.NVarChar).Value = matk;
+
+                    sqlcon.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Thêm cột vào DataTable
+                    dt.Columns.Add("Mã tài khoản", typeof(string));
+                    dt.Columns.Add("Mã chuyến đi", typeof(string));
+                    dt.Columns.Add("Ngày bắt đầu", typeof(DateTime));
+                    dt.Columns.Add("Số Lượng", typeof(int));
+                    dt.Columns.Add("Trạng thái", typeof(string));
+
+                    // Đọc dữ liệu và thêm vào DataTable
+                    while (reader.Read())
+                    {
+                        dt.Rows.Add(
+                            reader["ID_TaiKhoan"].ToString(),
+                            reader["ID_ChuyenDi"].ToString(),
+                            Convert.ToDateTime(reader["NgayBatDau"]),
+                            Convert.ToInt32(reader["SoLuong"]),
+                            reader["TrangThai"].ToString()
+                        );
+                    }
+
+                    reader.Close();
+                    sqlcon.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+
+            return dt;
+        }
+
+        public static bool Is_InfoPersonal_Exist(string matk)
+        {
+            string query = "SELECT COUNT(*) FROM ThongTinCaNhan WHERE ID_TaiKhoan = @IDTaiKhoan;";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@IDTaiKhoan", SqlDbType.NVarChar).Value = matk;
+
+                    sqlcon.Open();
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    sqlcon.Close();
+
+                    return count > 0; // Trả về true nếu có ít nhất 1 dòng
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+        }
+
+        public static void AddInfoPersonal(string matk, string ten, string sdt, string diachi)
+        {
+            string query = @"
+        INSERT INTO ThongTinCaNhan (ID_TaiKhoan, Ten, SDT, DiaChi, Email) 
+        VALUES (@IDTaiKhoan, @Ten, @SDT, @DiaChi, @Email);";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@IDTaiKhoan", SqlDbType.NVarChar).Value = matk;
+                    cmd.Parameters.Add("@Ten", SqlDbType.NVarChar).Value = ten;
+                    cmd.Parameters.Add("@SDT", SqlDbType.NVarChar).Value = sdt;
+                    cmd.Parameters.Add("@DiaChi", SqlDbType.NVarChar).Value = diachi;
+
+                    sqlcon.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    sqlcon.Close();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Thêm thông tin cá nhân thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể thêm thông tin cá nhân.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+        }
+
+        public static void UpdateInfoPersonal(string matk, string ten, string sdt, string diachi)
+        {
+            string query = @"
+        UPDATE ThongTinCaNhan 
+        SET Ten = @Ten, SDT = @SDT, DiaChi = @DiaChi, Email = @Email
+        WHERE ID_TaiKhoan = @IDTaiKhoan;";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@IDTaiKhoan", SqlDbType.NVarChar).Value = matk;
+                    cmd.Parameters.Add("@Ten", SqlDbType.NVarChar).Value = ten;
+                    cmd.Parameters.Add("@SDT", SqlDbType.NVarChar).Value = sdt;
+                    cmd.Parameters.Add("@DiaChi", SqlDbType.NVarChar).Value = diachi;
+
+                    sqlcon.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    sqlcon.Close();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Cập nhật thông tin cá nhân thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy tài khoản để cập nhật.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+        }
+
+        public static DataTable Load_dgvQLDanhGia()
+        {
+            string query = "SELECT ID_ChuyenDi, ID_TaiKhoan, SoSao, BinhLuan FROM DanhGia;";
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    sqlcon.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Thêm cột vào DataTable
+                    dt.Columns.Add("Mã Tour", typeof(string));
+                    dt.Columns.Add("Mã Tài Khoản", typeof(string));
+                    dt.Columns.Add("Số Sao", typeof(int));
+                    dt.Columns.Add("Bình Luận", typeof(string));
+
+                    // Đọc dữ liệu và thêm vào DataTable
+                    while (reader.Read())
+                    {
+                        dt.Rows.Add(
+                            reader["ID_ChuyenDi"].ToString(),
+                            reader["ID_TaiKhoan"].ToString(),
+                            Convert.ToInt32(reader["SoSao"]),
+                            reader["BinhLuan"].ToString()
+                        );
+                    }
+
+                    reader.Close();
+                    sqlcon.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+
+            return dt;
+        }
+
+        public static DataTable FilterRate(string IDTour)
+        {
+            string query = @"
+        SELECT ID_ChuyenDi, ID_TaiKhoan, SoSao, BinhLuan
+        FROM DanhGia
+        WHERE ID_ChuyenDi = @IDChuyenDi;";
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@IDChuyenDi", SqlDbType.NVarChar).Value = IDTour;
+
+                    sqlcon.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Thêm cột vào DataTable
+                    dt.Columns.Add("Mã Tour", typeof(string));
+                    dt.Columns.Add("Mã Tài Khoản", typeof(string));
+                    dt.Columns.Add("Số Sao", typeof(int));
+                    dt.Columns.Add("Bình Luận", typeof(string));
+
+                    // Đọc dữ liệu và thêm vào DataTable
+                    while (reader.Read())
+                    {
+                        dt.Rows.Add(
+                            reader["ID_ChuyenDi"].ToString(),
+                            reader["ID_TaiKhoan"].ToString(),
+                            Convert.ToInt32(reader["SoSao"]),
+                            reader["BinhLuan"].ToString()
+                        );
+                    }
+
+                    reader.Close();
+                    sqlcon.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+
+            return dt;
+        }
+
+        public static string AvgRate(string IDTour)
+        {
+            string query = @"
+        SELECT AVG(SoSao) AS AvgSao
+        FROM DanhGia
+        WHERE ID_ChuyenDi = @IDChuyenDi;";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@IDChuyenDi", SqlDbType.NVarChar).Value = IDTour;
+
+                    sqlcon.Open();
+                    object result = cmd.ExecuteScalar();
+                    sqlcon.Close();
+
+                    if (result != DBNull.Value && result != null)
+                    {
+                        return Convert.ToDouble(result).ToString("0.00"); // Hiển thị 2 chữ số thập phân
+                    }
+                    else
+                    {
+                        return "0"; // Nếu không có đánh giá nào, trả về 0
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+                return "0";
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+        }
 
     }
 }

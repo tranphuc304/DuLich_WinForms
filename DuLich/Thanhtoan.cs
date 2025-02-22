@@ -31,8 +31,29 @@ namespace DuLich
         private void ThanhToan_Load(object sender, EventArgs e)
         {
             lbl_matour.Text = maChuyenDi;
+            lbl_ngaybatdau.Text = ngayBatDau.ToString("dd/MM/yyyy");
             lbl_soluong.Text = soLuong.ToString();
             lbl_tongtien.Text = UserQuery.SoTienThanhToan(maChuyenDi, ngayBatDau, soLuong).ToString();
+        }
+
+        private void btn_xacnhan_Click(object sender, EventArgs e)
+        {
+            Hide();
+
+            UserQuery.CapNhatTrangThaiDangKy(maTaiKhoan, maChuyenDi, ngayBatDau, "Đã Thanh Toán");
+
+            HoaDon hoaDon = new HoaDon(maTaiKhoan, maChuyenDi, ngayBatDau, soLuong);
+            hoaDon.ShowDialog();
+
+            Close();
+        }
+
+        private void lbl_back_Click(object sender, EventArgs e)
+        {
+            ChiTietChuyenDi chiTietChuyenDi = new ChiTietChuyenDi(this.maTaiKhoan, this.maChuyenDi, this.ngayBatDau);
+            this.Hide();
+            chiTietChuyenDi.ShowDialog();
+            this.Close();
         }
     }
 }

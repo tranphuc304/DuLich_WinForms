@@ -49,6 +49,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_hoten = new Guna.UI2.WinForms.Guna2TextBox();
             this.pic_logo = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCCD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dshanhkhach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
@@ -121,6 +124,7 @@
             this.btn_xoa.Size = new System.Drawing.Size(123, 34);
             this.btn_xoa.TabIndex = 32;
             this.btn_xoa.Text = "Xóa";
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
             // btn_save
             // 
@@ -197,8 +201,12 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_dshanhkhach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgv_dshanhkhach.ColumnHeadersHeight = 4;
+            this.dgv_dshanhkhach.ColumnHeadersHeight = 20;
             this.dgv_dshanhkhach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgv_dshanhkhach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.hoten,
+            this.sdt,
+            this.CCCD});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -210,6 +218,7 @@
             this.dgv_dshanhkhach.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgv_dshanhkhach.Location = new System.Drawing.Point(34, 146);
             this.dgv_dshanhkhach.Name = "dgv_dshanhkhach";
+            this.dgv_dshanhkhach.ReadOnly = true;
             this.dgv_dshanhkhach.RowHeadersVisible = false;
             this.dgv_dshanhkhach.Size = new System.Drawing.Size(638, 239);
             this.dgv_dshanhkhach.TabIndex = 27;
@@ -225,8 +234,8 @@
             this.dgv_dshanhkhach.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgv_dshanhkhach.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgv_dshanhkhach.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgv_dshanhkhach.ThemeStyle.HeaderStyle.Height = 4;
-            this.dgv_dshanhkhach.ThemeStyle.ReadOnly = false;
+            this.dgv_dshanhkhach.ThemeStyle.HeaderStyle.Height = 20;
+            this.dgv_dshanhkhach.ThemeStyle.ReadOnly = true;
             this.dgv_dshanhkhach.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgv_dshanhkhach.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_dshanhkhach.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -234,6 +243,7 @@
             this.dgv_dshanhkhach.ThemeStyle.RowsStyle.Height = 22;
             this.dgv_dshanhkhach.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgv_dshanhkhach.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgv_dshanhkhach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_dshanhkhach_CellClick);
             // 
             // label4
             // 
@@ -334,6 +344,24 @@
             this.pic_logo.TabIndex = 9;
             this.pic_logo.TabStop = false;
             // 
+            // hoten
+            // 
+            this.hoten.HeaderText = "Họ và tên";
+            this.hoten.Name = "hoten";
+            this.hoten.ReadOnly = true;
+            // 
+            // sdt
+            // 
+            this.sdt.HeaderText = "Số điện thoại";
+            this.sdt.Name = "sdt";
+            this.sdt.ReadOnly = true;
+            // 
+            // CCCD
+            // 
+            this.CCCD.HeaderText = "CCCD";
+            this.CCCD.Name = "CCCD";
+            this.CCCD.ReadOnly = true;
+            // 
             // NhapThongTinHanhKhach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,6 +373,7 @@
             this.Name = "NhapThongTinHanhKhach";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PacificTravel - Nhập Thông Tin Hành Khách";
+            this.Load += new System.EventHandler(this.NhapThongTinHanhKhach_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dshanhkhach)).EndInit();
@@ -373,5 +402,8 @@
         private Guna.UI2.WinForms.Guna2Button btn_back;
         private Guna.UI2.WinForms.Guna2Button btn_thanhtoan;
         private System.Windows.Forms.Label lbl_count;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hoten;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sdt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCCD;
     }
 }

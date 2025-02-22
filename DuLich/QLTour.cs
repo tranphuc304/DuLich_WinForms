@@ -150,13 +150,13 @@ namespace DuLich
             this.txt_soluong.Text = dgv_dschuyendi.Rows[n].Cells[5].Value.ToString();
             // 4 Ảnh 
             string path = dgv_dschuyendi.Rows[n].Cells[6].Value.ToString();
-            this.picAnhBia.Image = Directory.Exists(path + "AnhBia.jpg") ? Image.FromFile(path + "AnhBia.jpg") : null;
+            this.picAnhBia.Image = File.Exists(path + "AnhBia.jpg") ? Image.FromFile(path + "AnhBia.jpg") : null;
             this.picAnhBia.SizeMode = PictureBoxSizeMode.StretchImage;
-            this.picAnh1.Image = Directory.Exists(path + "Anh1.jpg") ? Image.FromFile(path + "Anh1.jpg") : null;
+            this.picAnh1.Image = File.Exists(path + "Anh1.jpg") ? Image.FromFile(path + "Anh1.jpg") : null;
             this.picAnh1.SizeMode = PictureBoxSizeMode.StretchImage;
-            this.picAnh2.Image = Directory.Exists(path + "Anh2.jpg") ? Image.FromFile(path + "Anh2.jpg") : null;
+            this.picAnh2.Image = File.Exists(path + "Anh2.jpg") ? Image.FromFile(path + "Anh2.jpg") : null;
             this.picAnh2.SizeMode = PictureBoxSizeMode.StretchImage;
-            this.picAnh3.Image = Directory.Exists(path + "Anh3.jpg") ? Image.FromFile(path + "Anh3.jpg") : null;
+            this.picAnh3.Image = File.Exists(path + "Anh3.jpg") ? Image.FromFile(path + "Anh3.jpg") : null;
             this.picAnh3.SizeMode = PictureBoxSizeMode.StretchImage;
 
             this.path = "../../../Details/" + this.txt_matour.Text + "/";
