@@ -29,10 +29,6 @@ namespace DuLich
             {
 
                 dgvQLDanhGia.DataSource = AdminQuery.Load_dgvQLDanhGia();
-                dgvQLDanhGia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-                dgvQLDanhGia.AutoResizeColumns();
-                dgvQLDanhGia.AllowUserToResizeColumns = true;
-                dgvQLDanhGia.AllowUserToOrderColumns = true;
             }
             catch (Exception ex)
             {

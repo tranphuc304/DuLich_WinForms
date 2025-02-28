@@ -63,7 +63,6 @@ namespace DuLich
             
             Hide();
             chiTietChuyenDi.ShowDialog();
-            Show();
         }
 
         private void pic_account_Click(object sender, EventArgs e)

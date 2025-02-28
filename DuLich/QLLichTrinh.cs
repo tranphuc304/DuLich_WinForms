@@ -4,11 +4,14 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DuLich.DatabaseUtils;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace DuLich
 {
@@ -64,6 +67,15 @@ namespace DuLich
         {
             string maTour = this.cbb_matour_tlt.Text;
             DateTime ngayKhoiHanh = this.dtp_ngaykhoihanh_tlt.Value;
+
+            // Kiểm tra nếu ngày khởi hành nhỏ hơn ngày hiện tại
+            if (ngayKhoiHanh < DateTime.Now.Date)
+            {
+                MessageBox.Show("Ngày khởi hành không thể nhỏ hơn ngày hiện tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Dừng thực hiện nếu điều kiện không hợp lệ
+            }
+
+            // Thêm lịch trình nếu hợp lệ
             AdminQuery.themLichTrinh(maTour, ngayKhoiHanh);
             loadLichTrinh(DateTime.Now.Date, DateTime.Now.Date.AddMonths(1));
         }

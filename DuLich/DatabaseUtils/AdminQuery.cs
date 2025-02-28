@@ -155,22 +155,25 @@ namespace DuLich.DatabaseUtils
         public static DataTable getLichTrinh(DateTime fromdate, DateTime todate)
         {
             string query = @"
-        SELECT 
-            lt.ID_ChuyenDi,
-            lt.NgayBatDau,
-            lt.ID_HDV,
-            ISNULL(COUNT(dk.ID_ChuyenDi), 0) AS SoLuongNow,
-            cd.SoLuong
-        FROM 
-            LichTrinh lt
-        INNER JOIN 
-            ChuyenDi cd ON lt.ID_ChuyenDi = cd.ID_ChuyenDi
-        LEFT JOIN 
-            DanhSachDuKhach dk ON lt.ID_ChuyenDi = dk.ID_ChuyenDi AND lt.NgayBatDau = dk.NgayBatDau
-        WHERE 
-            lt.NgayBatDau >= @FromDate AND lt.NgayBatDau <= @ToDate
-        GROUP BY 
-            lt.ID_ChuyenDi, lt.NgayBatDau, lt.ID_HDV, cd.SoLuong";
+ SELECT 
+    lt.ID_ChuyenDi,
+    lt.NgayBatDau,
+    lt.ID_HDV,
+    COUNT(dk.ID_ChuyenDi) AS SoLuongNow,
+    cd.SoLuong
+FROM 
+    LichTrinh lt
+INNER JOIN 
+    ChuyenDi cd ON lt.ID_ChuyenDi = cd.ID_ChuyenDi
+LEFT JOIN 
+    DanhSachDuKhach dk 
+    ON lt.ID_ChuyenDi = dk.ID_ChuyenDi 
+    AND CAST(lt.NgayBatDau AS DATE) = CAST(dk.NgayBatDau AS DATE) -- Sửa lỗi so sánh ngày
+WHERE 
+    lt.NgayBatDau >= @FromDate AND lt.NgayBatDau <= @ToDate
+GROUP BY 
+    lt.ID_ChuyenDi, lt.NgayBatDau, lt.ID_HDV, cd.SoLuong;
+";
 
             DataTable dt = new DataTable();
 
@@ -711,7 +714,7 @@ namespace DuLich.DatabaseUtils
             return count > 0; // Nếu count > 0 thì hướng dẫn viên đã tồn tại
         }
 
-        public static void SaveOrUpdateHDV(string ID_HDV, string Ten, string SDT, string Email)
+        public static void SaveOrUpdateHDV(string ID_HDV, string HoTen, string SDT, string Email)
         {
             string query = @"
         MERGE INTO HuongDanVien AS target
@@ -730,7 +733,7 @@ namespace DuLich.DatabaseUtils
                 {
                     // Thêm tham số vào câu lệnh SQL
                     cmd.Parameters.Add("@ID_HDV", SqlDbType.NVarChar).Value = ID_HDV;
-                    cmd.Parameters.Add("@Ten", SqlDbType.NVarChar).Value = Ten;
+                    cmd.Parameters.Add("@Ten", SqlDbType.NVarChar).Value = HoTen;
                     cmd.Parameters.Add("@SDT", SqlDbType.NVarChar).Value = SDT;
                     cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = Email;
 
@@ -896,7 +899,22 @@ namespace DuLich.DatabaseUtils
 
         public static DataTable LoadAllTickets()
         {
-            string query = "SELECT ID_ChuyenDi, NgayBatDau, CCCD, Ten, SDT FROM DanhSachDuKhach;";
+            string query = @"
+        SELECT 
+            dukhach.ID_ChuyenDi, 
+            dukhach.NgayBatDau, 
+            dukhach.CCCD, 
+            dukhach.Ten, 
+            dukhach.SDT, 
+            hd.TrangThai 
+        FROM DanhSachDuKhach dukhach
+        LEFT JOIN DanhSachDangKy dsdk 
+            ON dukhach.ID_ChuyenDi = dsdk.ID_ChuyenDi 
+            AND dukhach.NgayBatDau = dsdk.NgayBatDau
+            AND dukhach.ID_TaiKhoan = dsdk.ID_TaiKhoan
+        LEFT JOIN HoaDon hd 
+            ON dsdk.ID_HoaDon = hd.ID_HoaDon;";
+
             DataTable dt = new DataTable();
 
             try
@@ -912,8 +930,9 @@ namespace DuLich.DatabaseUtils
                     dt.Columns.Add("CCCD", typeof(string));
                     dt.Columns.Add("Tên Du khách", typeof(string));
                     dt.Columns.Add("Số điện thoại", typeof(string));
+                    dt.Columns.Add("Trạng Thái", typeof(string)); // Thêm trạng thái
 
-                    // Đọc dữ liệu và thêm vào DataTable
+                    // Đọc dữ liệu từ SQL
                     while (reader.Read())
                     {
                         dt.Rows.Add(
@@ -921,7 +940,8 @@ namespace DuLich.DatabaseUtils
                             reader["NgayBatDau"],
                             reader["CCCD"].ToString(),
                             reader["Ten"].ToString(),
-                            reader["SDT"].ToString()
+                            reader["SDT"].ToString(),
+                            reader["TrangThai"] != DBNull.Value ? reader["TrangThai"].ToString() : "Chưa thanh toán" // Giá trị mặc định nếu NULL
                         );
                     }
 
@@ -941,6 +961,7 @@ namespace DuLich.DatabaseUtils
 
             return dt;
         }
+
 
         public static DataTable LoadTickets(string IDTour, DateTime date)
         {
@@ -1296,14 +1317,6 @@ namespace DuLich.DatabaseUtils
                     int rowsAffected = cmd.ExecuteNonQuery();
                     sqlcon.Close();
 
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Xóa yêu cầu thành công!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Không tìm thấy yêu cầu để xóa.");
-                    }
                 }
             }
             catch (Exception ex)
@@ -1433,7 +1446,7 @@ namespace DuLich.DatabaseUtils
 
         public static DataTable GetDataPersonal(string matk)
         {
-            string query = "SELECT ID_TaiKhoan, Ten, SDT, DiaChi FROM ThongTinCaNhan WHERE ID_TaiKhoan = @IDTaiKhoan;";
+            string query = "SELECT ID_TaiKhoan, HoTen, SDT, CCCD, DiaChi FROM ThongTinCaNhan WHERE ID_TaiKhoan = @IDTaiKhoan;";
             DataTable dt = new DataTable();
 
             try
@@ -1448,14 +1461,16 @@ namespace DuLich.DatabaseUtils
                     dt.Columns.Add("Mã tài khoản", typeof(string));
                     dt.Columns.Add("Tên", typeof(string));
                     dt.Columns.Add("SDT", typeof(string));
+                    dt.Columns.Add("CCCD", typeof(string));
                     dt.Columns.Add("Địa chỉ", typeof(string));
 
                     while (reader.Read())
                     {
                         dt.Rows.Add(
                             reader["ID_TaiKhoan"].ToString(),
-                            reader["Ten"].ToString(),
+                            reader["HoTen"].ToString(),
                             reader["SDT"].ToString(),
+                            reader["CCCD"].ToString(),
                             reader["DiaChi"].ToString()
                         );
                     }
@@ -1479,7 +1494,7 @@ namespace DuLich.DatabaseUtils
 
         public static void AddAccount(string email, string mk, string matk)
         {
-            string query = "INSERT INTO TaiKhoan (Email, MatKhau, ID_TaiKhoan) VALUES (@Email, @MatKhau, @IDTaiKhoan);";
+            string query = "INSERT INTO TaiKhoan (Email, MatKhau, ID_TaiKhoan) VALUES (@Email, HASHBYTES('SHA2_256', @MatKhau), @IDTaiKhoan);";
 
             try
             {
@@ -1591,7 +1606,7 @@ namespace DuLich.DatabaseUtils
         public static DataTable GetDataJoinTour(string matk)
         {
             string query = @"
-        SELECT ID_TaiKhoan, ID_ChuyenDi, NgayBatDau, SoLuong, TrangThai
+        SELECT ID_TaiKhoan, ID_ChuyenDi, NgayBatDau, SoLuong
         FROM DanhSachDangKy
         WHERE ID_TaiKhoan = @IDTaiKhoan;";
 
@@ -1611,7 +1626,6 @@ namespace DuLich.DatabaseUtils
                     dt.Columns.Add("Mã chuyến đi", typeof(string));
                     dt.Columns.Add("Ngày bắt đầu", typeof(DateTime));
                     dt.Columns.Add("Số Lượng", typeof(int));
-                    dt.Columns.Add("Trạng thái", typeof(string));
 
                     // Đọc dữ liệu và thêm vào DataTable
                     while (reader.Read())
@@ -1620,8 +1634,7 @@ namespace DuLich.DatabaseUtils
                             reader["ID_TaiKhoan"].ToString(),
                             reader["ID_ChuyenDi"].ToString(),
                             Convert.ToDateTime(reader["NgayBatDau"]),
-                            Convert.ToInt32(reader["SoLuong"]),
-                            reader["TrangThai"].ToString()
+                            Convert.ToInt32(reader["SoLuong"])
                         );
                     }
 
@@ -1671,24 +1684,25 @@ namespace DuLich.DatabaseUtils
             }
         }
 
-        public static void AddInfoPersonal(string matk, string ten, string sdt, string diachi)
+        public static void AddInfoPersonal(string matk, string ten, string sdt, string diachi, string CCCD)
         {
             string query = @"
-        INSERT INTO ThongTinCaNhan (ID_TaiKhoan, Ten, SDT, DiaChi, Email) 
-        VALUES (@IDTaiKhoan, @Ten, @SDT, @DiaChi, @Email);";
+    INSERT INTO ThongTinCaNhan (ID_TaiKhoan, HoTen, SDT, DiaChi, CCCD) 
+    VALUES (@IDTaiKhoan, @HoTen, @SDT, @DiaChi, @CCCD);";
 
             try
             {
                 using (SqlCommand cmd = new SqlCommand(query, sqlcon))
                 {
                     cmd.Parameters.Add("@IDTaiKhoan", SqlDbType.NVarChar).Value = matk;
-                    cmd.Parameters.Add("@Ten", SqlDbType.NVarChar).Value = ten;
-                    cmd.Parameters.Add("@SDT", SqlDbType.NVarChar).Value = sdt;
-                    cmd.Parameters.Add("@DiaChi", SqlDbType.NVarChar).Value = diachi;
+
+                    cmd.Parameters.Add("@HoTen", SqlDbType.NVarChar).Value = string.IsNullOrWhiteSpace(ten) ? (object)DBNull.Value : ten;
+                    cmd.Parameters.Add("@SDT", SqlDbType.NVarChar).Value = string.IsNullOrWhiteSpace(sdt) ? (object)DBNull.Value : sdt;
+                    cmd.Parameters.Add("@DiaChi", SqlDbType.NVarChar).Value = string.IsNullOrWhiteSpace(diachi) ? (object)DBNull.Value : diachi;
+                    cmd.Parameters.Add("@CCCD", SqlDbType.NVarChar).Value = string.IsNullOrWhiteSpace(CCCD) ? (object)DBNull.Value : CCCD;
 
                     sqlcon.Open();
                     int rowsAffected = cmd.ExecuteNonQuery();
-                    sqlcon.Close();
 
                     if (rowsAffected > 0)
                     {
@@ -1711,33 +1725,49 @@ namespace DuLich.DatabaseUtils
             }
         }
 
-        public static void UpdateInfoPersonal(string matk, string ten, string sdt, string diachi)
+        public static void UpdateInfoPersonal(string matk, string ten, string sdt, string diachi, string CCCD)
         {
-            string query = @"
+            string checkQuery = "SELECT COUNT(*) FROM ThongTinCaNhan WHERE ID_TaiKhoan = @IDTaiKhoan";
+            string insertQuery = @"
+        INSERT INTO ThongTinCaNhan (ID_TaiKhoan, HoTen, SDT, DiaChi, CCCD) 
+        VALUES (@IDTaiKhoan, @HoTen, @SDT, @DiaChi, @CCCD);";
+            string updateQuery = @"
         UPDATE ThongTinCaNhan 
-        SET Ten = @Ten, SDT = @SDT, DiaChi = @DiaChi, Email = @Email
+        SET HoTen = @HoTen, SDT = @SDT, DiaChi = @DiaChi, CCCD = @CCCD
         WHERE ID_TaiKhoan = @IDTaiKhoan;";
 
             try
             {
-                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                using (SqlCommand checkCmd = new SqlCommand(checkQuery, sqlcon))
                 {
-                    cmd.Parameters.Add("@IDTaiKhoan", SqlDbType.NVarChar).Value = matk;
-                    cmd.Parameters.Add("@Ten", SqlDbType.NVarChar).Value = ten;
-                    cmd.Parameters.Add("@SDT", SqlDbType.NVarChar).Value = sdt;
-                    cmd.Parameters.Add("@DiaChi", SqlDbType.NVarChar).Value = diachi;
+                    checkCmd.Parameters.Add("@IDTaiKhoan", SqlDbType.NVarChar).Value = matk;
 
                     sqlcon.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
+                    int count = (int)checkCmd.ExecuteScalar();
                     sqlcon.Close();
 
-                    if (rowsAffected > 0)
+                    string queryToExecute = count > 0 ? updateQuery : insertQuery;
+
+                    using (SqlCommand cmd = new SqlCommand(queryToExecute, sqlcon))
                     {
-                        MessageBox.Show("Cập nhật thông tin cá nhân thành công!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Không tìm thấy tài khoản để cập nhật.");
+                        cmd.Parameters.Add("@IDTaiKhoan", SqlDbType.NVarChar).Value = matk;
+                        cmd.Parameters.Add("@HoTen", SqlDbType.NVarChar).Value = ten;
+                        cmd.Parameters.Add("@SDT", SqlDbType.NVarChar).Value = sdt;
+                        cmd.Parameters.Add("@DiaChi", SqlDbType.NVarChar).Value = diachi;
+                        cmd.Parameters.Add("@CCCD", SqlDbType.NVarChar).Value = CCCD;
+
+                        sqlcon.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        sqlcon.Close();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show(count > 0 ? "Cập nhật thông tin thành công!" : "Thêm thông tin mới thành công!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không thể thực hiện thao tác.");
+                        }
                     }
                 }
             }
@@ -1751,6 +1781,7 @@ namespace DuLich.DatabaseUtils
                     sqlcon.Close();
             }
         }
+
 
         public static DataTable Load_dgvQLDanhGia()
         {
@@ -1887,6 +1918,366 @@ namespace DuLich.DatabaseUtils
                 if (sqlcon.State == ConnectionState.Open)
                     sqlcon.Close();
             }
+        }
+
+        public static DataTable LayDanhSachHoaDon()
+        {
+            string query = "SELECT ID_HoaDon, ID_TaiKhoan, ID_ChuyenDi, NgayBatDau, SoLuong, TongTien, TrangThai FROM HoaDon";
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    sqlcon.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Thêm cột vào DataTable
+                    dt.Columns.Add("Mã Hóa Đơn", typeof(int));
+                    dt.Columns.Add("Mã Tài Khoản", typeof(string));
+                    dt.Columns.Add("Mã Chuyến Đi", typeof(string));
+                    dt.Columns.Add("Ngày Bắt Đầu", typeof(DateTime));
+                    dt.Columns.Add("Số Lượng", typeof(int));
+                    dt.Columns.Add("Tổng Tiền", typeof(int));
+                    dt.Columns.Add("Trạng Thái Thanh Toán", typeof(string));
+
+                    // Đổ dữ liệu vào DataTable
+                    while (reader.Read())
+                    {
+                        dt.Rows.Add(
+                            reader["ID_HoaDon"],
+                            reader["ID_TaiKhoan"].ToString(),
+                            reader["ID_ChuyenDi"].ToString(),
+                            reader["NgayBatDau"],
+                            reader["SoLuong"],
+                            reader["TongTien"],
+                            reader["TrangThai"]
+                        );
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                sqlcon.Close(); // Đảm bảo đóng kết nối
+            }
+
+            return dt;
+        }
+
+        public static DataTable TimHoaDon(string maHoaDon, string maTaiKhoan, string maChuyenDi, DateTime? ngayKhoiHanh)
+        {
+            string query = "SELECT ID_HoaDon, ID_TaiKhoan, ID_ChuyenDi, NgayBatDau, SoLuong, TongTien FROM HoaDon WHERE 1=1";
+
+            List<SqlParameter> parameters = new List<SqlParameter>();
+
+            if (!string.IsNullOrEmpty(maHoaDon))
+            {
+                query += " AND ID_HoaDon = @ID_HoaDon";
+                parameters.Add(new SqlParameter("@ID_HoaDon", maHoaDon));
+            }
+
+            if (!string.IsNullOrEmpty(maTaiKhoan))
+            {
+                query += " AND ID_TaiKhoan = @ID_TaiKhoan";
+                parameters.Add(new SqlParameter("@ID_TaiKhoan", maTaiKhoan));
+            }
+
+            if (!string.IsNullOrEmpty(maChuyenDi))
+            {
+                query += " AND ID_ChuyenDi = @ID_ChuyenDi";
+                parameters.Add(new SqlParameter("@ID_ChuyenDi", maChuyenDi));
+            }
+
+            if (ngayKhoiHanh.HasValue)
+            {
+                query += " AND NgayBatDau = @NgayBatDau";
+                parameters.Add(new SqlParameter("@NgayBatDau", ngayKhoiHanh.Value));
+            }
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.AddRange(parameters.ToArray());
+
+                    sqlcon.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Thêm cột vào DataTable
+                    dt.Columns.Add("ID_HoaDon", typeof(int));
+                    dt.Columns.Add("ID_TaiKhoan", typeof(string));
+                    dt.Columns.Add("ID_ChuyenDi", typeof(string));
+                    dt.Columns.Add("NgayBatDau", typeof(DateTime));
+                    dt.Columns.Add("SoLuong", typeof(int));
+                    dt.Columns.Add("TongTien", typeof(int));
+
+                    // Đổ dữ liệu vào DataTable
+                    while (reader.Read())
+                    {
+                        dt.Rows.Add(
+                            reader["ID_HoaDon"],
+                            reader["ID_TaiKhoan"].ToString(),
+                            reader["ID_ChuyenDi"].ToString(),
+                            reader["NgayBatDau"],
+                            reader["SoLuong"],
+                            reader["TongTien"]
+                        );
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                sqlcon.Close(); // Đảm bảo đóng kết nối
+            }
+
+            return dt;
+        }
+
+        public static DataTable LayDanhSachDuKhach(string maTaiKhoan, string maChuyenDi, DateTime ngayBatDau)
+        {
+            string query = @"
+        SELECT
+            Ten,
+            SDT, 
+            CCCD
+        FROM DanhSachDuKhach
+        WHERE ID_TaiKhoan = @MaTaiKhoan AND ID_ChuyenDi = @MaChuyenDi AND NgayBatDau = @NgayBatDau";
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@MaTaiKhoan", SqlDbType.NVarChar).Value = maTaiKhoan;
+                    cmd.Parameters.Add("@MaChuyenDi", SqlDbType.NVarChar).Value = maChuyenDi;
+                    cmd.Parameters.Add("@NgayBatDau", SqlDbType.Date).Value = ngayBatDau;
+
+                    sqlcon.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Thêm cột vào DataTable trước khi duyệt dữ liệu
+                    dt.Columns.Add("Họ Tên", typeof(string));
+                    dt.Columns.Add("Số Điện Thoại", typeof(string));
+                    dt.Columns.Add("CCCD", typeof(string));
+
+                    // Đọc từng dòng và thêm vào DataTable
+                    while (reader.Read())
+                    {
+                        dt.Rows.Add(
+                            reader["Ten"].ToString(),
+                            reader["SDT"].ToString(),
+                            reader["CCCD"].ToString()
+                        );
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                sqlcon.Close();
+            }
+
+            return dt;
+        }
+
+        public static DataTable LayChiTietHoaDon(int maHoaDon)
+        {
+            string query = "SELECT ID_HoaDon, ID_TaiKhoan, ID_ChuyenDi, NgayBatDau, SoLuong, TongTien, TrangThai FROM HoaDon WHERE ID_HoaDon = @IDHoaDon";
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@IDHoaDon", SqlDbType.Int).Value = maHoaDon;
+
+                    sqlcon.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Thêm cột vào DataTable
+                    dt.Columns.Add("Mã Hóa Đơn", typeof(int));
+                    dt.Columns.Add("Mã Tài Khoản", typeof(string));
+                    dt.Columns.Add("Mã Chuyến Đi", typeof(string));
+                    dt.Columns.Add("Ngày Bắt Đầu", typeof(DateTime));
+                    dt.Columns.Add("Số Lượng", typeof(int));
+                    dt.Columns.Add("Tổng Tiền", typeof(int));
+                    dt.Columns.Add("Trạng Thái Thanh Toán", typeof(string));
+
+                    // Đổ dữ liệu vào DataTable
+                    while (reader.Read())
+                    {
+                        dt.Rows.Add(
+                            reader["ID_HoaDon"],
+                            reader["ID_TaiKhoan"].ToString(),
+                            reader["ID_ChuyenDi"].ToString(),
+                            reader["NgayBatDau"],
+                            reader["SoLuong"],
+                            reader["TongTien"],
+                            reader["TrangThai"]
+                        );
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                sqlcon.Close(); // Đảm bảo đóng kết nối
+            }
+
+            return dt;
+        }
+
+        public static string LayTrangThaiHoaDon(int idHoaDon)
+        {
+            string query = "SELECT TrangThai FROM HoaDon WHERE ID_HoaDon = @ID_HoaDon";
+            string trangThai = "";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@ID_HoaDon", SqlDbType.Int).Value = idHoaDon;
+
+                    sqlcon.Open();
+                    object result = cmd.ExecuteScalar(); // Lấy giá trị đầu tiên
+
+                    if (result != null)
+                    {
+                        trangThai = result.ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                sqlcon.Close();
+            }
+
+            return trangThai;
+        }
+
+        public static void ChuyenTrangThaiThanhToan(int idHoaDon)
+        {
+            string query = @"
+        UPDATE HoaDon
+        SET TrangThai = 
+            CASE 
+                WHEN TrangThai = N'Chưa Thanh Toán' THEN N'Đã Thanh Toán'
+                ELSE N'Chưa Thanh Toán'
+            END
+        WHERE ID_HoaDon = @ID_HoaDon";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@ID_HoaDon", SqlDbType.Int).Value = idHoaDon;
+
+                    sqlcon.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                sqlcon.Close();
+            }
+        }
+
+        public static bool DoiMaTaiKhoan(string maTaiKhoan)
+        {
+            // Xác định loại tài khoản mới (U -> A, A -> U)
+            string newType = maTaiKhoan.StartsWith("U") ? "A" : "U";
+
+            // Lấy số tài khoản mới theo loại mới
+            string newId = SystemQuery.GenerateAccountId(newType);
+
+            // Câu lệnh cập nhật ID_TaiKhoan
+            string query = @"
+        UPDATE TaiKhoan
+        SET ID_TaiKhoan = @NewId
+        WHERE ID_TaiKhoan = @MaTaiKhoan";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@NewId", SqlDbType.NVarChar).Value = newId;
+                    cmd.Parameters.Add("@MaTaiKhoan", SqlDbType.NVarChar).Value = maTaiKhoan;
+
+                    sqlcon.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0; // Trả về true nếu đổi thành công
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi đổi mã tài khoản: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                sqlcon.Close();
+            }
+        }
+
+        public static string GetTenChuyenDi(string idChuyenDi)
+        {
+            string query = "SELECT TenChuyenDi FROM ChuyenDi WHERE ID_ChuyenDi = @IDChuyenDi";
+            string tenChuyenDi = null;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@IDChuyenDi", SqlDbType.NVarChar).Value = idChuyenDi;
+
+                    sqlcon.Open();
+                    object result = cmd.ExecuteScalar();
+                    sqlcon.Close();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        tenChuyenDi = result.ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close();
+            }
+
+            return tenChuyenDi;
         }
 
     }

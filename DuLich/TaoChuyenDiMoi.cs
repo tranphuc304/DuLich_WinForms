@@ -42,9 +42,23 @@ namespace DuLich
             try
             {
                 DateTime ngayBatDau = dtp_ngaykhoihanh.Value;
+
+                if (ngayBatDau < DateTime.Now)
+                {
+                    MessageBox.Show("Ngày khởi hành phải lớn hơn ngày hiện tại!");
+
+                    return;
+                }
+
+                if (UserQuery.KiemTraLichTrinh(MaChuyenDi, ngayBatDau))
+                {
+                    MessageBox.Show("Ngày " + ngayBatDau.ToString("dd/MM/yyyy") + " đã có chuyến đi đó rồi!");
+
+                    return;
+                }
+
                 int soLuong = int.Parse(nud_soluong.Text);
-                UserQuery.ThemDanhSachDKy(this.MaTaiKhoan, this.MaChuyenDi, ngayBatDau, soLuong, "ChuaDuyet");
-                MessageBox.Show("Đã gửi yêu cầu thành công!");
+                UserQuery.AddYeuCau(this.MaTaiKhoan, this.MaChuyenDi, ngayBatDau, soLuong);
             }
             catch (Exception)
             {

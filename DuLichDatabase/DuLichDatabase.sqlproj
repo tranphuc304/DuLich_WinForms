@@ -67,6 +67,7 @@
     <Build Include="LichTrinh.sql" />
     <Build Include="DanhSachDuKhach.sql" />
     <Build Include="DanhGia.sql" />
+    <Build Include="HoaDon.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DuLichDatabase.refactorlog" />

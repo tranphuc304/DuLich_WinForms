@@ -33,7 +33,7 @@
             this.btn_nhan = new System.Windows.Forms.Button();
             this.btn_huy = new System.Windows.Forms.Button();
             this.dgv_yeucau = new System.Windows.Forms.DataGridView();
-            this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel7 = new System.Windows.Forms.Label();
             this.pic_logo = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbb_idacc = new System.Windows.Forms.ComboBox();
@@ -55,15 +55,16 @@
             this.pnl_phanhoi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_phanhoi.Controls.Add(this.btn_nhan);
             this.pnl_phanhoi.Controls.Add(this.btn_huy);
-            this.pnl_phanhoi.Location = new System.Drawing.Point(34, 625);
+            this.pnl_phanhoi.Location = new System.Drawing.Point(34, 632);
             this.pnl_phanhoi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_phanhoi.Name = "pnl_phanhoi";
-            this.pnl_phanhoi.Size = new System.Drawing.Size(520, 88);
+            this.pnl_phanhoi.Size = new System.Drawing.Size(520, 92);
             this.pnl_phanhoi.TabIndex = 61;
             // 
             // btn_nhan
             // 
             this.btn_nhan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(100)))), ((int)(((byte)(171)))));
+            this.btn_nhan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_nhan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_nhan.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_nhan.Location = new System.Drawing.Point(39, 14);
@@ -78,6 +79,7 @@
             // btn_huy
             // 
             this.btn_huy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(100)))), ((int)(((byte)(171)))));
+            this.btn_huy.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_huy.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_huy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_huy.Location = new System.Drawing.Point(279, 14);
@@ -91,6 +93,7 @@
             // 
             // dgv_yeucau
             // 
+            this.dgv_yeucau.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_yeucau.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgv_yeucau.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_yeucau.GridColor = System.Drawing.Color.Black;
@@ -108,9 +111,10 @@
             // 
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(567, 39);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(584, 41);
+            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(367, 39);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(389, 37);
             this.guna2HtmlLabel7.TabIndex = 63;
             this.guna2HtmlLabel7.Text = "QUẢN LÝ YÊU CẦU ĐẶT CHỖ";
             // 
@@ -119,7 +123,7 @@
             this.pic_logo.Image = ((System.Drawing.Image)(resources.GetObject("pic_logo.Image")));
             this.pic_logo.ImageRotate = 0F;
             this.pic_logo.Location = new System.Drawing.Point(34, 30);
-            this.pic_logo.Margin = new System.Windows.Forms.Padding(2);
+            this.pic_logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pic_logo.Name = "pic_logo";
             this.pic_logo.Size = new System.Drawing.Size(99, 48);
             this.pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -156,17 +160,18 @@
             // tb_tieude
             // 
             this.tb_tieude.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tb_tieude.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_tieude.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_tieude.Location = new System.Drawing.Point(107, 162);
             this.tb_tieude.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_tieude.Multiline = true;
             this.tb_tieude.Name = "tb_tieude";
-            this.tb_tieude.Size = new System.Drawing.Size(223, 38);
+            this.tb_tieude.Size = new System.Drawing.Size(256, 38);
             this.tb_tieude.TabIndex = 43;
             // 
             // btn_send
             // 
             this.btn_send.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(100)))), ((int)(((byte)(171)))));
+            this.btn_send.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_send.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_send.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_send.Location = new System.Drawing.Point(243, 554);
@@ -205,7 +210,7 @@
             // tb_noidung
             // 
             this.tb_noidung.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tb_noidung.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_noidung.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_noidung.Location = new System.Drawing.Point(19, 262);
             this.tb_noidung.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_noidung.Multiline = true;
@@ -241,15 +246,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(988, 748);
+            this.BackgroundImage = global::DuLich.Properties.Resources.z6332234645440_726f810a2378ccf071dc90942445f1e5;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(988, 743);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.guna2HtmlLabel7);
             this.Controls.Add(this.pic_logo);
             this.Controls.Add(this.pnl_phanhoi);
             this.Controls.Add(this.dgv_yeucau);
             this.ForeColor = System.Drawing.Color.Black;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "QLYeuCauDatCho";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -261,7 +269,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -271,7 +278,7 @@
         private System.Windows.Forms.Button btn_nhan;
         private System.Windows.Forms.Button btn_huy;
         private System.Windows.Forms.DataGridView dgv_yeucau;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
+        private System.Windows.Forms.Label guna2HtmlLabel7;
         private Guna.UI2.WinForms.Guna2PictureBox pic_logo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cbb_idacc;

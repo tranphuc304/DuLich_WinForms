@@ -13,7 +13,7 @@ namespace DuLich
 {
     public partial class ThanhToan : Form
     {
-        public ThanhToan(string maTaiKhoan, string maChuyenDi, DateTime ngayBatDau, int soLuong)
+        public ThanhToan(string maTaiKhoan, string maChuyenDi, DateTime ngayBatDau, int soLuong, DataTable dsHanhKhach)
         {
             InitializeComponent();
 
@@ -21,12 +21,14 @@ namespace DuLich
             this.maChuyenDi = maChuyenDi;
             this.ngayBatDau = ngayBatDau;
             this.soLuong = soLuong;
+            this.dsHanhKhach = dsHanhKhach;
         }
 
         private string maTaiKhoan;
         private string maChuyenDi;
         private DateTime ngayBatDau;
         private int soLuong;
+        private DataTable dsHanhKhach;
 
         private void ThanhToan_Load(object sender, EventArgs e)
         {
@@ -40,9 +42,20 @@ namespace DuLich
         {
             Hide();
 
-            UserQuery.CapNhatTrangThaiDangKy(maTaiKhoan, maChuyenDi, ngayBatDau, "Đã Thanh Toán");
+            foreach (DataRow row in dsHanhKhach.Rows) // Lặp qua từng dòng trong DataTable
+            {
+                string ten = row[0].ToString();  // Lấy dữ liệu từ cột "Ten"
+                string cccd = row[1].ToString(); // Lấy dữ liệu từ cột "CCCD"
+                string sdt = row[2].ToString();  // Lấy dữ liệu từ cột "SDT"
 
-            HoaDon hoaDon = new HoaDon(maTaiKhoan, maChuyenDi, ngayBatDau, soLuong);
+                UserQuery.ThemDuKhach(maChuyenDi, ngayBatDau, cccd, ten, sdt, maTaiKhoan);
+            }
+
+            UserQuery.InsertHoaDon(maTaiKhoan, maChuyenDi, ngayBatDau, soLuong, UserQuery.SoTienThanhToanInt(maChuyenDi, ngayBatDau, soLuong), "Chưa Thanh Toán");
+
+            UserQuery.ThemDSDangKy(maTaiKhoan, maChuyenDi, this.ngayBatDau, dsHanhKhach.Rows.Count, UserQuery.GetIDHoaDon(maTaiKhoan, maChuyenDi, ngayBatDau));
+
+            HoaDon hoaDon = new HoaDon(maTaiKhoan, maChuyenDi, ngayBatDau, soLuong, dsHanhKhach);
             hoaDon.ShowDialog();
 
             Close();

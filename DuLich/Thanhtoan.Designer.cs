@@ -32,6 +32,8 @@
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lbl_ngaybatdau = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.lbl_tongtien = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lbl_soluong = new System.Windows.Forms.Label();
@@ -40,8 +42,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lbl_back = new System.Windows.Forms.Label();
             this.btn_xacnhan = new Guna.UI2.WinForms.Guna2Button();
-            this.lbl_ngaybatdau = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
@@ -91,6 +91,26 @@
             this.guna2Panel1.ShadowDecoration.Enabled = true;
             this.guna2Panel1.Size = new System.Drawing.Size(289, 369);
             this.guna2Panel1.TabIndex = 9;
+            // 
+            // lbl_ngaybatdau
+            // 
+            this.lbl_ngaybatdau.AutoSize = true;
+            this.lbl_ngaybatdau.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ngaybatdau.Location = new System.Drawing.Point(146, 164);
+            this.lbl_ngaybatdau.Name = "lbl_ngaybatdau";
+            this.lbl_ngaybatdau.Size = new System.Drawing.Size(76, 21);
+            this.lbl_ngaybatdau.TabIndex = 17;
+            this.lbl_ngaybatdau.Text = "(startday)";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(28, 164);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(119, 21);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Ngày Bắt Đầu:";
             // 
             // lbl_tongtien
             // 
@@ -155,6 +175,7 @@
             // lbl_back
             // 
             this.lbl_back.AutoSize = true;
+            this.lbl_back.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_back.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_back.ForeColor = System.Drawing.Color.Red;
             this.lbl_back.Location = new System.Drawing.Point(41, 309);
@@ -166,6 +187,7 @@
             // 
             // btn_xacnhan
             // 
+            this.btn_xacnhan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_xacnhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_xacnhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_xacnhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -178,26 +200,6 @@
             this.btn_xacnhan.TabIndex = 8;
             this.btn_xacnhan.Text = "Xác Nhận";
             this.btn_xacnhan.Click += new System.EventHandler(this.btn_xacnhan_Click);
-            // 
-            // lbl_ngaybatdau
-            // 
-            this.lbl_ngaybatdau.AutoSize = true;
-            this.lbl_ngaybatdau.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ngaybatdau.Location = new System.Drawing.Point(146, 164);
-            this.lbl_ngaybatdau.Name = "lbl_ngaybatdau";
-            this.lbl_ngaybatdau.Size = new System.Drawing.Size(76, 21);
-            this.lbl_ngaybatdau.TabIndex = 17;
-            this.lbl_ngaybatdau.Text = "(startday)";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(28, 164);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 21);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Ngày Bắt Đầu:";
             // 
             // ThanhToan
             // 

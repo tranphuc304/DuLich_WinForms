@@ -39,7 +39,7 @@ namespace DuLich
             txt_soluongve_info.Text = dt.Rows[0][3].ToString();
             txt_giave_info.Text = dt.Rows[0][4].ToString();
             txt_sosao_info.Text = dt.Rows[0][5].ToString();
-            txt_ngaykhoihanh_info.Text = dt.Rows[0][6].ToString();
+            txt_ngaykhoihanh_info.Text = DateTime.Parse(dt.Rows[0][6].ToString()).ToString("dd/MM/yyyy");
             string path = dt.Rows[0][7].ToString();
             string contents = File.ReadAllText(path + "ChiTiet.txt");
             txt_chitiet.Text = contents;
@@ -66,10 +66,8 @@ namespace DuLich
         {
             Hide();
 
-            DanhGia danhGia = new DanhGia();
+            DanhGia danhGia = new DanhGia(ID_ChuyenDi, ID_TaiKhoan, ngayBatDau);
             danhGia.ShowDialog();
-
-            Show();
         }
 
         private void btn_newtour_Click(object sender, EventArgs e)
@@ -78,18 +76,22 @@ namespace DuLich
 
             TaoChuyenDiMoi taoChuyenDiMoi = new TaoChuyenDiMoi(ID_TaiKhoan, ID_ChuyenDi, ngayBatDau);
             taoChuyenDiMoi.ShowDialog();
-
-            Show();
         }
 
         private void btn_dattour_Click(object sender, EventArgs e)
         {
+            if (UserQuery.isInDSDangKy(ID_TaiKhoan, ID_ChuyenDi, ngayBatDau))
+            {
+                MessageBox.Show("Bạn đã đặt tour này rồi, hủy tour tại Trang Chủ > Tài Khoản > Danh Sách Vé!");
+
+                return;
+            }
+
             Hide();
 
             NhapThongTinHanhKhach nhapThongTinHanhKhach = new NhapThongTinHanhKhach(ID_TaiKhoan, ID_ChuyenDi, ngayBatDau);
             nhapThongTinHanhKhach.ShowDialog();
-
-            Show();
         }
+
     }
 }

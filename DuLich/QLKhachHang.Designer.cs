@@ -39,6 +39,7 @@
             // 
             // pic_logo
             // 
+            this.pic_logo.BackColor = System.Drawing.Color.Transparent;
             this.pic_logo.Image = global::DuLich.Properties.Resources.Logo;
             this.pic_logo.ImageRotate = 0F;
             this.pic_logo.Location = new System.Drawing.Point(11, 16);
@@ -52,6 +53,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(193, 23);
             this.label1.Name = "label1";
@@ -72,6 +74,7 @@
             // 
             // lbl_qlyeucau
             // 
+            this.lbl_qlyeucau.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_qlyeucau.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.lbl_qlyeucau.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.lbl_qlyeucau.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -87,6 +90,7 @@
             // 
             // btn_qltaikhoan
             // 
+            this.btn_qltaikhoan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_qltaikhoan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_qltaikhoan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_qltaikhoan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -104,6 +108,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::DuLich.Properties.Resources.z6332234645440_726f810a2378ccf071dc90942445f1e5;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(433, 269);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.label1);

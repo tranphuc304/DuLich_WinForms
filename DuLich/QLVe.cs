@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DuLich.DatabaseUtils;
@@ -34,10 +36,6 @@ namespace DuLich
         {
             try
             {
-                dgvTicket.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-                dgvTicket.AllowUserToResizeColumns = false;
-                dgvTicket.AllowUserToOrderColumns = false;
-                dgvTicket.AllowUserToResizeRows = false;
                 dgvTicket.DataSource = AdminQuery.LoadAllTickets();
             }
             catch (Exception)
@@ -160,5 +158,12 @@ namespace DuLich
         {
             this.dgvTicket.DataSource = AdminQuery.FindPassenger("", new DateTime(1, 1, 1), this.txtCCCD.Text, this.txtName.Text, this.txtSDT.Text);
         }
+
+        private void dgvTicket_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            Utils.CheckAndColorizeDataGridView(dgvTicket);
+        }
+
+
     }
 }

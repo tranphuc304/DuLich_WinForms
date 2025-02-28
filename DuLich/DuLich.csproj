@@ -4,6 +4,21 @@
     <SSDTUnitTestPath Condition="'$(SSDTUnitTestPath)' == ''">$(VsInstallRoot)\Common7\IDE\Extensions\Microsoft\SQLDB</SSDTUnitTestPath>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup>
     <SSDTPath Condition="'$(SSDTPath)' == ''">$(VsInstallRoot)\Common7\IDE\Extensions\Microsoft\SQLDB\DAC</SSDTPath>
@@ -167,20 +182,26 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DangKyAdmin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DangKyAdmin.Designer.cs">
-      <DependentUpon>DangKyAdmin.cs</DependentUpon>
-    </Compile>
     <Compile Include="DatabaseUtils\AdminQuery.cs" />
     <Compile Include="DatabaseUtils\SystemQuery.cs" />
     <Compile Include="DatabaseUtils\UserQuery.cs" />
+    <Compile Include="DoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoiMatKhau.Designer.cs">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="NhapThongTinHanhKhach.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NhapThongTinHanhKhach.Designer.cs">
       <DependentUpon>NhapThongTinHanhKhach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLHoaDon.Designer.cs">
+      <DependentUpon>QLHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="QLKhachHang.cs">
       <SubType>Form</SubType>
@@ -188,6 +209,13 @@
     <Compile Include="QLKhachHang.Designer.cs">
       <DependentUpon>QLKhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="QLTourVaLichTrinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLTourVaLichTrinh.Designer.cs">
+      <DependentUpon>QLTourVaLichTrinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="TaoChuyenDiMoi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,17 +336,23 @@
     <EmbeddedResource Include="ChiTietChuyenDi.resx">
       <DependentUpon>ChiTietChuyenDi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DangKyAdmin.resx">
-      <DependentUpon>DangKyAdmin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DanhGia.resx">
       <DependentUpon>DanhGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoiMatKhau.resx">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NhapThongTinHanhKhach.resx">
       <DependentUpon>NhapThongTinHanhKhach.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QLHoaDon.resx">
+      <DependentUpon>QLHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QLKhachHang.resx">
       <DependentUpon>QLKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLTourVaLichTrinh.resx">
+      <DependentUpon>QLTourVaLichTrinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TaoChuyenDiMoi.resx">
       <DependentUpon>TaoChuyenDiMoi.cs</DependentUpon>
@@ -482,7 +516,18 @@
     <Content Include="Resources\z6295814949681_388899d8a8b1bd110793f615bc992f49.jpg" />
     <None Include="Resources\z6295814949681_388899d8a8b1bd110793f615bc992f491.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <ItemGroup Condition="$(VisualStudioVersion) == '17.0'">
     <Reference Include="Microsoft.Data.Tools.Schema.Sql, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>$(SSDTPath)\Microsoft.Data.Tools.Schema.Sql.dll</HintPath>

@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DuLich;
 using DuLich.DatabaseUtils;
+using static System.Windows.Forms.AxHost;
 
 namespace admin
 {
@@ -17,22 +13,15 @@ namespace admin
 
         string Email;
         string MaTaiKhoan;
-        string MatKhau;
 
-        private enum Modify
-        {
-            Khong,
-            Them,
-            Sua
-        }
-        private Modify state;
         public QLTaiKhoan()
         {
             InitializeComponent();
-            state = Modify.Khong;
-            ChangeStateModify();
+            ResetInfo();
             Email = "";
             MaTaiKhoan = "";
+
+            deactiveButtons();
         }
         private void ResetTextPnlAccount()
         {
@@ -45,31 +34,34 @@ namespace admin
             tb_sdt.ResetText();
             tb_diachi.ResetText();
         }
-        private void ChangeStateModify()
+        private void ResetInfo()
         {
             ResetTextPnlAccount();
             ResetTextPnlInfo();
-            if (state == Modify.Khong || state == Modify.Them)
-            {
-                ResetTextPnlAccount();
-                ResetTextPnlInfo();
-                pnl_change_account.Enabled = state == Modify.Khong ? false : true;
-                pnl_change_info.Enabled = state == Modify.Khong ? false : true;
-            }
-            else
-            {
-                pnl_change_account.Enabled = false;
-                pnl_change_info.Enabled = true;
-            }
+
+            dgv_dangky.ReadOnly = false;
+            dgv_dangky.Rows.Clear();
+            dgv_dangky.ReadOnly = true;
         }
+
+        private void activeButtons()
+        {
+            btn_reset.Enabled = true;
+            btn_accxoa.Enabled = true;
+            btn_changeaccounttype.Enabled = true;
+        }
+
+        private void deactiveButtons()
+        {
+            btn_reset.Enabled = false;
+            btn_accxoa.Enabled = false;
+            btn_changeaccounttype.Enabled = false;
+        }
+
         private void LoadData()
         {
             try
             {
-                dgv_dataacc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-                dgv_dataacc.AutoResizeColumns();
-                dgv_dataacc.AllowUserToResizeColumns = false;
-                dgv_dataacc.AllowUserToOrderColumns = false;
                 dgv_dataacc.DataSource = AdminQuery.GetAllDataAccount();
                 dgv_dataacc.Columns["Mật khẩu"].Visible = false;
             }
@@ -91,51 +83,47 @@ namespace admin
                 if (AdminQuery.Is_InfoPersonal_Exist(dgv_dataacc.Rows[r].Cells[2].Value.ToString()))
                 {
                     DataTable data_per = AdminQuery.GetDataPersonal(dgv_dataacc.Rows[r].Cells[2].Value.ToString());
+
+                    if (data_per.Rows.Count == 0)
+                        return;
+
                     DataRow row_data = data_per.Rows[0];
                     lb_value_ten.Text = row_data[1].ToString();
                     lb_value_sdt.Text = row_data[2].ToString();
-                    lb_value_diachi.Text = row_data[3].ToString();
-                    lb_value_email.Text = row_data[4].ToString();
+                    lb_value_diachi.Text = row_data[4].ToString();
+                    lb_value_cccd.Text = row_data[3].ToString();
 
                     try
                     {
-                        dgv_dangky.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-                        dgv_dangky.AutoResizeColumns();
-                        dgv_dangky.AllowUserToResizeColumns = false;
-                        dgv_dangky.AllowUserToOrderColumns = false;
                         dgv_dangky.DataSource = AdminQuery.GetDataJoinTour(dgv_dataacc.Rows[r].Cells[2].Value.ToString());
                     }
                     catch (Exception)
                     {
                         MessageBox.Show("Không lấy được nội dung!");
                     }
-                    if (state == Modify.Sua)
-                    {
-                        tb_modify_tendn.Text = dgv_dataacc.Rows[r].Cells[0].Value.ToString();
-                        tb_modify_mk.Text = dgv_dataacc.Rows[r].Cells[1].Value.ToString();
 
-                        tb_ten.Text = row_data[1].ToString();
-                        tb_sdt.Text = row_data[2].ToString();
-                        tb_diachi.Text = row_data[3].ToString();
-                    }
+                    tb_modify_tendn.Text = dgv_dataacc.Rows[r].Cells[0].Value.ToString();
+                    tb_modify_mk.Text = dgv_dataacc.Rows[r].Cells[1].Value.ToString();
+
+                    tb_ten.Text = row_data[1].ToString();
+                    tb_sdt.Text = row_data[2].ToString();
+                    tb_cccd.Text = row_data[3].ToString();
+                    tb_diachi.Text = row_data[4].ToString();
                 }
-                else { MessageBox.Show("Chưa có thông tin người dùng!"); }
+                else
+                {
+                    tb_modify_tendn.Text = dgv_dataacc.Rows[r].Cells[0].Value.ToString();
+                    tb_modify_mk.Text = dgv_dataacc.Rows[r].Cells[1].Value.ToString();
+                }
 
                 Email = dgv_dataacc.Rows[r].Cells[0].Value.ToString();
                 MaTaiKhoan = dgv_dataacc.Rows[r].Cells[2].Value.ToString();
+
+                tb_modify_tendn.Enabled = false;
+                tb_modify_mk.Enabled = false;
+
+                activeButtons();
             }
-        }
-
-        private void btn_accthem_Click(object sender, EventArgs e)
-        {
-            state = Modify.Them;
-            ChangeStateModify();
-        }
-
-        private void btn_accsua_Click(object sender, EventArgs e)
-        {
-            state = Modify.Sua;
-            ChangeStateModify();
         }
 
         private void btn_accxoa_Click(object sender, EventArgs e)
@@ -149,6 +137,15 @@ namespace admin
                 {
                     AdminQuery.DeleteAccount(Email, MaTaiKhoan);
                     LoadData();
+
+                    ResetInfo();
+                    Email = "";
+                    MaTaiKhoan = "";
+
+                    tb_modify_tendn.Enabled = true;
+                    tb_modify_mk.Enabled = true;
+
+                    deactiveButtons();
                 }
             }
             else { MessageBox.Show("Bạn chưa chọn tài khoản muốn xóa!"); }
@@ -156,62 +153,71 @@ namespace admin
 
         private void btn_luu_Click(object sender, EventArgs e)
         {
-            if (state == Modify.Them)
+            if (!tb_modify_tendn.Text.Trim().Equals("") && !tb_modify_mk.Text.Trim().Equals(""))
             {
-                if (!tb_modify_tendn.Text.Trim().Equals("") && !tb_modify_mk.Text.Trim().Equals(""))
+                if (!AdminQuery.Is_Account_Exist(tb_modify_tendn.Text))
                 {
-                    if (!AdminQuery.Is_Account_Exist(tb_modify_tendn.Text))
+                    try
                     {
-                        try
-                        {
-                            SystemQuery.RegisterAccount(tb_modify_tendn.Text, tb_modify_mk.Text, "U");
-                            AdminQuery.AddInfoPersonal(AdminQuery.GetIDAccount(tb_modify_tendn.Text), tb_ten.Text, tb_sdt.Text, tb_diachi.Text);
-                        }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("Không thêm được. Lỗi rồi!!!");
-                        }
-                        state = Modify.Khong;
+                        SystemQuery.RegisterAccount(tb_modify_tendn.Text, tb_modify_mk.Text, "U");
+                        AdminQuery.AddInfoPersonal(AdminQuery.GetIDAccount(tb_modify_tendn.Text), tb_ten.Text, tb_sdt.Text, tb_diachi.Text, tb_cccd.Text);
                     }
-                    else MessageBox.Show("Tên đăng nhập đã tồn tại!");
-                }
-                else
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Không thêm được. Lỗi rồi!!!");
+                    }
+                } else
                 {
-                    MessageBox.Show("Vui lòng nhập Tên tài khoản và mật khẩu!");
+                    UserQuery.updateThongTinCaNhan(AdminQuery.GetIDAccount(tb_modify_tendn.Text), tb_ten.Text, tb_cccd.Text, tb_sdt.Text, tb_diachi.Text);
                 }
             }
-            else if (state == Modify.Sua)
+            else
             {
-                if (!tb_modify_tendn.Text.Trim().Equals("") && !tb_modify_mk.Text.Trim().Equals(""))
-                {
-                    if (AdminQuery.Is_Account_Exist(tb_modify_tendn.Text))
-                    {
-                        try
-                        {
-                            AdminQuery.UpdateInfoPersonal(MaTaiKhoan, tb_ten.Text, tb_sdt.Text, tb_diachi.Text);
-                        }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("Không sửa được. Lỗi rồi!!!");
-                        }
-                        state = Modify.Khong;
-                    }
-                    else MessageBox.Show("Tên đăng nhập không tồn tại!");
-                }
-                else MessageBox.Show("Chọn người dùng để thay đổi thông tin");
+                MessageBox.Show("Vui lòng nhập Tên tài khoản và mật khẩu!");
+            }
 
-            }
-            if (state == Modify.Khong)
-            {
-                ChangeStateModify();
-                LoadData();
-            }
+            ResetInfo();
+            LoadData();
         }
 
         private void btn_huy_Click(object sender, EventArgs e)
         {
-            state = Modify.Khong;
-            ChangeStateModify();
+            ResetInfo();
+            Email = "";
+            MaTaiKhoan = "";
+
+            tb_modify_tendn.Enabled = true;
+            tb_modify_mk.Enabled = true;
+
+            deactiveButtons();
+        }
+
+        private void btn_changeaccounttype_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult xacNhan;
+
+                xacNhan = MessageBox.Show("Bạn có chắc muốn thay đổi loại tài khoản sang: " + (MaTaiKhoan.Contains("A") ? "Admin" : "User") + " ?", "Thay đổi?",
+                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                if (xacNhan == DialogResult.Yes)
+                {
+                    AdminQuery.DoiMaTaiKhoan(MaTaiKhoan);
+
+                    LoadData();
+
+                    string newID = SystemQuery.GetIDFromEmail(Email);
+
+                    MessageBox.Show("Chuyển loại tài khoản thành công sang: " + (newID.Contains("A") ? "Admin" : "User"));
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

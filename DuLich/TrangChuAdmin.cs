@@ -22,8 +22,8 @@ namespace DuLich
         {
             Hide();
 
-            QLTour qLTour = new QLTour();
-            qLTour.ShowDialog();
+            QLTourVaLichTrinh qLTourVaLichTrinh = new QLTourVaLichTrinh();
+            qLTourVaLichTrinh.ShowDialog();
 
             Show();
         }
@@ -32,8 +32,8 @@ namespace DuLich
         {
             Hide();
 
-            QLLichTrinh qLLichTrinh = new QLLichTrinh();
-            qLLichTrinh.ShowDialog();
+            QLHoaDon qLHoaDon = new QLHoaDon();
+            qLHoaDon.ShowDialog();
 
             Show();
         }

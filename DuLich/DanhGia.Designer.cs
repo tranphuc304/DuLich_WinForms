@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhGia));
             this.pic_logo = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.nud_sosao = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.btnQuayLai = new System.Windows.Forms.Button();
             this.btnDanhGia = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -39,12 +40,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dgvCacDanhGia = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.nud_sosao = new Guna.UI2.WinForms.Guna2NumericUpDown();
-            this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCacDanhGia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_sosao)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCacDanhGia)).BeginInit();
             this.SuspendLayout();
             // 
             // pic_logo
@@ -52,10 +52,9 @@
             this.pic_logo.BackColor = System.Drawing.Color.White;
             this.pic_logo.Image = ((System.Drawing.Image)(resources.GetObject("pic_logo.Image")));
             this.pic_logo.ImageRotate = 0F;
-            this.pic_logo.Location = new System.Drawing.Point(23, 25);
-            this.pic_logo.Margin = new System.Windows.Forms.Padding(2);
+            this.pic_logo.Location = new System.Drawing.Point(34, 38);
             this.pic_logo.Name = "pic_logo";
-            this.pic_logo.Size = new System.Drawing.Size(99, 48);
+            this.pic_logo.Size = new System.Drawing.Size(148, 74);
             this.pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_logo.TabIndex = 9;
             this.pic_logo.TabStop = false;
@@ -63,6 +62,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.nud_sosao);
             this.panel2.Controls.Add(this.btnQuayLai);
             this.panel2.Controls.Add(this.btnDanhGia);
@@ -72,11 +72,27 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.dgvCacDanhGia);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(23, 80);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel2.Location = new System.Drawing.Point(34, 123);
+            this.panel2.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1006, 532);
+            this.panel2.Size = new System.Drawing.Size(1509, 818);
             this.panel2.TabIndex = 10;
+            // 
+            // nud_sosao
+            // 
+            this.nud_sosao.BackColor = System.Drawing.Color.Transparent;
+            this.nud_sosao.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nud_sosao.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.nud_sosao.Location = new System.Drawing.Point(1242, 542);
+            this.nud_sosao.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.nud_sosao.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.nud_sosao.Name = "nud_sosao";
+            this.nud_sosao.Size = new System.Drawing.Size(96, 55);
+            this.nud_sosao.TabIndex = 15;
             // 
             // btnQuayLai
             // 
@@ -85,10 +101,10 @@
             this.btnQuayLai.FlatAppearance.BorderSize = 0;
             this.btnQuayLai.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuayLai.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnQuayLai.Location = new System.Drawing.Point(867, 455);
-            this.btnQuayLai.Margin = new System.Windows.Forms.Padding(6);
+            this.btnQuayLai.Location = new System.Drawing.Point(1300, 700);
+            this.btnQuayLai.Margin = new System.Windows.Forms.Padding(9, 9, 9, 9);
             this.btnQuayLai.Name = "btnQuayLai";
-            this.btnQuayLai.Size = new System.Drawing.Size(110, 42);
+            this.btnQuayLai.Size = new System.Drawing.Size(165, 65);
             this.btnQuayLai.TabIndex = 14;
             this.btnQuayLai.Text = "Quay lại";
             this.btnQuayLai.UseVisualStyleBackColor = false;
@@ -101,10 +117,10 @@
             this.btnDanhGia.FlatAppearance.BorderSize = 2;
             this.btnDanhGia.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDanhGia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(100)))), ((int)(((byte)(171)))));
-            this.btnDanhGia.Location = new System.Drawing.Point(741, 455);
-            this.btnDanhGia.Margin = new System.Windows.Forms.Padding(6);
+            this.btnDanhGia.Location = new System.Drawing.Point(1112, 700);
+            this.btnDanhGia.Margin = new System.Windows.Forms.Padding(9, 9, 9, 9);
             this.btnDanhGia.Name = "btnDanhGia";
-            this.btnDanhGia.Size = new System.Drawing.Size(110, 42);
+            this.btnDanhGia.Size = new System.Drawing.Size(165, 65);
             this.btnDanhGia.TabIndex = 13;
             this.btnDanhGia.Text = "Đánh giá";
             this.btnDanhGia.UseVisualStyleBackColor = false;
@@ -114,10 +130,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(736, 352);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(1104, 542);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 25);
+            this.label5.Size = new System.Drawing.Size(101, 37);
             this.label5.TabIndex = 5;
             this.label5.Text = "Số sao:";
             // 
@@ -126,10 +142,10 @@
             this.rtbNhanXet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(239)))), ((int)(((byte)(247)))));
             this.rtbNhanXet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtbNhanXet.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbNhanXet.Location = new System.Drawing.Point(25, 352);
-            this.rtbNhanXet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rtbNhanXet.Location = new System.Drawing.Point(38, 542);
+            this.rtbNhanXet.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.rtbNhanXet.Name = "rtbNhanXet";
-            this.rtbNhanXet.Size = new System.Drawing.Size(699, 145);
+            this.rtbNhanXet.Size = new System.Drawing.Size(1046, 221);
             this.rtbNhanXet.TabIndex = 4;
             this.rtbNhanXet.Text = "";
             // 
@@ -137,10 +153,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(20, 322);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(30, 495);
+            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 25);
+            this.label4.Size = new System.Drawing.Size(129, 37);
             this.label4.TabIndex = 3;
             this.label4.Text = "Nhận xét:";
             // 
@@ -148,72 +164,60 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 273);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(30, 420);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 25);
+            this.label3.Size = new System.Drawing.Size(244, 37);
             this.label3.TabIndex = 2;
             this.label3.Text = "Đánh giá của bạn:";
             // 
             // dgvCacDanhGia
             // 
+            this.dgvCacDanhGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCacDanhGia.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvCacDanhGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCacDanhGia.Location = new System.Drawing.Point(25, 60);
-            this.dgvCacDanhGia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvCacDanhGia.Location = new System.Drawing.Point(38, 92);
+            this.dgvCacDanhGia.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.dgvCacDanhGia.Name = "dgvCacDanhGia";
+            this.dgvCacDanhGia.ReadOnly = true;
             this.dgvCacDanhGia.RowHeadersWidth = 51;
             this.dgvCacDanhGia.RowTemplate.Height = 24;
-            this.dgvCacDanhGia.Size = new System.Drawing.Size(952, 173);
+            this.dgvCacDanhGia.Size = new System.Drawing.Size(1428, 266);
+            this.dgvCacDanhGia.StandardTab = true;
             this.dgvCacDanhGia.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 20);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(30, 31);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(177, 25);
+            this.label2.Size = new System.Drawing.Size(264, 37);
             this.label2.TabIndex = 0;
             this.label2.Text = "Các đánh giá trước:";
             // 
-            // nud_sosao
+            // label1
             // 
-            this.nud_sosao.BackColor = System.Drawing.Color.Transparent;
-            this.nud_sosao.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.nud_sosao.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.nud_sosao.Location = new System.Drawing.Point(828, 352);
-            this.nud_sosao.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.nud_sosao.Name = "nud_sosao";
-            this.nud_sosao.Size = new System.Drawing.Size(64, 36);
-            this.nud_sosao.TabIndex = 15;
-            // 
-            // guna2HtmlLabel7
-            // 
-            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel7.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(810, 25);
-            this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(219, 39);
-            this.guna2HtmlLabel7.TabIndex = 19;
-            this.guna2HtmlLabel7.Text = "ĐÁNH GIÁ TOUR";
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(1270, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(277, 45);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "ĐÁNH GIÁ TOUR";
             // 
             // DanhGia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1051, 649);
-            this.Controls.Add(this.guna2HtmlLabel7);
+            this.ClientSize = new System.Drawing.Size(1576, 998);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pic_logo);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DanhGia";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -221,8 +225,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCacDanhGia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_sosao)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCacDanhGia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,6 +245,6 @@
         private System.Windows.Forms.DataGridView dgvCacDanhGia;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2NumericUpDown nud_sosao;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
+        private System.Windows.Forms.Label label1;
     }
 }

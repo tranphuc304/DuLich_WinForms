@@ -148,6 +148,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = global::DuLich.Properties.Resources.z6332234645440_726f810a2378ccf071dc90942445f1e5;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1035, 535);
             this.Controls.Add(this.guna2HtmlLabel7);
             this.Controls.Add(this.pic_logo);
@@ -157,7 +159,7 @@
             this.Controls.Add(this.btnQuayLai);
             this.Controls.Add(this.btnAVGRate);
             this.Controls.Add(this.dgvQLDanhGia);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "QLDanhGia";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

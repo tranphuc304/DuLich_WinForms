@@ -28,18 +28,12 @@ namespace DuLich
 
         private void lbl_dangky_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
 
-            if (rb_usertype.Checked)
-            {
-                DangKy signup = new DangKy();
-                signup.ShowDialog();
-            } else
-            {
-                DangKyAdmin signup = new DangKyAdmin();
-                signup.ShowDialog();
-            }
+            DangKy signup = new DangKy();
+            signup.ShowDialog();
 
+            Close();
         }
 
         private void btn_dangnhap_Click(object sender, EventArgs e)

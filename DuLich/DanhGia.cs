@@ -13,10 +13,6 @@ namespace DuLich
 {
     public partial class DanhGia : Form
     {
-        public DanhGia()
-        {
-            InitializeComponent();
-        }
 
         public DanhGia(string MaChuyenDi, string MaTaiKhoan, DateTime NgayBatDau)
         {
@@ -33,9 +29,7 @@ namespace DuLich
 
         private void LoadData()
         {
-            DataTable dt = new DataTable();
-            dt = UserQuery.DanhSachDanhGia(MaChuyenDi, NgayBatDau);
-            dgvCacDanhGia.DataSource = dt;
+            dgvCacDanhGia.DataSource = UserQuery.DanhSachDanhGia(MaChuyenDi);
         }
 
         private void btnQuayLai_Click(object sender, EventArgs e)
@@ -51,18 +45,10 @@ namespace DuLich
             int sao;
             string BinhLuan = rtbNhanXet.Text;
 
-            try
+            sao = (int)nud_sosao.Value;
+            if (sao < 1 || sao > 5)
             {
-                sao = (int)nud_sosao.Value;
-                if (sao < 1 || sao > 5)
-                {
-                    MessageBox.Show("Số sao phải từ 1 đến 5!");
-                    return;
-                }
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Số sao phải là số!");
+                MessageBox.Show("Số sao phải từ 1 đến 5!");
                 return;
             }
 
@@ -74,8 +60,9 @@ namespace DuLich
 
             try
             {
-                UserQuery.ThemDanhGia(this.MaChuyenDi, this.MaTaiKhoan, BinhLuan, sao);
-                MessageBox.Show("Đã gửi đánh giá thành công!");
+                UserQuery.ThemDanhGia(this.MaTaiKhoan, this.MaChuyenDi, BinhLuan, sao);
+
+                LoadData();
             }
             catch
             {

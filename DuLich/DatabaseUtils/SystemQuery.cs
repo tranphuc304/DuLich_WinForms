@@ -42,7 +42,7 @@ namespace DuLich
             }
         }
 
-        private static string GenerateAccountId(string accountType)
+        public static string GenerateAccountId(string accountType)
         {
             string newId = accountType + "0001"; // ID mặc định nếu chưa có tài khoản nào
             string query = "SELECT MAX(ID_TaiKhoan) FROM TaiKhoan WHERE ID_TaiKhoan LIKE @AccountType + '%'";
@@ -88,6 +88,7 @@ namespace DuLich
 
                     sqlcon.Open();
                     int count = (int)cmd.ExecuteScalar();
+
                     return count > 0;
                 }
             }
@@ -238,6 +239,40 @@ namespace DuLich
             }
 
             return email; // Trả về Email hoặc null nếu không tìm thấy
+        }
+
+        public static string GetIDFromEmail(string email)
+        {
+            string query = "SELECT ID_TaiKhoan FROM TaiKhoan WHERE Email = @Email";
+            string idTaiKhoan = null; // Giá trị mặc định nếu không tìm thấy
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(query, sqlcon))
+                {
+                    cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = email;
+
+                    sqlcon.Open();
+                    object result = cmd.ExecuteScalar();
+                    sqlcon.Close();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        idTaiKhoan = result.ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open)
+                    sqlcon.Close(); // Đảm bảo kết nối được đóng
+            }
+
+            return idTaiKhoan; // Trả về ID hoặc null nếu không tìm thấy
         }
 
     }

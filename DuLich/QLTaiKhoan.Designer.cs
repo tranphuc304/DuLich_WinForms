@@ -31,19 +31,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLTaiKhoan));
             this.pnl_dataacc = new System.Windows.Forms.Panel();
             this.pnl_view_info = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lb_value_cccd = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lb_value_email = new System.Windows.Forms.Label();
             this.lb_value_diachi = new System.Windows.Forms.Label();
             this.lb_value_ten = new System.Windows.Forms.Label();
             this.lb_value_sdt = new System.Windows.Forms.Label();
             this.dgv_dataacc = new System.Windows.Forms.DataGridView();
+            this.btn_changeaccounttype = new System.Windows.Forms.Button();
+            this.btn_accxoa = new System.Windows.Forms.Button();
             this.pnl_modify_account = new System.Windows.Forms.Panel();
             this.pnl_change_info = new System.Windows.Forms.Panel();
-            this.btn_huy = new System.Windows.Forms.Button();
+            this.tb_cccd = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btn_reset = new System.Windows.Forms.Button();
             this.tb_diachi = new System.Windows.Forms.TextBox();
             this.btn_luu = new System.Windows.Forms.Button();
             this.tb_sdt = new System.Windows.Forms.TextBox();
@@ -56,13 +60,9 @@
             this.tb_modify_tendn = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btn_accthem = new System.Windows.Forms.Button();
-            this.btn_accsua = new System.Windows.Forms.Button();
-            this.btn_accxoa = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.dgv_dangky = new System.Windows.Forms.DataGridView();
-            this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel7 = new System.Windows.Forms.Label();
             this.pic_logo = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnl_dataacc.SuspendLayout();
             this.pnl_view_info.SuspendLayout();
@@ -76,25 +76,26 @@
             // 
             // pnl_dataacc
             // 
-            this.pnl_dataacc.BackColor = System.Drawing.Color.Transparent;
+            this.pnl_dataacc.BackColor = System.Drawing.Color.White;
             this.pnl_dataacc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_dataacc.Controls.Add(this.pnl_view_info);
             this.pnl_dataacc.Controls.Add(this.dgv_dataacc);
-            this.pnl_dataacc.Location = new System.Drawing.Point(3, 55);
+            this.pnl_dataacc.Controls.Add(this.btn_changeaccounttype);
+            this.pnl_dataacc.Location = new System.Drawing.Point(11, 55);
             this.pnl_dataacc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_dataacc.Name = "pnl_dataacc";
-            this.pnl_dataacc.Size = new System.Drawing.Size(770, 388);
+            this.pnl_dataacc.Size = new System.Drawing.Size(762, 388);
             this.pnl_dataacc.TabIndex = 32;
             // 
             // pnl_view_info
             // 
             this.pnl_view_info.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnl_view_info.Controls.Add(this.label13);
+            this.pnl_view_info.Controls.Add(this.lb_value_cccd);
             this.pnl_view_info.Controls.Add(this.label4);
             this.pnl_view_info.Controls.Add(this.label7);
             this.pnl_view_info.Controls.Add(this.label6);
-            this.pnl_view_info.Controls.Add(this.label8);
             this.pnl_view_info.Controls.Add(this.label5);
-            this.pnl_view_info.Controls.Add(this.lb_value_email);
             this.pnl_view_info.Controls.Add(this.lb_value_diachi);
             this.pnl_view_info.Controls.Add(this.lb_value_ten);
             this.pnl_view_info.Controls.Add(this.lb_value_sdt);
@@ -103,6 +104,29 @@
             this.pnl_view_info.Name = "pnl_view_info";
             this.pnl_view_info.Size = new System.Drawing.Size(380, 338);
             this.pnl_view_info.TabIndex = 50;
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(3, 279);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(91, 41);
+            this.label13.TabIndex = 50;
+            this.label13.Text = "CCCD:";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lb_value_cccd
+            // 
+            this.lb_value_cccd.BackColor = System.Drawing.Color.Transparent;
+            this.lb_value_cccd.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lb_value_cccd.ForeColor = System.Drawing.Color.Black;
+            this.lb_value_cccd.Location = new System.Drawing.Point(105, 283);
+            this.lb_value_cccd.Name = "lb_value_cccd";
+            this.lb_value_cccd.Size = new System.Drawing.Size(254, 32);
+            this.lb_value_cccd.TabIndex = 51;
+            this.lb_value_cccd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
@@ -140,18 +164,6 @@
             this.label6.Text = "SDT:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(3, 262);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(91, 41);
-            this.label8.TabIndex = 36;
-            this.label8.Text = "Email:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.Transparent;
@@ -164,18 +176,6 @@
             this.label5.Text = "Tên:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lb_value_email
-            // 
-            this.lb_value_email.BackColor = System.Drawing.Color.Transparent;
-            this.lb_value_email.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lb_value_email.ForeColor = System.Drawing.Color.Black;
-            this.lb_value_email.Location = new System.Drawing.Point(105, 271);
-            this.lb_value_email.Name = "lb_value_email";
-            this.lb_value_email.Size = new System.Drawing.Size(254, 32);
-            this.lb_value_email.TabIndex = 46;
-            this.lb_value_email.Text = "Text";
-            this.lb_value_email.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // lb_value_diachi
             // 
             this.lb_value_diachi.BackColor = System.Drawing.Color.Transparent;
@@ -185,7 +185,6 @@
             this.lb_value_diachi.Name = "lb_value_diachi";
             this.lb_value_diachi.Size = new System.Drawing.Size(248, 98);
             this.lb_value_diachi.TabIndex = 45;
-            this.lb_value_diachi.Text = "Text";
             this.lb_value_diachi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lb_value_ten
@@ -197,7 +196,6 @@
             this.lb_value_ten.Name = "lb_value_ten";
             this.lb_value_ten.Size = new System.Drawing.Size(254, 31);
             this.lb_value_ten.TabIndex = 43;
-            this.lb_value_ten.Text = "Text";
             this.lb_value_ten.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lb_value_sdt
@@ -209,43 +207,75 @@
             this.lb_value_sdt.Name = "lb_value_sdt";
             this.lb_value_sdt.Size = new System.Drawing.Size(254, 38);
             this.lb_value_sdt.TabIndex = 44;
-            this.lb_value_sdt.Text = "Text";
             this.lb_value_sdt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dgv_dataacc
             // 
             this.dgv_dataacc.AllowUserToResizeColumns = false;
             this.dgv_dataacc.AllowUserToResizeRows = false;
+            this.dgv_dataacc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_dataacc.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgv_dataacc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_dataacc.GridColor = System.Drawing.Color.Black;
-            this.dgv_dataacc.Location = new System.Drawing.Point(17, 15);
+            this.dgv_dataacc.Location = new System.Drawing.Point(12, 15);
             this.dgv_dataacc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgv_dataacc.Name = "dgv_dataacc";
+            this.dgv_dataacc.ReadOnly = true;
             this.dgv_dataacc.RowHeadersVisible = false;
             this.dgv_dataacc.RowHeadersWidth = 51;
             this.dgv_dataacc.RowTemplate.Height = 24;
-            this.dgv_dataacc.Size = new System.Drawing.Size(338, 338);
+            this.dgv_dataacc.Size = new System.Drawing.Size(339, 261);
             this.dgv_dataacc.TabIndex = 31;
+            this.dgv_dataacc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_dataacc_CellClick);
+            // 
+            // btn_changeaccounttype
+            // 
+            this.btn_changeaccounttype.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(100)))), ((int)(((byte)(171)))));
+            this.btn_changeaccounttype.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_changeaccounttype.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_changeaccounttype.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_changeaccounttype.Location = new System.Drawing.Point(61, 305);
+            this.btn_changeaccounttype.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_changeaccounttype.Name = "btn_changeaccounttype";
+            this.btn_changeaccounttype.Size = new System.Drawing.Size(226, 48);
+            this.btn_changeaccounttype.TabIndex = 41;
+            this.btn_changeaccounttype.Text = "Đổi Loại Tài Khoản";
+            this.btn_changeaccounttype.UseVisualStyleBackColor = false;
+            this.btn_changeaccounttype.Click += new System.EventHandler(this.btn_changeaccounttype_Click);
+            // 
+            // btn_accxoa
+            // 
+            this.btn_accxoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btn_accxoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_accxoa.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_accxoa.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_accxoa.Location = new System.Drawing.Point(12, 374);
+            this.btn_accxoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_accxoa.Name = "btn_accxoa";
+            this.btn_accxoa.Size = new System.Drawing.Size(337, 48);
+            this.btn_accxoa.TabIndex = 40;
+            this.btn_accxoa.Text = "Xóa tài khoản";
+            this.btn_accxoa.UseVisualStyleBackColor = false;
+            this.btn_accxoa.Click += new System.EventHandler(this.btn_accxoa_Click);
             // 
             // pnl_modify_account
             // 
+            this.pnl_modify_account.BackColor = System.Drawing.Color.White;
             this.pnl_modify_account.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_modify_account.Controls.Add(this.pnl_change_info);
             this.pnl_modify_account.Controls.Add(this.pnl_change_account);
-            this.pnl_modify_account.Controls.Add(this.label2);
-            this.pnl_modify_account.Controls.Add(this.btn_accthem);
-            this.pnl_modify_account.Controls.Add(this.btn_accsua);
-            this.pnl_modify_account.Controls.Add(this.btn_accxoa);
             this.pnl_modify_account.Location = new System.Drawing.Point(779, 55);
             this.pnl_modify_account.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_modify_account.Name = "pnl_modify_account";
-            this.pnl_modify_account.Size = new System.Drawing.Size(367, 726);
+            this.pnl_modify_account.Size = new System.Drawing.Size(367, 588);
             this.pnl_modify_account.TabIndex = 45;
             // 
             // pnl_change_info
             // 
-            this.pnl_change_info.Controls.Add(this.btn_huy);
+            this.pnl_change_info.Controls.Add(this.tb_cccd);
+            this.pnl_change_info.Controls.Add(this.label1);
+            this.pnl_change_info.Controls.Add(this.btn_reset);
+            this.pnl_change_info.Controls.Add(this.btn_accxoa);
             this.pnl_change_info.Controls.Add(this.tb_diachi);
             this.pnl_change_info.Controls.Add(this.btn_luu);
             this.pnl_change_info.Controls.Add(this.tb_sdt);
@@ -253,30 +283,53 @@
             this.pnl_change_info.Controls.Add(this.label11);
             this.pnl_change_info.Controls.Add(this.label12);
             this.pnl_change_info.Controls.Add(this.label14);
-            this.pnl_change_info.Location = new System.Drawing.Point(-1, 376);
+            this.pnl_change_info.Location = new System.Drawing.Point(-1, 131);
             this.pnl_change_info.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_change_info.Name = "pnl_change_info";
-            this.pnl_change_info.Size = new System.Drawing.Size(449, 364);
+            this.pnl_change_info.Size = new System.Drawing.Size(367, 456);
             this.pnl_change_info.TabIndex = 54;
             // 
-            // btn_huy
+            // tb_cccd
             // 
-            this.btn_huy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(100)))), ((int)(((byte)(171)))));
-            this.btn_huy.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_huy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_huy.Location = new System.Drawing.Point(10, 273);
-            this.btn_huy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_huy.Name = "btn_huy";
-            this.btn_huy.Size = new System.Drawing.Size(150, 51);
-            this.btn_huy.TabIndex = 56;
-            this.btn_huy.Text = "Hủy thao tác";
-            this.btn_huy.UseVisualStyleBackColor = false;
-            this.btn_huy.Click += new System.EventHandler(this.btn_huy_Click);
+            this.tb_cccd.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.tb_cccd.Location = new System.Drawing.Point(101, 114);
+            this.tb_cccd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tb_cccd.Multiline = true;
+            this.tb_cccd.Name = "tb_cccd";
+            this.tb_cccd.Size = new System.Drawing.Size(246, 43);
+            this.tb_cccd.TabIndex = 58;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(6, 118);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 38);
+            this.label1.TabIndex = 57;
+            this.label1.Text = "CCCD:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btn_reset
+            // 
+            this.btn_reset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btn_reset.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_reset.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_reset.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_reset.Location = new System.Drawing.Point(12, 315);
+            this.btn_reset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_reset.Name = "btn_reset";
+            this.btn_reset.Size = new System.Drawing.Size(162, 51);
+            this.btn_reset.TabIndex = 56;
+            this.btn_reset.Text = "Đặt Lại";
+            this.btn_reset.UseVisualStyleBackColor = false;
+            this.btn_reset.Click += new System.EventHandler(this.btn_huy_Click);
             // 
             // tb_diachi
             // 
             this.tb_diachi.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.tb_diachi.Location = new System.Drawing.Point(100, 125);
+            this.tb_diachi.Location = new System.Drawing.Point(103, 166);
             this.tb_diachi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_diachi.Multiline = true;
             this.tb_diachi.Name = "tb_diachi";
@@ -285,15 +338,16 @@
             // 
             // btn_luu
             // 
-            this.btn_luu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(100)))), ((int)(((byte)(171)))));
-            this.btn_luu.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_luu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
+            this.btn_luu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_luu.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_luu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_luu.Location = new System.Drawing.Point(197, 273);
+            this.btn_luu.Location = new System.Drawing.Point(182, 315);
             this.btn_luu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_luu.Name = "btn_luu";
-            this.btn_luu.Size = new System.Drawing.Size(150, 51);
+            this.btn_luu.Size = new System.Drawing.Size(169, 51);
             this.btn_luu.TabIndex = 55;
-            this.btn_luu.Text = "Lưu thay đổi";
+            this.btn_luu.Text = "Lưu";
             this.btn_luu.UseVisualStyleBackColor = false;
             this.btn_luu.Click += new System.EventHandler(this.btn_luu_Click);
             // 
@@ -314,7 +368,7 @@
             this.tb_ten.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_ten.Multiline = true;
             this.tb_ten.Name = "tb_ten";
-            this.tb_ten.Size = new System.Drawing.Size(242, 43);
+            this.tb_ten.Size = new System.Drawing.Size(246, 43);
             this.tb_ten.TabIndex = 54;
             // 
             // label11
@@ -322,7 +376,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(3, 146);
+            this.label11.Location = new System.Drawing.Point(5, 188);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(91, 38);
             this.label11.TabIndex = 53;
@@ -360,7 +414,7 @@
             this.pnl_change_account.Controls.Add(this.tb_modify_tendn);
             this.pnl_change_account.Controls.Add(this.label10);
             this.pnl_change_account.Controls.Add(this.label3);
-            this.pnl_change_account.Location = new System.Drawing.Point(-1, 235);
+            this.pnl_change_account.Location = new System.Drawing.Point(-1, -1);
             this.pnl_change_account.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_change_account.Name = "pnl_change_account";
             this.pnl_change_account.Size = new System.Drawing.Size(435, 133);
@@ -411,60 +465,6 @@
             this.label3.Text = "Email:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(-5, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(399, 50);
-            this.label2.TabIndex = 50;
-            this.label2.Text = "Chỉnh sửa tài khoản";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btn_accthem
-            // 
-            this.btn_accthem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(100)))), ((int)(((byte)(171)))));
-            this.btn_accthem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_accthem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_accthem.Location = new System.Drawing.Point(58, 54);
-            this.btn_accthem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_accthem.Name = "btn_accthem";
-            this.btn_accthem.Size = new System.Drawing.Size(287, 50);
-            this.btn_accthem.TabIndex = 42;
-            this.btn_accthem.Text = "Tạo tài khoản";
-            this.btn_accthem.UseVisualStyleBackColor = false;
-            this.btn_accthem.Click += new System.EventHandler(this.btn_accthem_Click);
-            // 
-            // btn_accsua
-            // 
-            this.btn_accsua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(100)))), ((int)(((byte)(171)))));
-            this.btn_accsua.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_accsua.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_accsua.Location = new System.Drawing.Point(58, 106);
-            this.btn_accsua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_accsua.Name = "btn_accsua";
-            this.btn_accsua.Size = new System.Drawing.Size(287, 56);
-            this.btn_accsua.TabIndex = 41;
-            this.btn_accsua.Text = "Thay đổi thông tin tài khoản";
-            this.btn_accsua.UseVisualStyleBackColor = false;
-            this.btn_accsua.Click += new System.EventHandler(this.btn_accsua_Click);
-            // 
-            // btn_accxoa
-            // 
-            this.btn_accxoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(100)))), ((int)(((byte)(171)))));
-            this.btn_accxoa.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_accxoa.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_accxoa.Location = new System.Drawing.Point(58, 170);
-            this.btn_accxoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_accxoa.Name = "btn_accxoa";
-            this.btn_accxoa.Size = new System.Drawing.Size(287, 51);
-            this.btn_accxoa.TabIndex = 40;
-            this.btn_accxoa.Text = "Xóa tài khoản";
-            this.btn_accxoa.UseVisualStyleBackColor = false;
-            this.btn_accxoa.Click += new System.EventHandler(this.btn_accxoa_Click);
-            // 
             // label9
             // 
             this.label9.BackColor = System.Drawing.Color.Transparent;
@@ -481,33 +481,36 @@
             // 
             this.dgv_dangky.AllowUserToResizeColumns = false;
             this.dgv_dangky.AllowUserToResizeRows = false;
+            this.dgv_dangky.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_dangky.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgv_dangky.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_dangky.GridColor = System.Drawing.Color.Black;
-            this.dgv_dangky.Location = new System.Drawing.Point(-2, 494);
+            this.dgv_dangky.Location = new System.Drawing.Point(11, 494);
             this.dgv_dangky.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgv_dangky.Name = "dgv_dangky";
             this.dgv_dangky.RowHeadersVisible = false;
             this.dgv_dangky.RowHeadersWidth = 51;
             this.dgv_dangky.RowTemplate.Height = 24;
-            this.dgv_dangky.Size = new System.Drawing.Size(775, 287);
+            this.dgv_dangky.Size = new System.Drawing.Size(762, 148);
             this.dgv_dangky.TabIndex = 59;
             // 
             // guna2HtmlLabel7
             // 
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(684, 10);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(681, 10);
+            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(3);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(462, 39);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(482, 37);
             this.guna2HtmlLabel7.TabIndex = 65;
             this.guna2HtmlLabel7.Text = "QUẢN LÝ TÀI KHOẢN NGƯỜI DÙNG";
             // 
             // pic_logo
             // 
+            this.pic_logo.BackColor = System.Drawing.Color.Transparent;
             this.pic_logo.Image = ((System.Drawing.Image)(resources.GetObject("pic_logo.Image")));
             this.pic_logo.ImageRotate = 0F;
-            this.pic_logo.Location = new System.Drawing.Point(11, 1);
+            this.pic_logo.Location = new System.Drawing.Point(11, 5);
             this.pic_logo.Margin = new System.Windows.Forms.Padding(2);
             this.pic_logo.Name = "pic_logo";
             this.pic_logo.Size = new System.Drawing.Size(99, 48);
@@ -519,16 +522,20 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1158, 805);
+            this.AutoSize = true;
+            this.BackgroundImage = global::DuLich.Properties.Resources.z6332234645440_726f810a2378ccf071dc90942445f1e5;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1164, 664);
             this.Controls.Add(this.guna2HtmlLabel7);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pic_logo);
             this.Controls.Add(this.dgv_dangky);
             this.Controls.Add(this.pnl_modify_account);
             this.Controls.Add(this.pnl_dataacc);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "QLTaiKhoan";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PacificTravel - Quản Lý Tài Khoản Người Dùng";
             this.Load += new System.EventHandler(this.FormQuanLyTaiKhoan_Load);
             this.pnl_dataacc.ResumeLayout(false);
@@ -542,7 +549,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dangky)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_logo)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -553,16 +559,14 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lb_value_email;
         private System.Windows.Forms.Label lb_value_diachi;
         private System.Windows.Forms.Label lb_value_ten;
         private System.Windows.Forms.Label lb_value_sdt;
         private System.Windows.Forms.DataGridView dgv_dataacc;
         private System.Windows.Forms.Panel pnl_modify_account;
         private System.Windows.Forms.Panel pnl_change_info;
-        private System.Windows.Forms.Button btn_huy;
+        private System.Windows.Forms.Button btn_reset;
         private System.Windows.Forms.TextBox tb_diachi;
         private System.Windows.Forms.Button btn_luu;
         private System.Windows.Forms.TextBox tb_sdt;
@@ -575,14 +579,16 @@
         private System.Windows.Forms.TextBox tb_modify_tendn;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btn_accthem;
-        private System.Windows.Forms.Button btn_accsua;
+        private System.Windows.Forms.Button btn_changeaccounttype;
         private System.Windows.Forms.Button btn_accxoa;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dgv_dangky;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
+        private System.Windows.Forms.Label guna2HtmlLabel7;
         private Guna.UI2.WinForms.Guna2PictureBox pic_logo;
+        private System.Windows.Forms.TextBox tb_cccd;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lb_value_cccd;
     }
 }
 

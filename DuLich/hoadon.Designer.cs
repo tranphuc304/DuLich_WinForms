@@ -32,6 +32,8 @@
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lbl_ngaybatdau = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_tongtien = new System.Windows.Forms.Label();
@@ -41,8 +43,6 @@
             this.lbl_matour = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_back = new Guna.UI2.WinForms.Guna2Button();
-            this.lbl_ngaybatdau = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +54,7 @@
             this.guna2PictureBox1.Location = new System.Drawing.Point(29, 26);
             this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(119, 59);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(118, 54);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 6;
             this.guna2PictureBox1.TabStop = false;
@@ -93,6 +93,26 @@
             this.guna2Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3);
             this.guna2Panel1.Size = new System.Drawing.Size(328, 419);
             this.guna2Panel1.TabIndex = 10;
+            // 
+            // lbl_ngaybatdau
+            // 
+            this.lbl_ngaybatdau.AutoSize = true;
+            this.lbl_ngaybatdau.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ngaybatdau.Location = new System.Drawing.Point(148, 180);
+            this.lbl_ngaybatdau.Name = "lbl_ngaybatdau";
+            this.lbl_ngaybatdau.Size = new System.Drawing.Size(76, 21);
+            this.lbl_ngaybatdau.TabIndex = 25;
+            this.lbl_ngaybatdau.Text = "(startday)";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(30, 180);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(119, 21);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Ngày Bắt Đầu:";
             // 
             // label8
             // 
@@ -176,38 +196,19 @@
             // 
             // btn_back
             // 
+            this.btn_back.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_back.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_back.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_back.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_back.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_back.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_back.ForeColor = System.Drawing.Color.White;
-            this.btn_back.Location = new System.Drawing.Point(346, 528);
+            this.btn_back.Location = new System.Drawing.Point(346, 543);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(180, 38);
             this.btn_back.TabIndex = 11;
             this.btn_back.Text = "Quay Lại";
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
-            // 
-            // lbl_ngaybatdau
-            // 
-            this.lbl_ngaybatdau.AutoSize = true;
-            this.lbl_ngaybatdau.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ngaybatdau.Location = new System.Drawing.Point(148, 180);
-            this.lbl_ngaybatdau.Name = "lbl_ngaybatdau";
-            this.lbl_ngaybatdau.Size = new System.Drawing.Size(76, 21);
-            this.lbl_ngaybatdau.TabIndex = 25;
-            this.lbl_ngaybatdau.Text = "(startday)";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(30, 180);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(119, 21);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "Ngày Bắt Đầu:";
             // 
             // HoaDon
             // 
@@ -215,7 +216,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(823, 578);
+            this.ClientSize = new System.Drawing.Size(853, 621);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.guna2Panel1);
             this.Margin = new System.Windows.Forms.Padding(2);

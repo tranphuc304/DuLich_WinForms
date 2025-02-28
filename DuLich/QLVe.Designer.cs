@@ -34,7 +34,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLVe));
             this.dgvTicket = new System.Windows.Forms.DataGridView();
             this.pic_logo = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel7 = new System.Windows.Forms.Label();
             this.cbbListDate = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblMax = new System.Windows.Forms.Label();
@@ -89,6 +89,7 @@
             this.dgvTicket.Size = new System.Drawing.Size(691, 285);
             this.dgvTicket.TabIndex = 4;
             this.dgvTicket.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTicket_CellClick);
+            this.dgvTicket.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvTicket_DataBindingComplete);
             // 
             // pic_logo
             // 
@@ -106,9 +107,10 @@
             // 
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(948, 23);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(933, 23);
+            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(3);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(159, 39);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(176, 37);
             this.guna2HtmlLabel7.TabIndex = 19;
             this.guna2HtmlLabel7.Text = "QUẢN LÝ VÉ";
             // 
@@ -343,6 +345,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = global::DuLich.Properties.Resources.z6332234645440_726f810a2378ccf071dc90942445f1e5;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1136, 658);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.cbbListDate);
@@ -355,6 +359,7 @@
             this.Controls.Add(this.pic_logo);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "QLVe";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PacificTravel - Quản Lý Vé";
             this.Load += new System.EventHandler(this.QLVe_Load);
@@ -367,7 +372,6 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -375,7 +379,7 @@
 
         private System.Windows.Forms.DataGridView dgvTicket;
         private Guna.UI2.WinForms.Guna2PictureBox pic_logo;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
+        private System.Windows.Forms.Label guna2HtmlLabel7;
         private System.Windows.Forms.ComboBox cbbListDate;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblMax;

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace DuLich
 {
@@ -48,13 +49,11 @@ namespace DuLich
             string newPass = Utils.GenerateSecurePassword(12);
 
             SystemQuery.UpdatePassword(username, newPass);
-
             btn_accept.Enabled = false;
 
             try
             {
-                await sendMailAsync(username, newPass);
-                MessageBox.Show("Mật khẩu mới đã được gửi đến email của bạn!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                await Task.Run(() => sendMailAsync(username, newPass));
             }
             catch (Exception ex)
             {
@@ -133,6 +132,8 @@ namespace DuLich
             mailMessage.IsBodyHtml = true;
 
             await smtpClient.SendMailAsync(mailMessage);
+
+            MessageBox.Show("Mật khẩu mới đã được gửi đến email của bạn!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
     }

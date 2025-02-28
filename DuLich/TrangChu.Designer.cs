@@ -94,6 +94,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Panel1.BackgroundImage = global::DuLich.Properties.Resources.z6332234645440_726f810a2378ccf071dc90942445f1e5;
+            this.guna2Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.guna2Panel1.Controls.Add(this.btn_xemchitiet);
             this.guna2Panel1.Controls.Add(this.dgv_dschuyendi);
             this.guna2Panel1.Controls.Add(this.label6);
@@ -116,6 +118,7 @@
             // btn_xemchitiet
             // 
             this.btn_xemchitiet.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_xemchitiet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_xemchitiet.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_xemchitiet.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_xemchitiet.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -158,6 +161,7 @@
             this.dgv_dschuyendi.Name = "dgv_dschuyendi";
             this.dgv_dschuyendi.ReadOnly = true;
             this.dgv_dschuyendi.RowHeadersVisible = false;
+            this.dgv_dschuyendi.RowHeadersWidth = 62;
             this.dgv_dschuyendi.Size = new System.Drawing.Size(950, 412);
             this.dgv_dschuyendi.TabIndex = 12;
             this.dgv_dschuyendi.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -196,6 +200,7 @@
             // btn_timtour
             // 
             this.btn_timtour.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_timtour.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_timtour.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_timtour.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_timtour.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -217,6 +222,7 @@
             this.nud_sosao.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.nud_sosao.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.nud_sosao.Location = new System.Drawing.Point(916, 52);
+            this.nud_sosao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.nud_sosao.Maximum = new decimal(new int[] {
             5,
             0,
@@ -295,6 +301,7 @@
             this.txt_diemden.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_diemden.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_diemden.Location = new System.Drawing.Point(100, 52);
+            this.txt_diemden.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_diemden.Name = "txt_diemden";
             this.txt_diemden.PasswordChar = '\0';
             this.txt_diemden.PlaceholderText = "";
@@ -359,7 +366,7 @@
             this.pic_logo.Image = global::DuLich.Properties.Resources.Logo;
             this.pic_logo.ImageRotate = 0F;
             this.pic_logo.Location = new System.Drawing.Point(21, 21);
-            this.pic_logo.Margin = new System.Windows.Forms.Padding(2);
+            this.pic_logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pic_logo.Name = "pic_logo";
             this.pic_logo.Size = new System.Drawing.Size(99, 48);
             this.pic_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -376,7 +383,7 @@
             this.Controls.Add(lbl_account);
             this.Controls.Add(pic_account);
             this.Controls.Add(this.pic_logo);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "TrangChu";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

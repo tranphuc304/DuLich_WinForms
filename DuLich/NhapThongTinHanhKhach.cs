@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +23,11 @@ namespace DuLich
             this.ngayBatDau = ngayBatDau;
 
             InitializeComponent();
+
+            dsChuyenDi = new DataTable();
+            dsChuyenDi.Columns.Add("Họ Tên", typeof(string));
+            dsChuyenDi.Columns.Add("Số Điện Thoại", typeof(string));
+            dsChuyenDi.Columns.Add("CCCD", typeof(string));
         }
 
         string ID_TaiKhoan;
@@ -31,6 +37,8 @@ namespace DuLich
         int amountRemain = 0;
 
         string edit = null;
+
+        DataTable dsChuyenDi;
 
         private void btn_back_Click(object sender, EventArgs e)
         {
@@ -44,7 +52,7 @@ namespace DuLich
         {
             int count = dgv_dshanhkhach.Rows.Count;
 
-            if (count == 1)
+            if (count == 0)
             {
                 MessageBox.Show("Bạn chưa nhập hành khách nào!");
 
@@ -56,23 +64,20 @@ namespace DuLich
                 if (!row.IsNewRow)
                 {
                     string ten = row.Cells["HoTen"].Value.ToString();
-                    string cccd = row.Cells["cccd"].Value.ToString();
+                    string cccd = row.Cells["CCCD"].Value.ToString();
                     string sdt = row.Cells["SDT"].Value.ToString();
 
-                    UserQuery.ThemDuKhachDK(ID_ChuyenDi, this.ngayBatDau, cccd, ten, sdt);
+                    dsChuyenDi.Rows.Add(ten, sdt, cccd);
                 }
             }
-            try
-            {
-                UserQuery.ThemDanhSachDK(ID_TaiKhoan, ID_ChuyenDi, this.ngayBatDau, dgv_dshanhkhach.Rows.Count, "Chưa thanh toán");
-            }
-            catch (Exception)
-            {
+
+            if (UserQuery.isInDSDangKy(ID_TaiKhoan, ID_ChuyenDi, this.ngayBatDau))
+            {    
                 MessageBox.Show("Bạn đã đặt chuyến đi này rồi");
                 return;
             }
 
-            ThanhToan thanhToan = new ThanhToan(ID_TaiKhoan, ID_ChuyenDi, this.ngayBatDau, count);
+            ThanhToan thanhToan = new ThanhToan(ID_TaiKhoan, ID_ChuyenDi, this.ngayBatDau, count, dsChuyenDi);
             Hide();
             thanhToan.ShowDialog();
             Close();
@@ -101,6 +106,12 @@ namespace DuLich
                 return;
             }
 
+            if (UserQuery.KiemTraDuKhachTonTai(ID_ChuyenDi, ngayBatDau, txt_cccd.Text))
+            {
+                MessageBox.Show("Người có tên: " + txt_hoten.Text + " và cccd: " + cccd + " đã có trong danh sách chuyến đi: " + ID_ChuyenDi + " " + ngayBatDau);
+                return;
+            }
+
             if (edit != null) // edit
             {
                 dgv_dshanhkhach.Rows[int.Parse(edit)].Cells[0].Value = txt_hoten.Text;
@@ -115,6 +126,35 @@ namespace DuLich
 
             } else // add
             {
+
+                if (!IsNumeric(txt_sdt.Text))
+                {
+                    MessageBox.Show("SDT bạn nhập không phải là số!");
+
+                    return;
+                }
+
+                if (txt_sdt.Text.Length < 10)
+                {
+                    MessageBox.Show("SDT bạn phải nhập đủ 10 số!");
+
+                    return;
+                }
+
+                if (!IsNumeric(txt_cccd.Text))
+                {
+                    MessageBox.Show("CCCD bạn nhập không phải là số!");
+
+                    return;
+                }
+
+                if (txt_cccd.Text.Length < 12)
+                {
+                    MessageBox.Show("CCCD bạn phải nhập đủ 12 số!");
+
+                    return;
+                }
+
                 dgv_dshanhkhach.Rows.Add(txt_hoten.Text, txt_sdt.Text, txt_cccd.Text);
 
                 txt_sdt.ResetText();
@@ -157,6 +197,7 @@ namespace DuLich
 
         private void NhapThongTinHanhKhach_Load(object sender, EventArgs e)
         {
+
             amountRemain = int.Parse(AdminQuery.CountTickets(ID_ChuyenDi, ngayBatDau).Rows[0][1].ToString()) - int.Parse(AdminQuery.CountTickets(ID_ChuyenDi, ngayBatDau).Rows[0][0].ToString());
 
             updateAmountRemainLabel();
@@ -166,5 +207,11 @@ namespace DuLich
         {
             lbl_count.Text = "(Hiện còn " + amountRemain + " vé đặt tour này)";
         }
+
+        private bool IsNumeric(string str)
+        {
+            return !string.IsNullOrEmpty(str) && str.All(char.IsDigit);
+        }
+
     }
 }
